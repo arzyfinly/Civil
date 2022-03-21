@@ -48,14 +48,10 @@
                         <a class="nav-link smoth-scroll" href="{{ route('/') }}">Home</a>
                     </li>
                     @guest
-                    <div class="dropdown nav-item">
-                        <a class="nav-link smoth-scroll" href="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="nav-item">
+                        <a class="nav-link smoth-scroll" href="{{ route('login') }}">
                             Login
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ route('login') }}">Login As Admin</a>
-                            <a class="dropdown-item" href="{{ route('login') }}">Login As Mahasiswa</a>
-                        </div>
                     </div>
                     @else
                     <div class="dropdown nav-item" style="width: 110px;">
@@ -63,7 +59,7 @@
                             Praktikum
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ route('pendaftaran') }}">Pendaftaran Praktikum</a>
+                            <a class="dropdown-item" href="{{ route('pendaftaran-praktikum') }}">Pendaftaran Praktikum</a>
                             <a class="dropdown-item" href="{{ route('daftar-hadir') }}">Daftar Hadir</a>
                             <a class="dropdown-item" href="{{ route('pelaksanaan') }}">Pelaksanaan</a>
                             <a class="dropdown-item" href="{{ route('ujian') }}">Pelaksanaan Ujian Praktikum</a>

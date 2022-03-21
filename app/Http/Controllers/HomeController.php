@@ -30,11 +30,9 @@ class HomeController extends Controller
         $auth = auth()->user();
         
         if($auth->hasRole('admin')){
-            $respon = 'admin';
-            return view('home', compact('respon'));
+            return view('admin.index');
         } elseif($auth->hasRole('student')) {
-            $respon = 'student';
-            return view('home', compact('respon'));
+            return view('mahasiswa.index');
         }
     }
 }

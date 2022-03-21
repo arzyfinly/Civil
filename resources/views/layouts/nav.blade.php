@@ -1,14 +1,3 @@
-<?php
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\URL;
-
-if(Session::get('role') != "admin"){
-    echo "<script>window.location='".Url::to('admin/login')."'</script>";
-}
-$u = Session::get('id');
-$user = DB::table('users')->where(['id'=>$u])->first();
-?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -94,7 +83,17 @@ $user = DB::table('users')->where(['id'=>$u])->first();
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{asset('/images/users/1.jpg')}}" alt="user" class="profile-pic me-2">
                             </a>
-                            <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a href="{{ route('data-pribadi') }}" class="dropdown-item">Profile</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -122,7 +121,7 @@ $user = DB::table('users')->where(['id'=>$u])->first();
                                         class="hide-menu">Praktikum</span>
                             </a>
                             <div class="dropdown-menu" style="width:100%;" aria-labelledby="dropdownMenuButton">
-                                <a class="sidebar-link" href="{{ route('pendaftaran-admin') }}">Pendaftaran</a>
+                                <a class="sidebar-link" href="{{ route('pendaftaran') }}">Pendaftaran</a>
                                 <a class="sidebar-link" href="#">Daftar Hadir</a>
                                 <a class="sidebar-link" href="#">BA Pelaksanaan</a>
                                 <a class="sidebar-link" href="#">BA Pelaksanaan Ujian</a>

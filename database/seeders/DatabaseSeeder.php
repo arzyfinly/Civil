@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(PracticumPriceSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(CollegeStudentSeeder::class);
+        $this->call(PracticumRegistrationSeeder::class);
     }
 }
