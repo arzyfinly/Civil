@@ -17,13 +17,13 @@ class PracticumRegistrationSeeder extends Seeder
     {
         $practicum_registrations = [
             [
-                'user_id' => '2',
-                'practicum_price_id' => '1',
+                'college_student_id' => '1',
+                'practicum_id' => '1',
                 'status_pembayaran' => '2',
                 'status' => 'pending',
             ],[
-                'user_id' => '3',
-                'practicum_price_id' => '2',
+                'college_student_id' => '2',
+                'practicum_id' => '2',
                 'status_pembayaran' => '1',
                 'status' => 'accepted',
             ]

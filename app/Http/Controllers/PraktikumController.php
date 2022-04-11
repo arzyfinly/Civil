@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Pendataran;
-use App\Http\Models\PracticumRegistration;
-use App\Http\Models\Practicum;
-use App\Http\Models\User;
-use App\Http\Models\CollegeStudent;
+use App\Models\PracticumRegistration;
+use App\Models\Practicum;
+use App\Models\User;
+use App\Models\CollegeStudent;
 
 use Illuminate\Http\Request;
 
@@ -15,17 +14,34 @@ class PraktikumController extends Controller
     public function index()
     {
         if (auth()->user()->hasRole('admin')) {
-            $praktikumregistration = PracticumRegistration::all();
-            $praktikum = Praktikum::all();
+            $practicumregistrations = PracticumRegistration::all();
+            $practicums = Practicum::all();
             return view('admin.praktikum.index', compact(
-                'praktikumregistration','praktikum'
+                'practicumregistrations','practicums'
             ));
         } else if (auth()->user()->hasRole('student')) {
-            $praktikum = PracticumRegistration::all();
+            $practicumregistrations = PracticumRegistration::all();
+            $practicums = Practicum::all();
             return view('mahasiswa.praktikum.index', compact(
-                'praktikum'
+                'practicums','practicumregistrations'
             ));
         }
+    }
+    public function create()
+    {
+        if (auth()->user()->hasRole('admin')) {
+            $practicumregistrations = PracticumRegistration::all();
+            $practicums = Practicum::all();
+            return view('admin.praktikum.index', compact(
+                'practicumregistrations','practicums'
+            ));
+        } else if (auth()->user()->hasRole('student')) {
+            $practicumregistrations = PracticumRegistration::all();
+            $practicums = Practicum::all();
+            return view('mahasiswa.praktikum.index', compact(
+                'practicums','practicumregistrations'
+            ));
+        }   
     }
     public function pendaftaranCreate()
     {
