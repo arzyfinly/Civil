@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\PracticumPrice;
+use App\Models\Praktikum;
 
-class PracticumPriceSeeder extends Seeder
+class PraktikumSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class PracticumPriceSeeder extends Seeder
      */
     public function run()
     {
-        $practicum_prices = [
+        $praktikum = [
             [
                 'name' => 'Bahan',
                 'price' => '140000',
@@ -44,8 +44,8 @@ class PracticumPriceSeeder extends Seeder
                 'price' => '125000',
             ],
         ];
-        foreach ($practicum_prices as $practicum_price){
-            PracticumPrice::create($practicum_price);
+        foreach ($praktikum as $row){
+            Praktikum::create($row);
         }
     }
 }

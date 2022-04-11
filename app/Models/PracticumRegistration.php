@@ -12,7 +12,8 @@ class PracticumRegistration extends Model
 
     protected $fillable = [
         'user_id',
-        'practicum_price_id',
+        'praktikum_id',
+        'status_pembayaran',
         'status',
     ];
 
@@ -20,7 +21,7 @@ class PracticumRegistration extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function practicumPrice(){
-        return $this->belongsTo(PracticumPrice::class, 'practicum_price_id');
+    public function praktikum(){
+        return $this->belongsTo(Praktikum::class, 'praktikum_id');
     }
 }
