@@ -8,14 +8,22 @@ use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\ValidationException;
 use App\Http\Requests\PendaftaranPraktikumRequest;
+use Spatie\Permission\Models\Role;
 use Session;
+
 
 class PendaftaranPraktikumController extends Controller
 {
-    
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $user = auth()->user();
+        dd($user->hasRole('student'));
         if($user->hasRole('admin')){
             return view('admin.pendaftaran');
         } elseif($user->hasRole('student')) {
@@ -30,26 +38,26 @@ class PendaftaranPraktikumController extends Controller
                 }
             }
         } else {
-            
+            echo "Nothing";
         }
     }
     public function store(PendaftaranPraktikumRequest $request)
     {
-        $data = $request->validated();
-        $pendaftaran_praktikum = PendaftaranPraktikum::create($data);
-
-        if($pendaftaran_praktikum){
-            return response()->json([
-                'success'=> true,
-                'message' => "$pendaftaran_praktikum->name berhasil ditambahkan!"
-            ],200);
-        } else {
+        $user = auth()->user();
+        if($user->hasRole('admin')){
+            return view('admin.pendaftaran');
+        } elseif($user->hasRole('student')) {
             
-            
-            return response()->json([
-                'success' => false,
-                'message' => 'Data gagal disimpan!',
-            ], 409);
+            $data = $request->validated();
+            $pendaftaran_praktikum = PendaftaranPraktikum::create($data);
+    
+            if($pendaftaran_praktikum){
+                Session::flash('message', "Success");
+                return redirect()->route('/pendaftaran/praktikum');
+            } else {
+                Session::flash('message', "Failed");
+                return redirect()->route('/pendaftaran/praktikum');
+            }
         }
     }
     public function create()

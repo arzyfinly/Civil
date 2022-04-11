@@ -1,4 +1,4 @@
-@extends('../layouts.pendaftaran-layout')
+@extends('layouts.pendaftaran-layout')
 @section('title', 'Home')
 @include('sweetalert::alert')
 
@@ -11,9 +11,9 @@
 						<div style="text-align: center;">
 							<h4>Pendaftaran Praktikum</h4>
 						</div>
-						<form method="post" action="#">
+						<form action="{{ route('praktikum.store') }}" method="POST" enctype="multipart/form-data">
 							@csrf
-							<div class="col-md-3">
+							{{-- <div class="col-md-3">
 								<div class="form-group">
                                     <input type="text" class="form-control" name="first_name" disabled value="{{ $row->first_name }}" placeholder="Username">
 									<span class="form-label">Nama Depan</span>
@@ -97,7 +97,7 @@
 									</select>
 									<span class="form-label">Kelas</span>
 								</div>
-							</div>
+							</div> --}}
 							<div class="col-md-4">
 								<div class="form-group">
 									<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -119,7 +119,7 @@
 							<div class="col-md-5">
 								<div class="form-btn">
                                     <a type="submit" href="{{ route('/') }}" class="btn btn-danger">Back</a>
-									<input type="button" onclick="deleteConfirmation(1)" class="btn btn-primary" value="Daftar">
+									<button class="btn btn-primary" type="submit">{{ __('Daftar') }}</button>
 								</div>
 							</div>
 						</form>
