@@ -15,8 +15,8 @@ class CreatePracticumRegistrationsTable extends Migration
     {
         Schema::create('practicum_registrations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('praktikum_id')->constrained('praktikum');
+            $table->foreignId('college_student_id')->constrained('college_students');
+            $table->foreignId('practicum_id')->constrained('practicums');
             $table->string('status_pembayaran');
             $table->string('status');
             $table->timestamps();

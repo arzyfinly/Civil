@@ -17,10 +17,12 @@
                     <thead class="thead-light">
                         <tr>
                             <th>{{ __('#') }}</th>
-                            <th>{{ __('Name') }}</th>
+                            <th>{{ __('Nama') }}</th>
                             <th>{{ __('NPM') }}</th>
                             <th>{{ __('Praktikum') }}</th>
-                            <th>{{ __('Pembayaran') }}</th>
+                            <th>{{ __('Harga') }}</th>
+                            <th>{{ __('Status Pembayaran') }}</th>
+                            <th>{{ __('Status Acc') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
@@ -29,10 +31,12 @@
                     <tfoot>
                         <tr>
                             <th>{{ __('#') }}</th>
-                            <th>{{ __('Name') }}</th>
+                            <th>{{ __('Nama') }}</th>
                             <th>{{ __('NPM') }}</th>
                             <th>{{ __('Praktikum') }}</th>
-                            <th>{{ __('Pembayaran') }}</th>
+                            <th>{{ __('Harga') }}</th>
+                            <th>{{ __('Status Pembayaran') }}</th>
+                            <th>{{ __('Status Acc') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
@@ -40,25 +44,27 @@
                     </tfoot>
                     <tbody>
                         @php
-                            function idr($salary)
+                            function idr($pembayaran)
                             {
-                                $result = 'Rp. ' . number_format($salary, 2, ',', '.');
+                                $result = 'Rp. ' . number_format($pembayaran, 2, ',', '.');
                                 return $result;
                             }
                         @endphp
-                        @foreach ($salaries as $salary)
+                        @foreach ($practicumregistrations as $row)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $salary->user->username }}</td>
-                                <td>{{ $salary->date }}</td>
-                                <td>{{ $salary->type->name }}</td>
-                                <td>{{ idr($salary->nominal) }}</td>
-                                @role('admin')
-                                <td style="vertical-align: middle;">
+                                <td>{{ $row->collegeStudent->surename }}</td>
+                                <td>{{ $row->collegeStudent->nim }}</td>
+                                <td>{{ $row->practicum->name }}</td>
+                                <td>{{ idr($row->practicum->price) }}</td>
+                                <td>{{ $row->status_pembayaran }}</td>
+                                <td>{{ $row->status }}</td>
+                                {{-- @role('admin')
+                                <td style="vertical-align: middle;"> --}}
                                     {{-- <a href="{{ route('salaries.show', $salary) }}"
                                         class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
                                             class="btn-inner--icon"><i class="fas fa-eye"></i></span></a> --}}
-                                    @can('salary-edit')
+                                    {{-- @can('salary-edit')
                                         <a href="{{ route('salaries.edit', $salary) }}"
                                             class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
                                             data-toggle="tooltip" data-placement="top" title="Edit"><span
@@ -72,7 +78,7 @@
                                         </button>
                                     @endcan
                                 </td>
-                                @endrole
+                                @endrole --}}
                             </tr>
                         @endforeach
                     </tbody>

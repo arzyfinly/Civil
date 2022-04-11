@@ -11,17 +11,18 @@ class PracticumRegistration extends Model
     use HasFactory,HasRoles;
 
     protected $fillable = [
-        'user_id',
+        'college_student_id',
         'praktikum_id',
         'status_pembayaran',
         'status',
     ];
+    protected $with = ['collegeStudent','practicum'];
 
-    public function user(){
-        return $this->belongsTo(User::class, 'user_id');
+    public function collegeStudent(){
+        return $this->belongsTo(CollegeStudent::class, 'college_student_id');
     }
 
-    public function praktikum(){
-        return $this->belongsTo(Praktikum::class, 'praktikum_id');
+    public function practicum(){
+        return $this->belongsTo(Practicum::class, 'practicum_id');
     }
 }

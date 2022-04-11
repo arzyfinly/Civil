@@ -1,6 +1,21 @@
 @extends('mahasiswa.layouts.app')
 @section('title', 'Home')
 
+@section('banner')
+    @guest
+        <h1 class="banner-title">Register To Become a Civil Engineer</h1>
+            <p>Create an account and become a civil engineer</p>
+            <br>
+            <br>
+            <a href="{{ route('login') }}" class="btn btn-white btn-circled">lets start</a>
+    @else
+        <h1 class="banner-title">Welcome to Website Civil Engineering</h1>
+            <p>We hope you enjoy our website. and be an exemplary worker</p>
+            <br>
+            <br>
+    @endguest
+@endsection
+
 @section('content')
 <section id="intro" class="section-padding">
         <div class="container">

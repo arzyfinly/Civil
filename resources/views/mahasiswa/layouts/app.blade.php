@@ -25,8 +25,7 @@
 
 <body data-spy="scroll" data-target=".fixed-top">
     @include('sweetalert::alert')
-
-    <div class="banner-area banner-3">
+<div class="banner-area banner-3">
         <div class="overlay dark-overlay"></div>
         <div class="d-table">
             <div class="d-table-cell">
@@ -34,18 +33,7 @@
                     <div class="row">
                         <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
                             <div class="banner-content content-padding">
-                                @guest
-                                <h1 class="banner-title">Register To Become a Civil Engineer</h1>
-                                <p>Create an account and become a civil engineer</p>
-                                <br>
-                                <br>
-                                <a href="{{ route('login') }}" class="btn btn-white btn-circled">lets start</a>
-                                @else
-                                <h1 class="banner-title">Welcome to Website Civil Engineering</h1>
-                                <p>We hope you enjoy our website. and be an exemplary worker</p>
-                                <br>
-                                <br>
-                                @endguest
+                                @yield('banner')
                             </div>
                         </div>
                     </div>
@@ -53,7 +41,6 @@
             </div>
         </div>
     </div>
-
 @include('mahasiswa.nav.navtop')
 
 @yield('content')
