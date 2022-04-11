@@ -14,11 +14,11 @@
     <title>SIPIL</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/logo-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('style/admin/images/logo-icon.png') }}">
     <!-- Custom CSS -->
-    <link href="{{ asset('plugins/chartist/dist/chartist.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('style/admin/plugins/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('style/admin/css/style.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -38,14 +38,14 @@
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="{{asset('/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
+                            <img src="{{asset('style/admin/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
 
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="{{asset('/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                            <img src="{{asset('style/admin/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
 
                         </span>
                     </a>
@@ -81,7 +81,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('/images/users/1.jpg')}}" alt="user" class="profile-pic me-2">
+                                <img src="{{asset('style/admin/images/users/1.jpg')}}" alt="user" class="profile-pic me-2">
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a href="{{ route('data-pribadi') }}" class="dropdown-item">Profile</a>
@@ -121,7 +121,7 @@
                                         class="hide-menu">Praktikum</span>
                             </a>
                             <div class="dropdown-menu" style="width:100%;" aria-labelledby="dropdownMenuButton">
-                                <a class="sidebar-link" href="{{ route('pendaftaran') }}">Pendaftaran</a>
+                                <a class="sidebar-link" href="#">Pendaftaran</a>
                                 <a class="sidebar-link" href="#">Daftar Hadir</a>
                                 <a class="sidebar-link" href="#">BA Pelaksanaan</a>
                                 <a class="sidebar-link" href="#">BA Pelaksanaan Ujian</a>
@@ -203,15 +203,15 @@
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
-    <script src="{{asset('jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{asset('bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('js/app-style-switcher.js')}}"></script>
-    <script src="{{asset('js/waves.js')}}"></script>
-    <script src="{{asset('js/sidebarmenu.js')}}"></script>
-    <script src="{{asset('js/custom.js')}}"></script>
-    <script src="{{asset('flot/jquery.flot.js')}}"></script>
-    <script src="{{asset('flot.tooltip/js/jquery.flot.tooltip.min.js')}}"></script>
-    <script src="{{asset('js/pages/dashboards/dashboard1.js')}}"></script>
+    <script src="{{asset('style/admin/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('style/admin/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('style/admin/js/app-style-switcher.js')}}"></script>
+    <script src="{{asset('style/admin/js/waves.js')}}"></script>
+    <script src="{{asset('style/admin/js/sidebarmenu.js')}}"></script>
+    <script src="{{asset('style/admin/js/custom.js')}}"></script>
+    <script src="{{asset('style/admin/flot/jquery.flot.js')}}"></script>
+    <script src="{{asset('style/admin/flot.tooltip/js/jquery.flot.tooltip.min.js')}}"></script>
+    <script src="{{asset('style/admin/js/pages/dashboards/dashboard1.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

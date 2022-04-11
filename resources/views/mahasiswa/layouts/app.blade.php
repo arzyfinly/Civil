@@ -11,16 +11,16 @@
 
    <title>Welcome To Website | Sipil </title>
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/student/plugins/bootstrap/css/bootstrap.css') }}">
     <!-- Icofont Css -->
-    <link rel="stylesheet" href="{{ asset('plugins/fontawesome/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/student/plugins/fontawesome/css/all.css') }}">
     <!-- animate.css -->
-    <link rel="stylesheet" href="{{ asset('plugins/animate-css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/student/plugins/animate-css/animate.css') }}">
     <!-- Icofont -->
-    <link rel="stylesheet" href="{{ asset('plugins/icofont/icofont.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/student/plugins/icofont/icofont.css') }}">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('style/student/style.css')}}">
 </head>
 
 <body data-spy="scroll" data-target=".fixed-top">
@@ -59,23 +59,23 @@
 @yield('content')
     
     <!-- Main jQuery -->
-    <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('style/student/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4.3.1 -->
-    <script src="{{ asset('plugins/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('style/student/plugins/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{ asset('style/student/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
    <!-- Woow animtaion -->
-    <script src="{{ asset('plugins/counterup/wow.min.js')}}"></script>
-    <script src="{{ asset('plugins/counterup/jquery.easing.1.3.js')}}"></script>
+    <script src="{{ asset('style/student/plugins/counterup/wow.min.js')}}"></script>
+    <script src="{{ asset('style/student/plugins/counterup/jquery.easing.1.3.js')}}"></script>
      <!-- Counterup -->
-    <script src="{{ asset('plugins/counterup/jquery.waypoints.js')}}"></script>
-    <script src="{{ asset('plugins/counterup/jquery.counterup.min.js')}}"></script>
+    <script src="{{ asset('style/student/plugins/counterup/jquery.waypoints.js')}}"></script>
+    <script src="{{ asset('style/student/plugins/counterup/jquery.counterup.min.js')}}"></script>
 
     <!-- Google Map -->
-    <script src="{{ asset('plugins/google-map/gmap3.min.js')}}"></script>
+    <script src="{{ asset('style/student/plugins/google-map/gmap3.min.js')}}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>   
     <!-- Contact Form -->
-    <script src="{{ asset('plugins/jquery/contact.js')}}"></script>
-    <script src="{{ asset('js/custom.js')}}"></script>
+    <script src="{{ asset('style/student/plugins/jquery/contact.js')}}"></script>
+    <script src="{{ asset('style/student/js/custom.js')}}"></script>
     @include('mahasiswa.nav.footer')
   </body>
   </html>

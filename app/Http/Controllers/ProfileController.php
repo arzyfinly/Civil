@@ -16,11 +16,19 @@ class ProfileController extends Controller
     {
         $id_user = Auth::user()->id;
 
-        $collage = CollegeStudent::where(["user_id"=>$id_user])->get()->all();
+        $collage = CollegeStudent::where(["user_id"=>$id_user])->first();
         $user = User::where(["id"=>$id_user])->get()->all();
-        foreach($collage as $row){
-            foreach($user as $u){
-                return view("mahasiswa.profile", ["row"=>$row, "u"=>$u]);
+        if($collage != null)
+        {
+            foreach($collage as $row){
+                foreach($user as $u){
+                    return view("mahasiswa.profile", ["row"=>$row, "u"=>$u]);
+                }
+            }
+        }else{
+            foreach($user as $u)
+            {
+                return view("mahasiswa.profile", ["collage"=>$collage, "u"=>$u]);
             }
         }
     }

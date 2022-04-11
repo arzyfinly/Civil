@@ -23,19 +23,16 @@ class PendaftaranPraktikumController extends Controller
     public function index()
     {
         $user = auth()->user();
-        dd($user->hasRole('student'));
         if($user->hasRole('admin')){
             return view('admin.pendaftaran');
         } elseif($user->hasRole('student')) {
             $user_id = $user->id;
-            $collage = CollegeStudent::where(["user_id"=>$user_id])->get()->all();
-            foreach($collage as $row){
-                if($row){
-                    return view("mahasiswa.pendaftaran", ["row"=>$row]);
-                }else{
-                    Session::flash('message', "Special message goes here");
-                    return redirect("mahasiswa/profile");
-                }
+            $collage = CollegeStudent::where(["user_id"=>$user_id])->first();
+            if($collage != null){
+                return view("mahasiswa.pendaftaran", ["row"=>$row]);
+            }else{
+                Session::flash('message', "Special message goes here");
+                return redirect("mahasiswa/profile/");
             }
         } else {
             echo "Nothing";

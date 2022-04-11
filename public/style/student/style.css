@@ -565,19 +565,19 @@ h5.subtitle {
 }
 
 .banner-1 {
-  background: url("../images/banner/bg-2.jpg");
+  background: url("images/banner/bg-2.jpg");
   background-size: cover;
   position: relative;
 }
 
 .banner-2 {
-  background: url("../images/banner/slider-3.jpg");
+  background: url("images/banner/slider-3.jpg");
   background-size: cover;
   position: relative;
 }
 
 .banner-3 {
-  background: url("../images/banner/banner-bg.jpg");
+  background: url("images/banner/banner-bg.jpg");
   background-size: cover;
   position: relative;
 }
@@ -596,7 +596,7 @@ INner Pages
 }
 
 .page-banner-area {
-  background: url("../images/banner/1.jpg") no-repeat 50% 50%;
+  background: url("images/banner/1.jpg") no-repeat 50% 50%;
   background-size: cover;
 }
 
@@ -670,7 +670,7 @@ INner Pages
   position: absolute;
   right: 0px;
   content: "";
-  background: url("../images/banner/1.jpg") 50% 50%;
+  background: url("images/banner/1.jpg") 50% 50%;
   width: 40%;
   height: 100%;
   max-height: 560px;
@@ -746,7 +746,7 @@ HISTORY MISSION
 
 ==============================*/
 #section-strategy {
-  background: url("../images/bg/bg-1.jpg") 50% 50% no-repeat;
+  background: url("images/bg/bg-1.jpg") 50% 50% no-repeat;
   background-size: cover;
 }
 
@@ -801,7 +801,7 @@ HISTORY MISSION
 }
 
 #counter {
-  background: url("../images/banner/pattern-3.png") fixed 50% 50%;
+  background: url("images/banner/pattern-3.png") fixed 50% 50%;
   position: relative;
   background-size: cover;
   padding-top: 87px;
@@ -812,7 +812,7 @@ HISTORY MISSION
   SERVICE AREA SECTION
 ----------------------*/
 .page-banner-area.page-service {
-  background: url("../images/bg/bg-2.jpg") no-repeat;
+  background: url("images/bg/bg-2.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -903,7 +903,7 @@ SERVICE PAGE
 }
 
 .service-style-two {
-  background: url("../images/bg/bg-2.jpg") no-repeat;
+  background: url("images/bg/bg-2.jpg") no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -1309,7 +1309,7 @@ BLOG SINGLE
 #footer {
   padding-bottom: 60px;
   position: relative;
-  background: url("../images/bg/2.png");
+  background: url("images/bg/2.png");
   border-top: 1px solid #eee;
 }
 

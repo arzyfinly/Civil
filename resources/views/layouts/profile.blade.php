@@ -13,7 +13,9 @@
 
 	<!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">k
+    <link rel="stylesheet" href="{{ asset('style/student/style.css')}}">
 	<link type="text/css" rel="stylesheet" href="{{ asset('assets/style.css') }}" />
+
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,7 +27,18 @@
 </head>
 
 <body>
-	@yield('content')
+	<div class="banner-area banner-3">
+        <div class="overlay dark-overlay"></div>
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="row">
+						@yield('content')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
