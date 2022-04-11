@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePracticumPricesTable extends Migration
+class CreatePraktikumTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePracticumPricesTable extends Migration
      */
     public function up()
     {
-        Schema::create('practicum_prices', function (Blueprint $table) {
+        Schema::create('praktikum', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('price');
@@ -28,6 +28,6 @@ class CreatePracticumPricesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('practicum_prices');
+        Schema::dropIfExists('praktikum');
     }
 }

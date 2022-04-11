@@ -1,4 +1,4 @@
-@extends('layouts.nav')
+@extends('admin.layouts.app')
 
 @section('title', 'Home')
 
