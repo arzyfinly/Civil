@@ -30,14 +30,7 @@
 
 <body>
 	@yield('content')
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-<script>
-	function functionHarga(e){
-		document.getElementById("harga").value = e.target.value;
-	}
-</script>
-<script>
-</script>
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
 @include('sweetalert::alert')

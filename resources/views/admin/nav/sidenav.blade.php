@@ -9,7 +9,7 @@
                         href="{{ route('home') }}" aria-expanded="false"><i class="me-3 far fa-clock fa-fw"
                             aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a></li>
                 <li class="dropdown sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="me-3 fa fa-suitcase" aria-hidden="true"></i><span
                                 class="hide-menu">Praktikum</span>
                     </a>
