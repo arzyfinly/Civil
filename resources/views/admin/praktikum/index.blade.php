@@ -12,8 +12,13 @@
                     {{ __('This page for Admin') }}
                 </p>
             </div>
-            <div class="table-responsive py-4">
-                <table class="table table-flush" id="myTable">
+            <table class="table table-flush" id="myTable">
+                <div class="table-responsive py-4">
+                    <div class="container">
+                        <div class="col-md-12 text-right">
+                            <a href="{{ route('create.praktikum') }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+                        </div>
+                    </div>
                     <thead class="thead-light">
                         <tr>
                             <th>{{ __('#') }}</th>
