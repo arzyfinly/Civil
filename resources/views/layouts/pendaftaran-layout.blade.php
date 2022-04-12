@@ -13,11 +13,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,600" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="{{ asset('asset/css/bootstrap.min.css')}}" />
+	<link type="text/css" rel="stylesheet" href="{{ asset('style/admin/asset/css/bootstrap.min.css')}}" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="{{ asset('asset/css/style.css')}}" />
-	<link type="text/css" rel="stylesheet" href="{{ asset('style.css')}}" />
+	<link type="text/css" rel="stylesheet" href="{{ asset('style/admin/asset/css/style.css')}}" />
+	<link type="text/css" rel="stylesheet" href="{{ asset('style/admin/style.css')}}" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,14 +30,7 @@
 
 <body>
 	@yield('content')
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-<script>
-	function functionHarga(e){
-		document.getElementById("harga").value = e.target.value;
-	}
-</script>
-<script>
-</script>
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
 @include('sweetalert::alert')

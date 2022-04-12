@@ -1,4 +1,4 @@
-@extends('layouts.pendaftaran-layout')
+@extends('../../layouts.pendaftaran-layout')
 @section('title', 'Praktikum')
 @include('sweetalert::alert')
 
@@ -16,32 +16,32 @@
                         <table class="table table-borderless">
                             <tbody>
                                 <tr>
-                                    <td>NPM</td>
-                                    <td>:</td>
-                                    <td>201023</td>
+                                    <td class="col-sm-2">NPM</td>
+                                    <td class="col-sm-1">:</td>
+                                    <td class="col-sm-0">201023</td>
                                 </tr>
                                 <tr>
-                                    <td>Nama</td>
-                                    <td>:</td>
-                                    <td>ashd</td>
+                                    <td class="col-sm-1">Nama</td>
+                                    <td class="col-sm-1">:</td>
+                                    <td class="col-sm-0">ashd</td>
                                 </tr>
                                 <tr>
-                                    <td>Praktikum</td>
-                                    <td>:</td>
-                                    <td>sipil</td>
+                                    <td class="col-sm-1">Praktikum</td>
+                                    <td class="col-sm-1">:</td>
+                                    <td class="col-sm-0">sipil</td>
                                 </tr>
                                 <tr>
-                                    <td>Harga</td>
-                                    <td>:</td>
-                                    <td>29990</td>
+                                    <td class="col-sm-1">Harga</td>
+                                    <td class="col-sm-1">:</td>
+                                    <td class="col-sm-0">29990</td>
                                 </tr>
                             </tbody>
                         </table>
                         @include('mahasiswa\praktikum\formCreate')
                         <div class="col-md-5">
                             <div class="form-btn">
-                                <a type="submit" href="{{ route('/') }}" class="btn btn-danger">Back</a>
-                                <button class="btn btn-primary" type="submit">{{ __('Daftar') }}</button>
+                                <a type="submit" href="{{ route('praktikum') }}" class="btn btn-danger">Back</a>
+                                <button class="btn btn-primary" type="submit">{{ __('Tambah') }}</button>
                             </div>
                         </div>
                     </form>
