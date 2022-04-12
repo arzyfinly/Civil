@@ -18,7 +18,7 @@ use App\Http\Controllers\{
 */
 
 Route::get('/', function () {
-    return view('mahasiswa.index');
+    return redirect('home');
 })->name('/');
 
 Auth::routes();
@@ -26,7 +26,6 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function(){ 
     Route::get('/home',                             [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('praktikum',                    PraktikumController::class);
-    Route::get('/praktikum',                        [App\Http\Controllers\PraktikumController::class, 'index'])->name('praktikum');
-    Route::get('/praktikum/pendaftaran/create',     [App\Http\Controllers\PraktikumController::class, 'pendaftaranCreate'])->name('pendaftaran.create');    
+    Route::get('/praktikum/pendaftaran/create',     [App\Http\Controllers\PraktikumController::class, 'pendaftaranCreate'])->name('praktikum.pendaftaran.create');    
     Route::get('/praktikum/{$id}/edit',             [App\Http\Controllers\PraktikumController::class, 'pendaftaranEdit'])->name('pendaftaran.create');    
     });

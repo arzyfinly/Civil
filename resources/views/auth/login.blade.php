@@ -27,10 +27,8 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    <span class="focus-input100-1"></span>
-                    <span class="focus-input100-2"></span>
                 </div>
-
+                <br>
                 <div class="row rs1 validate-input">
                     <div class="col-md-6 offset-md-4">
                         <div class="form-check">

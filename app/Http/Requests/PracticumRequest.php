@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PendaftaranPraktikumRequest extends FormRequest
+class PracticumRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class PendaftaranPraktikumRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,8 +24,9 @@ class PendaftaranPraktikumRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required',
-            'practicum_price_id' => 'required',
+            'college_student_id' => 'required',
+            'practicum' => 'required',
+            'status_pembayaran' => 'required',
             'status' => 'required',
         ];
     }

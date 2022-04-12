@@ -1,4 +1,4 @@
-@extends('layouts.pendaftaran-layout')
+@extends('mahasiswa.layouts.app')
 @section('title', 'Praktikum')
 @include('sweetalert::alert')
 

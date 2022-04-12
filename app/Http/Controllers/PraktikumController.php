@@ -21,11 +21,28 @@ class PraktikumController extends Controller
             ));
         } else if (auth()->user()->hasRole('student')) {
             $practicumregistrations = PracticumRegistration::all();
-            $practicums = Practicum::all();
+            $practicums = Practicum::where('user_id', auth()->user()->id)->get();
+            dd($practicums);
             return view('mahasiswa.praktikum.index', compact(
                 'practicums','practicumregistrations'
             ));
         }
+    }
+    public function pendaftaranCreate()
+    {
+        if (auth()->user()->hasRole('admin')) {
+            $practicumregistrations = PracticumRegistration::all();
+            $practicums = Practicum::all();
+            return view('admin.praktikum.index', compact(
+                'practicumregistrations','practicums'
+            ));
+        } else if (auth()->user()->hasRole('student')) {
+            $practicumregistrations = PracticumRegistration::all();
+            $practicums = Practicum::all();
+            return view('mahasiswa.praktikum.index', compact(
+                'practicums','practicumregistrations'
+            ));
+        }   
     }
     public function create()
     {
@@ -43,14 +60,12 @@ class PraktikumController extends Controller
             ));
         }   
     }
-    public function pendaftaranCreate()
+    public function store(PracticumRequest $request)
     {
-        $users = User::all();
-        $collegestudents = ColloegeStudent::all();
-        $praktikum = PracticumRegistration::all();
-        return view('Pendaftaran.create', compact(
-            'users','collegestudents','praktikum'
-        ));
+        $data = $request->all();
+        Practicum::create($data);
+        toast()->success('Data have been succesfully saved!');
+        return redirect('salaries');
     }
 
     /**
@@ -59,14 +74,7 @@ class PraktikumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function pendaftaranStore(PendaftaranPraktikumRequest $request)
-    {
-        $data = $request->all();
-        $data['date'] = date("Y-m-d", strtotime($request->date));
-        Salary::create($data);
-        toast()->success('Data have been succesfully saved!');
-        return redirect('salaries');
-    }
+    
 
     /**
      * Display the specified resource.

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V19</title>
+	<title>Civil | Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -29,8 +29,6 @@
 </head>
 <body>
 	@yield('content')
-
-	
 <!--===============================================================================================-->
 	<script src="{{ asset('style/admin/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
