@@ -160,5 +160,10 @@ class PraktikumController extends Controller
             return redirect()->route('trash');
         }
     }
+
+    public function praktikumCreate()
+    {
+        return view('admin/praktikum/create');
+    }
 }
 

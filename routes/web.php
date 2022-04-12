@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/home',                             [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('praktikum',                    PraktikumController::class);
     Route::get('/praktikum',                        [App\Http\Controllers\PraktikumController::class, 'index'])->name('praktikum');
-    Route::get('/praktikum/pendaftaran/create',     [App\Http\Controllers\PraktikumController::class, 'pendaftaranCreate'])->name('pendaftaran.create');    
-    Route::get('/praktikum/{$id}/edit',             [App\Http\Controllers\PraktikumController::class, 'pendaftaranEdit'])->name('pendaftaran.create');    
+    Route::get('/praktikum/pendaftaran/create',     [App\Http\Controllers\PraktikumController::class, 'pendaftaranCreate'])->name('pendaftaran.create');
+    Route::get('/praktikum/{$id}/edit',             [App\Http\Controllers\PraktikumController::class, 'pendaftaranEdit'])->name('pendaftaran.edit');
+    Route::get('/praktikum/create',                 [App\Http\Controllers\PraktikumController::class, 'praktikumCreate'])->name('create.praktikum');
     });

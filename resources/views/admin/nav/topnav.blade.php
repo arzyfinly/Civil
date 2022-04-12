@@ -8,14 +8,14 @@
             <b class="logo-icon">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                 <!-- Dark Logo icon -->
-                <img src="{{asset('/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
+                <img src="{{asset('style/admin/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
 
             </b>
             <!--End Logo icon -->
             <!-- Logo text -->
             <span class="logo-text">
                 <!-- dark Logo text -->
-                <img src="{{asset('/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                <img src="{{asset('style/admin/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
 
             </span>
         </a>
@@ -51,7 +51,7 @@
             <!-- ============================================================== -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{asset('/images/users/1.jpg')}}" alt="user" class="profile-pic me-2">
+                    <img src="{{asset('style/admin/images/users/1.jpg')}}" alt="user" class="profile-pic me-2">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a href="" class="dropdown-item">Profile</a>
