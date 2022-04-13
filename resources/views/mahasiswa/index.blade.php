@@ -2,6 +2,7 @@
 @section('title', 'Home')
 
 @section('banner')
+<div class="banner-content content-padding">
     @guest
         <h1 class="banner-title">Register To Become a Civil Engineer</h1>
             <p>Create an account and become a civil engineer</p>
@@ -14,6 +15,7 @@
             <br>
             <br>
     @endguest
+</div>
 @endsection
 
 @section('content')

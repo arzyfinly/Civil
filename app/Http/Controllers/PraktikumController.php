@@ -47,16 +47,17 @@ class PraktikumController extends Controller
     public function create()
     {
         if (auth()->user()->hasRole('admin')) {
-            $practicumregistrations = PracticumRegistration::all();
+            $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get();
             $practicums = Practicum::all();
             return view('admin.praktikum.index', compact(
-                'practicumregistrations','practicums'
+                'collegestudent','practicums'
             ));
         } else if (auth()->user()->hasRole('student')) {
-            $practicumregistrations = PracticumRegistration::all();
+            $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get();
+            // dd($collegestudent);
             $practicums = Practicum::all();
-            return view('mahasiswa.praktikum.index', compact(
-                'practicums','practicumregistrations'
+            return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
+                'practicums','collegestudent'
             ));
         }   
     }
@@ -167,11 +168,6 @@ class PraktikumController extends Controller
             $model->forceDelete();
             return redirect()->route('trash');
         }
-    }
-
-    public function praktikumCreate()
-    {
-        return view('admin/praktikum/create');
     }
 }
 
