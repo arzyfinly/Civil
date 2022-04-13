@@ -22,7 +22,6 @@ class PraktikumController extends Controller
         } else if (auth()->user()->hasRole('student')) {
             $practicumregistrations = PracticumRegistration::all();
             $practicums = Practicum::where('user_id', auth()->user()->id)->get();
-            dd($practicums);
             return view('mahasiswa.praktikum.index', compact(
                 'practicums','practicumregistrations'
             ));
@@ -39,6 +38,7 @@ class PraktikumController extends Controller
         } else if (auth()->user()->hasRole('student')) {
             $practicumregistrations = PracticumRegistration::all();
             $practicums = Practicum::all();
+            dd($practicums);die;
             return view('mahasiswa.praktikum.index', compact(
                 'practicums','practicumregistrations'
             ));
@@ -54,11 +54,10 @@ class PraktikumController extends Controller
             ));
         } else if (auth()->user()->hasRole('student')) {
             $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get();
-            // dd($collegestudent);
-            $practicums = Practicum::all();
+            $practicums = Practicum::get()->all();
             return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
                 'practicums','collegestudent'
-            ));
+            ), ["practicums"=>$practicums]);
         }   
     }
     public function store(PracticumRequest $request)
