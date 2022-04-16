@@ -61,6 +61,14 @@
     <!-- Contact Form -->
     <script src="{{ asset('style/student/plugins/jquery/contact.js')}}"></script>
     <script src="{{ asset('style/student/js/custom.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $(document).on('change', '.praktikum', function(){
+                var price = $('.praktikum').val();
+                $('.price').val(price);
+            });
+        });
+    </script>
     @include('mahasiswa.nav.footer')
   </body>
   </html>

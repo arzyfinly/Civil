@@ -16,24 +16,24 @@
                         <table class="table table-borderless">
                             <tbody>
                                 <tr>
-                                    <td class="col-sm-2">NPM</td>
-                                    <td class="col-sm-1">:</td>
-                                    <td class="col-sm-0">201023</td>
+                                    <td>NPM</td>
+                                    <td>:</td>
+                                    <td>201023</td>
                                 </tr>
                                 <tr>
-                                    <td class="col-sm-1">Nama</td>
-                                    <td class="col-sm-1">:</td>
-                                    <td class="col-sm-0">ashd</td>
+                                    <td>Nama</td>
+                                    <td>:</td>
+                                    <td>ashd</td>
                                 </tr>
                                 <tr>
-                                    <td class="col-sm-1">Praktikum</td>
-                                    <td class="col-sm-1">:</td>
-                                    <td class="col-sm-0">sipil</td>
+                                    <td>Praktikum</td>
+                                    <td>:</td>
+                                    <td>sipil</td>
                                 </tr>
                                 <tr>
-                                    <td class="col-sm-1">Harga</td>
-                                    <td class="col-sm-1">:</td>
-                                    <td class="col-sm-0">29990</td>
+                                    <td>Harga</td>
+                                    <td>:</td>
+                                    <td>29990</td>
                                 </tr>
                             </tbody>
                         </table>
