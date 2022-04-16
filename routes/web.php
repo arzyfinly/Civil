@@ -18,8 +18,9 @@ use App\Http\Controllers\{
 */
 
 Route::get('/', function () {
-    return view('mahasiswa.index');
+    return redirect('/home');
 })->name('/');
+
 
 Auth::routes();
 
