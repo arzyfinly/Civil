@@ -8,6 +8,6 @@ class DafdirController extends Controller
 {
     public function index()
     {
-        return view("mahasiswa.daftar-hadir");
+        return view("mahasiswa.daftarHadir/index");
     }
 }
