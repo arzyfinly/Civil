@@ -28,7 +28,7 @@
                                 <tr>
                                     <td class="col-sm-1" align="left">Harga</td>
                                     <td class="col-sm-1">:</td>
-                                    <td class="col-sm-0" align="left"><input class="form-control price" type="text"></td>
+                                    <td class="col-sm-0" align="left"><input disabled class="form-control price" type="text"></td>
                                 </tr>
                                 @endforeach
                             </tbody>
