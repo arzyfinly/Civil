@@ -17,8 +17,8 @@ class CreatePracticumRegistrationsTable extends Migration
             $table->id();
             $table->foreignId('college_student_id')->constrained('college_students');
             $table->foreignId('practicum_id')->constrained('practicums');
-            $table->string('status_pembayaran');
-            $table->string('status');
+            $table->string('status_pembayaran')->default('0');
+            $table->string('status')->default('0');
             $table->timestamps();
         });
     }

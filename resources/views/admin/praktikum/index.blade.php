@@ -58,32 +58,32 @@
                         @foreach ($practicumregistrations as $row)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $row->collegeStudent->surename }}</td>
+                                <td>{{ $row->collegeStudent->first_name. " " .$row->collegeStudent->last_name }}</td>
                                 <td>{{ $row->collegeStudent->nim }}</td>
                                 <td>{{ $row->practicum->name }}</td>
                                 <td>{{ idr($row->practicum->price) }}</td>
                                 <td>{{ $row->status_pembayaran }}</td>
                                 <td>{{ $row->status }}</td>
-                                {{-- @role('admin')
-                                <td style="vertical-align: middle;"> --}}
-                                    {{-- <a href="{{ route('salaries.show', $salary) }}"
+                                @role('admin')
+                                <td style="vertical-align: middle;">
+                                    <a href=""
                                         class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
-                                            class="btn-inner--icon"><i class="fas fa-eye"></i></span></a> --}}
-                                    {{-- @can('salary-edit')
-                                        <a href="{{ route('salaries.edit', $salary) }}"
+                                            class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
+                                    {{-- @can('salary-edit') --}}
+                                        <a href=""
                                             class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
                                             data-toggle="tooltip" data-placement="top" title="Edit"><span
                                                 class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
-                                    @endcan
-                                    @can('salary-delete')
-                                        <button onclick="deleteItem(this)" data-id="{{ $salary->id }}"
+                                    {{-- @endcan
+                                    @can('salary-delete') --}}
+                                        <button onclick="deleteItem(this)" data-id=""
                                             class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
                                             data-toggle="tooltip" data-placement="top" title="Remove">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                    @endcan
+                                    {{-- @endcan --}}
                                 </td>
-                                @endrole --}}
+                                @endrole
                             </tr>
                         @endforeach
                     </tbody>

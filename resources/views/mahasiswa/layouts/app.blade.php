@@ -57,15 +57,18 @@
 
     <!-- Google Map -->
     <script src="{{ asset('style/student/plugins/google-map/gmap3.min.js')}}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>   
-    <!-- Contact Form -->
+    
+<!-- Contact Form -->
     <script src="{{ asset('style/student/plugins/jquery/contact.js')}}"></script>
     <script src="{{ asset('style/student/js/custom.js')}}"></script>
     <script>
         $(document).ready(function(){
             $(document).on('change', '.praktikum', function(){
-                var price = $('.praktikum').val();
+                var id    = $('.praktikum').val().split(',')[0];
+                var price = $('.praktikum').val().split(',')[1];
+
                 $('.price').val(price);
+                $('.practicum').val(id);
             });
         });
     </script>

@@ -12,7 +12,7 @@ class PracticumRegistration extends Model
 
     protected $fillable = [
         'college_student_id',
-        'praktikum_id',
+        'practicum_id',
         'status_pembayaran',
         'status',
     ];

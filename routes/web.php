@@ -31,4 +31,5 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/praktikum/pendaftaran/create',     [App\Http\Controllers\PraktikumController::class, 'pendaftaranCreate'])->name('praktikum.pendaftaran.create');
     Route::get('/praktikum/{$id}/edit',             [App\Http\Controllers\PraktikumController::class, 'pendaftaranEdit'])->name('pendaftaran.edit');
     Route::get('/praktikum/daftarHadir',            [App\Http\Controllers\DafdirController::class, 'index'])->name('daftarHadir');
+    Route::get('profile',                           [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
     });

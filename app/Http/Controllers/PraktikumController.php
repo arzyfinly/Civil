@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\PracticumRegistration;
+use Illuminate\Http\Request;
 use App\Models\Practicum;
 use App\Models\User;
 use App\Models\CollegeStudent;
+use App\Http\Requests\PraktikumCreateRequest;
 
-use Illuminate\Http\Request;
 
 class PraktikumController extends Controller
 {
@@ -21,28 +22,11 @@ class PraktikumController extends Controller
             ));
         } else if (auth()->user()->hasRole('student')) {
             $practicumregistrations = PracticumRegistration::all();
-            $practicums = Practicum::where('user_id', auth()->user()->id)->get();
+            $id_user = auth()->user()->id;
             return view('mahasiswa.praktikum.index', compact(
-                'practicums','practicumregistrations'
-            ));
+                'practicumregistrations'
+            ), ['id_user'=>$id_user]);
         }
-    }
-    public function pendaftaranCreate()
-    {
-        if (auth()->user()->hasRole('admin')) {
-            $practicumregistrations = PracticumRegistration::all();
-            $practicums = Practicum::all();
-            return view('admin.praktikum.index', compact(
-                'practicumregistrations','practicums'
-            ));
-        } else if (auth()->user()->hasRole('student')) {
-            $practicumregistrations = PracticumRegistration::all();
-            $practicums = Practicum::all();
-            dd($practicums);die;
-            return view('mahasiswa.praktikum.index', compact(
-                'practicums','practicumregistrations'
-            ));
-        }   
     }
     public function create()
     {
@@ -53,19 +37,43 @@ class PraktikumController extends Controller
                 'collegestudent','practicums'
             ));
         } else if (auth()->user()->hasRole('student')) {
-            $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get();
-            $practicums = Practicum::get()->all();
-            return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
-                'practicums','collegestudent'
-            ), ["practicums"=>$practicums]);
+            $c_student = CollegeStudent::where('user_id', auth()->user()->id)->get()->all();
+            if($c_student != null)
+            {
+                $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get()->all();
+                foreach($collegestudent as $row)
+                {
+                    $practicum_registration = PracticumRegistration::where(['college_student_id'=>$row->id])->get()->all();
+                    if($practicum_registration != null){
+                        foreach($practicum_registration as $prak)
+                        {
+                            $practicums = Practicum::where(['id'=>$prak->practicum_id])->get()->all();
+                            foreach($practicums as $prk)
+                            {
+                                return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
+                                    'practicums', 'collegestudent', 'prk', 'prak', 'practicum_registration'
+                                ));
+                            }
+                        }
+                    }else{
+                        $practicums = Practicum::get()->all();
+                        return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
+                            'practicums','collegestudent', 'practicum_registration'));
+                    }
+                }
+            }
+            else
+            {
+                return redirect('profile');
+            }
         }   
     }
-    public function store(PracticumRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
-        Practicum::create($data);
-        toast()->success('Data have been succesfully saved!');
-        return redirect('salaries');
+        PracticumRegistration::create($data);
+        // toast()->success('Data have been succesfully saved!');
+        return redirect('praktikum');
     }
 
     /**
@@ -84,7 +92,7 @@ class PraktikumController extends Controller
      */
     public function show($id)
     {
-
+        
     }
 
     /**
@@ -169,4 +177,3 @@ class PraktikumController extends Controller
         }
     }
 }
-
