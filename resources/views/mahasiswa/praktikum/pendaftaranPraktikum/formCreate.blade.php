@@ -5,7 +5,7 @@
                                     <td class="col-sm-2" align="left">NPM</td>
                                     <td class="col-sm-1">:</td>
                                     <td class="col-sm-0" align="left">{{ $row->nim }}</td>
-                                    <input type="text" hidden name="college_student_id" value="{{ $row->i }}">
+                                    <input type="text" hidden name="college_student_id" value="{{ $row->id }}">
                                 </tr>
                                 <tr>
                                     <td class="col-sm-1" align="left">Nama</td>
