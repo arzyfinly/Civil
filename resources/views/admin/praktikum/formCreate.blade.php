@@ -15,4 +15,4 @@
         <input type="checkbox" class="form-check-input" value="Akan menempuh atau lulus mata kuliah yang berkaitan dengan pelaksanaan praktikum" checked>
         <label class="form-check-label" for="exampleCheck1">Akan menempuh atau lulus mata kuliah yang berkaitan dengan pelaksanaan praktikum</label>
     </div>
-</div>
+</div>  
