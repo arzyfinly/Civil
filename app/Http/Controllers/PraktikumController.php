@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\PracticumRegistration;
+use Illuminate\Http\Request;
 use App\Models\Practicum;
 use App\Models\User;
 use App\Models\CollegeStudent;
+use App\Http\Requests\PraktikumCreateRequest;
 
-use Illuminate\Http\Request;
 
 class PraktikumController extends Controller
 {
@@ -21,28 +22,10 @@ class PraktikumController extends Controller
             ));
         } else if (auth()->user()->hasRole('student')) {
             $practicumregistrations = PracticumRegistration::all();
-            $practicums = Practicum::where('user_id', auth()->user()->id)->get();
             return view('mahasiswa.praktikum.index', compact(
-                'practicums','practicumregistrations'
+                'practicumregistrations'
             ));
         }
-    }
-    public function pendaftaranCreate()
-    {
-        if (auth()->user()->hasRole('admin')) {
-            $practicumregistrations = PracticumRegistration::all();
-            $practicums = Practicum::all();
-            return view('admin.praktikum.index', compact(
-                'practicumregistrations','practicums'
-            ));
-        } else if (auth()->user()->hasRole('student')) {
-            $practicumregistrations = PracticumRegistration::all();
-            $practicums = Practicum::all();
-            dd($practicums);die;
-            return view('mahasiswa.praktikum.index', compact(
-                'practicums','practicumregistrations'
-            ));
-        }   
     }
     public function create()
     {
@@ -56,16 +39,15 @@ class PraktikumController extends Controller
             $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get();
             $practicums = Practicum::get()->all();
             return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
-                'practicums','collegestudent'
-            ), ["practicums"=>$practicums]);
+                'practicums','collegestudent'));
         }   
     }
-    public function store(PracticumRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
-        Practicum::create($data);
-        toast()->success('Data have been succesfully saved!');
-        return redirect('salaries');
+        PracticumRegistration::create($data);
+        // toast()->success('Data have been succesfully saved!');
+        return redirect('praktikum');
     }
 
     /**
@@ -169,4 +151,3 @@ class PraktikumController extends Controller
         }
     }
 }
-

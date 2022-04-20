@@ -19,13 +19,13 @@ class PracticumRegistrationSeeder extends Seeder
             [
                 'college_student_id' => '1',
                 'practicum_id' => '1',
-                'status_pembayaran' => '2',
-                'status' => 'pending',
+                'status_pembayaran' => '0',
+                'status' => '0',
             ],[
                 'college_student_id' => '2',
                 'practicum_id' => '2',
                 'status_pembayaran' => '1',
-                'status' => 'accepted',
+                'status' => '0',
             ]
         ];
         foreach ($practicum_registrations as $practicum_registration){
