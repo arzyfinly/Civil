@@ -69,7 +69,6 @@
 
                 $('.price').val(price);
                 $('.practicum').val(id);
-                debug.log(id);
             });
         });
     </script>

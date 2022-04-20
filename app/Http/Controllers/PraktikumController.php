@@ -21,11 +21,21 @@ class PraktikumController extends Controller
                 'practicumregistrations','practicums'
             ));
         } else if (auth()->user()->hasRole('student')) {
-            $practicumregistrations = PracticumRegistration::all();
-            $id_user = auth()->user()->id;
-            return view('mahasiswa.praktikum.index', compact(
-                'practicumregistrations'
-            ), ['id_user'=>$id_user]);
+            $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get()->all();
+            foreach($collegestudent as $college)
+            {
+                $practicumregistrations = PracticumRegistration::where('college_student_id', $college->id)->get()->all();
+                foreach($practicumregistrations as $prak)
+                {
+                    $practicum = Practicum::where('id', $prak->practicum_id)->get()->all();
+                    foreach($practicum as $prk)
+                    {
+                        return view('mahasiswa.praktikum.index', compact(
+                            'collegestudent', 'prak', 'prk', 'practicumregistrations',
+                        ));
+                    }
+                }
+            }
         }
     }
     public function create()
@@ -44,22 +54,9 @@ class PraktikumController extends Controller
                 foreach($collegestudent as $row)
                 {
                     $practicum_registration = PracticumRegistration::where(['college_student_id'=>$row->id])->get()->all();
-                    if($practicum_registration != null){
-                        foreach($practicum_registration as $prak)
-                        {
-                            $practicums = Practicum::where(['id'=>$prak->practicum_id])->get()->all();
-                            foreach($practicums as $prk)
-                            {
-                                return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
-                                    'practicums', 'collegestudent', 'prk', 'prak', 'practicum_registration'
-                                ));
-                            }
-                        }
-                    }else{
-                        $practicums = Practicum::get()->all();
-                        return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
-                            'practicums','collegestudent', 'practicum_registration'));
-                    }
+                    $practicums = Practicum::get()->all();
+                    return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
+                        'practicums','collegestudent', 'practicum_registration'));
                 }
             }
             else
