@@ -25,6 +25,9 @@
                         href="table-basic.html" aria-expanded="false"><i class="me-3 fa fa-wrench"
                             aria-hidden="true"></i><span class="hide-menu">Sewa Alat</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                    href="{{ route('inventaris') }}" aria-expanded="false"><i class="me-3 fa fa-cubes"
+                        aria-hidden="true"></i><span class="hide-menu">Inventaris</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="map-google.html" aria-expanded="false"><i class="me-3 fa fa-graduation-cap"
                             aria-hidden="true"></i><span class="hide-menu">Penelitian & <br> Pengabdian</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
