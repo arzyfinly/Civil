@@ -38,8 +38,12 @@ class PraktikumController extends Controller
         } else if (auth()->user()->hasRole('student')) {
             $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get();
             $practicums = Practicum::get()->all();
-            return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
-                'practicums','collegestudent'));
+            if (PracticumRegistration::where('college_student_id', $collegestudent)) {
+                return redirect('praktikum');
+            } else {
+                return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
+                    'practicums','collegestudent'));
+            }
         }   
     }
     public function store(Request $request)

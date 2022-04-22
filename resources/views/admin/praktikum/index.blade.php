@@ -66,14 +66,20 @@
                                 <td>{{ $row->status }}</td>
                                 @role('admin')
                                 <td style="vertical-align: middle;">
-                                    <a href=""
-                                        class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
-                                            class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
+                                    <a href="#show" rel="modal:open" class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle">
+                                        <span class="btn-inner--icon"><i class="fas fa-eye"></i></span>
+                                    </a>
+                                    <div id="show" class="modal">
+                                        <p>Thanks for clicking. That felt good.</p>
+                                        <a href="#" rel="modal:close">Close</a>
+                                    </div>
                                     {{-- @can('salary-edit') --}}
-                                        <a href=""
+                                    <a href=""
                                             class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
                                             data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                                class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
+                                                class="btn-inner--icon"><i class="fas fa-pen-square"></i></span>
+                                    </a>
+
                                     {{-- @endcan
                                     @can('salary-delete') --}}
                                         <button onclick="deleteItem(this)" data-id=""
