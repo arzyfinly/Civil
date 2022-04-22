@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     PendaftaranPraktikumController,
     PraktikumController,
+    InventarisController,
 };
 
 /*
@@ -30,4 +31,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/praktikum',                        [App\Http\Controllers\PraktikumController::class, 'index'])->name('praktikum');
     Route::get('/praktikum/pendaftaran/create',     [App\Http\Controllers\PraktikumController::class, 'pendaftaranCreate'])->name('praktikum.pendaftaran.create');
     Route::get('/praktikum/{$id}/edit',             [App\Http\Controllers\PraktikumController::class, 'pendaftaranEdit'])->name('pendaftaran.edit');
+    Route::get('/praktikum/daftarHadir',            [App\Http\Controllers\DafdirController::class, 'index'])->name('daftarHadir');
+    Route::get('profile',                           [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+    Route::resource('inventaris',                   InventarisController::class);
+    Route::get('/inventaris',                       [App\Http\Controllers\InventarisController::class, 'index'])->name('inventaris');
     });
