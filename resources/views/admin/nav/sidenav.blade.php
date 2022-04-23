@@ -19,6 +19,7 @@
                         <a class="sidebar-link" href="#">BA Pelaksanaan</a>
                         <a class="sidebar-link" href="#">BA Pelaksanaan Ujian</a>
                         <a class="sidebar-link" href="#">Harga Praktikum</a>
+                        <a class="sidebar-link" href="{{ route('kelompok') }}">Kelompok</a>
                     </div>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
