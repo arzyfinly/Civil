@@ -21,8 +21,6 @@ class CollegeStudent extends Model
         'tmpt_lahir',
         'no_hp',
         'gender',
-        'photo',
-        'kelas',
     ];
     protected $with = ['user'];
     
