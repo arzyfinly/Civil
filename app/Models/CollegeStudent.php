@@ -11,7 +11,7 @@ class CollegeStudent extends Model
     use HasFactory,HasRoles;
 
     protected $fillable = [
-        'fisrt_name',
+        'first_name',
         'last_name',
         'surename',
         'user_id',
