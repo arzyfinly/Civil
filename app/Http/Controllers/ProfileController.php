@@ -41,18 +41,16 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
-        $user = auth()->user()->id;
-        $collage = CollegeStudent::where(['user_id'=>$user])->get()->all();
-        if($collage != null)
-        {
-            $data = $request->all();
-            CollegeStudent::where($request->id)->update($data);
-            return redirect('/');
-        }else{
-            $data = $request->all();
-            CollegeStudent::create($data);
-            // toast()->success('Data have been succesfully saved!');
-            return redirect('/');
-        }
+        $data = $request->all();
+        CollegeStudent::create($data);
+        // toast()->success('Data have been succesfully saved!');
+        return redirect('/');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+        CollegeStudent::find($id)->update($data);
+        return redirect('/');
     }
 }
