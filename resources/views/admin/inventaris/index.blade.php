@@ -62,8 +62,20 @@
                                 <td>{{ $row->collegeStudent->nim }}</td>
                                 <td>{{ $row->practicum->name }}</td>
                                 <td>{{ idr($row->practicum->price) }}</td>
-                                <td>{{ $row->status_pembayaran }}</td>
-                                <td>{{ $row->status }}</td>
+                                <td>
+                                    @if($row->status_pembayaran == 0)
+                                        Belum Lunas
+                                    @elseif($row->status_pembayaran == 1)
+                                        Lunas
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($row->status == 0)
+                                        <i class="fa fa-toggle-off"></i>
+                                    @elseif($row->status == 1)
+                                        <i class="fa fa-toggle-on"></i>
+                                    @endif
+                                </td>
                                 @role('admin')
                                 <td style="vertical-align: middle;">
                                     <a href=""
