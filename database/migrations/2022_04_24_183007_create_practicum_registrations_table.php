@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePracticumAttendancesTable extends Migration
+class CreatePracticumRegistrationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class CreatePracticumAttendancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('practicum_attendances', function (Blueprint $table) {
+        Schema::create('practicum_registrations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('college_student_id')->constrained('college_students');
             $table->foreignId('practicum_id')->constrained('practicums');
-            $table->foreignId('practicum_group_id')->constrained('practicum_groups');
-            $table->string('status');
-            $table->dateTime('present_time');
+            $table->string('group')->nullable();
+            $table->string('status_pembayaran')->default('0');
+            $table->string('status')->default('0');
             $table->timestamps();
+
+            
         });
+        
     }
 
     /**
@@ -31,6 +34,6 @@ class CreatePracticumAttendancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('practicum_attendances');
+        Schema::dropIfExists('practicum_registrations');
     }
 }
