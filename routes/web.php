@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/praktikum/{$id}/edit',             [App\Http\Controllers\PraktikumController::class, 'pendaftaranEdit'])->name('pendaftaran.edit');
     Route::resource('daftarHadir',                  DafdirController::class);
     Route::get('/daftarHadir',                      [App\Http\Controllers\DafdirController::class, 'index'])->name('daftarHadir');
-    Route::get('pelaksnaan',                        [PelaksanaanController::class]);
+    Route::get('pelaksnaan',                        PelaksanaanController::class);
     Route::get('/pelaksanaan',                      [App\Http\Controllers\PelaksanaanController::class, 'index'])->name('pelaksanaan');
     Route::resource('inventaris',                   InventarisController::class);
     Route::get('/inventaris',                       [App\Http\Controllers\InventarisController::class, 'index'])->name('inventaris');
