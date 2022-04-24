@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePracticumTimesTable extends Migration
+class CreatePracticumGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreatePracticumTimesTable extends Migration
      */
     public function up()
     {
-        Schema::create('practicum_time_tables', function (Blueprint $table) {
+        Schema::create('practicum_groups', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('practicum_id')->constrained('practicums');
-            $table->timestamps('start');
-            $table->timestamps('end');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreatePracticumTimesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('practicum_times');
+        Schema::dropIfExists('practicum_groups');
     }
 }
