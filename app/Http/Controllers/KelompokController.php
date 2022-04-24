@@ -22,7 +22,7 @@ class KelompokController extends Controller
         if($user->hasRole('admin')){
             $practicumregistrations = PracticumRegistration::all();
             $practicums = Practicum::all();
-            return view('admin.praktikum.kelompokPraktikum.index', compact(
+            return view('admin.praktikum.practicumGroup.index', compact(
                 'practicumregistrations','practicums'
             ));
         }else{

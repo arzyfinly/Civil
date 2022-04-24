@@ -7,7 +7,7 @@
         <div class="card">
             <!-- Card header -->
             <div class="card-header">
-                <h3 class="mb-0">{{ __('Praktikum') }}</h3>
+                <h3 class="mb-0">{{ __('Pendaftaran Praktikum') }}</h3>
                 <p class="text-sm mb-0">
                     {{ __('This page for Admin') }}
                 </p>
@@ -62,8 +62,20 @@
                                 <td>{{ $row->collegeStudent->nim }}</td>
                                 <td>{{ $row->practicum->name }}</td>
                                 <td>{{ idr($row->practicum->price) }}</td>
-                                <td>{{ $row->status_pembayaran }}</td>
-                                <td>{{ $row->status }}</td>
+                                <td>
+                                    @if($row->status_pembayaran == 0)
+                                        Belum Lunas
+                                    @elseif($row->status_pembayaran == 1)
+                                        Lunas
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($row->status == 0)
+                                        <i class="fa fa-toggle-off"></i>
+                                    @elseif($row->status == 1)
+                                        <i class="fa fa-toggle-on"></i>
+                                    @endif
+                                </td>
                                 @role('admin')
                                 <td style="vertical-align: middle;">
                                     <a href="#show" rel="modal:open" class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle">

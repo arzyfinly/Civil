@@ -8,7 +8,8 @@ use App\Http\Controllers\{
     ProfileController,
     DafdirController,
     PelaksanaanController,
-    KelompokController
+    KelompokController,
+    DataMahasiswaController
 };
 
 /*
@@ -37,12 +38,14 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/praktikum/{$id}/edit',             [App\Http\Controllers\PraktikumController::class, 'pendaftaranEdit'])->name('pendaftaran.edit');
     Route::resource('daftarHadir',                  DafdirController::class);
     Route::get('/daftarHadir',                      [App\Http\Controllers\DafdirController::class, 'index'])->name('daftarHadir');
-    Route::get('pelaksanaan',                        PelaksanaanController::class);
+    Route::resource('pelaksanaan',                  PelaksanaanController::class);
     Route::get('/pelaksanaan',                      [App\Http\Controllers\PelaksanaanController::class, 'index'])->name('pelaksanaan');
     Route::resource('inventaris',                   InventarisController::class);
     Route::get('/inventaris',                       [App\Http\Controllers\InventarisController::class, 'index'])->name('inventaris');
     Route::resource('profile',                      ProfileController::class);
     Route::get('/profile',                          [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
     Route::resource('kelompok',                     KelompokController::class);
-    Route::get('/kelompok',                         [App\Http\Controllers\KelompokController::class, 'index'])->name('kelompok');
-    });
+    Route::get('/kelompok',                         [App\Http\Controllers\KelompokController::class, 'index'])->name('practicum-group');
+    Route::resource('dataMahasiswa',                CollegeStudentController::class);
+    Route::get('/dataMahasisa',                     [App\Http\Controllers\CollegeStudentController::class, 'index'])->name('student-data');
+});

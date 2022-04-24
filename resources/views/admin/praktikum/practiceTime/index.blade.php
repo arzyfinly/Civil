@@ -7,7 +7,7 @@
         <div class="card">
             <!-- Card header -->
             <div class="card-header">
-                <h3 class="mb-0">{{ __('Inventaris') }}</h3>
+                <h3 class="mb-0">{{ __('Kelompok') }}</h3>
                 <p class="text-sm mb-0">
                     {{ __('This page for Admin') }}
                 </p>
@@ -22,9 +22,9 @@
                     <thead class="thead-light">
                         <tr>
                             <th>{{ __('#') }}</th>
-                            <th>{{ __('Nama') }}</th>
-                            <th>{{ __('NPM') }}</th>
-                            <th>{{ __('Praktikum') }}</th>
+                            <th>{{ __('Kelompok') }}</th>
+                            <th>{{ __('Nama Praktikum') }}</th>
+                            <th>{{ __('Nama Mahasiswa') }}</th>
                             <th>{{ __('Harga') }}</th>
                             <th>{{ __('Status Pembayaran') }}</th>
                             <th>{{ __('Status Acc') }}</th>
