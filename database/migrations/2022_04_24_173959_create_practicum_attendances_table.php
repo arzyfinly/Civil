@@ -19,7 +19,7 @@ class CreatePracticumAttendancesTable extends Migration
             $table->foreignId('practicum_id')->constrained('practicums');
             $table->foreignId('practicum_group_id')->constrained('practicum_groups');
             $table->string('status');
-            $table->timestamps('present_time');
+            $table->dateTime('present_time');
             $table->timestamps();
         });
     }
