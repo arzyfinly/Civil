@@ -16,6 +16,10 @@ class PracticumRegistration extends Model
         'status_pembayaran',
         'status',
     ];
+
+    protected $nullable = [
+        'group'
+    ];
     protected $with = ['collegeStudent','practicum'];
 
     public function collegeStudent(){
