@@ -15,6 +15,13 @@ class CreatePracticumGroupsTable extends Migration
     {
         Schema::create('practicum_groups', function (Blueprint $table) {
             $table->id();
+            $table->string('kelompok');
+            $table->foreignId('practicum_id')->constrained('practicums');
+            $table->foreignId('college_student1_id')->constrained('college_students')->nullable();
+            $table->foreignId('college_student2_id')->constrained('college_students')->nullable();
+            $table->foreignId('college_student3_id')->constrained('college_students')->nullable();
+            $table->foreignId('college_student4_id')->constrained('college_students')->nullable();
+            $table->foreignId('college_student5_id')->constrained('college_students')->nullable();
             $table->timestamps();
         });
     }

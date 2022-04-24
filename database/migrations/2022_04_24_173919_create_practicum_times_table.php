@@ -15,6 +15,9 @@ class CreatePracticumTimesTable extends Migration
     {
         Schema::create('practicum_times', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('practicum_id')->constrained('practicums');
+            $table->time('start');
+            $table->time('end');
             $table->timestamps();
         });
     }
