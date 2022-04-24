@@ -8,7 +8,7 @@ use App\Http\Controllers\{
     ProfileController,
     DafdirController,
     PelaksanaanController,
-    KelompokController,
+    PracticumGroupController,
     DataMahasiswaController
 };
 
@@ -44,8 +44,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/inventaris',                       [App\Http\Controllers\InventarisController::class, 'index'])->name('inventaris');
     Route::resource('profile',                      ProfileController::class);
     Route::get('/profile',                          [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-    Route::resource('kelompok',                     KelompokController::class);
-    Route::get('/kelompok',                         [App\Http\Controllers\KelompokController::class, 'index'])->name('practicum-group');
+    Route::resource('kelompok',                     PracticumGroupController::class);
+    Route::get('/kelompok',                         [App\Http\Controllers\PracticumGroupController::class, 'index'])->name('practicum-group');
     Route::resource('dataMahasiswa',                CollegeStudentController::class);
     Route::get('/dataMahasisa',                     [App\Http\Controllers\CollegeStudentController::class, 'index'])->name('student-data');
 });

@@ -42,11 +42,12 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        @if($practicumregistrations != null)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $c->nim }}</td>
+                            <td>{{ $c->first_name }} {{ $c->last_name }}</td>
+                            <td>{{ $p->name }}</td>
+                            <td>{{ $row->group }}</td>
                             @role('admin')
                             <td style="vertical-align: middle;">
                                 <a href=""
@@ -68,6 +69,15 @@
                             </td>
                             @endrole
                         </tr>
+                        @else
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
