@@ -43,14 +43,15 @@ class ProfileController extends Controller
     {
         $data = $request->all();
         CollegeStudent::create($data);
-        // toast()->success('Data have been succesfully saved!');
-        return redirect('/');
+        Alert::success('Success', 'Data have been succesfully saved!');
+        return redirect('profile');
     }
 
     public function update(Request $request, $id)
     {
         $data = $request->all();
         CollegeStudent::find($id)->update($data);
-        return redirect('/');
+        Alert::success('Success', 'Data have been succesfully saved!');
+        return redirect('profile');
     }
 }

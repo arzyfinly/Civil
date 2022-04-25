@@ -29,13 +29,10 @@ class ListOfAttendeesController extends Controller
             {
                 foreach($practicumregistrations as $row)
                 {
-                    $collegeStudent = CollegeStudent::where(['id'=>$row->college_student_id, 'user_id'=>$user->id])->get()->all();
+                    $collegeStudent = CollegeStudent::where(['id'=>$row->college_student_id])->get()->all();
                     if($collegeStudent != null)
                     {
-                        foreach($collegeStudent as $c)
-                        {
-                            return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations', 'c', 'row', 'collegeStudent'));
-                        }
+                        return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations', 'row', 'collegeStudent'));
                     }else{
                         return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations', 'collegeStudent'));
                     }

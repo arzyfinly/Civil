@@ -9,7 +9,8 @@ use App\Http\Controllers\{
     ListOfAttendeesController,
     PracticalImplementationController,
     PracticumGroupController,
-    DataMahasiswaController
+    DataMahasiswaController,
+    PracticumPriceController
 };
 
 /*
@@ -48,4 +49,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/kelompok',                         [App\Http\Controllers\PracticumGroupController::class, 'index'])->name('practicum-group');
     Route::resource('dataMahasiswa',                CollegeStudentController::class);
     Route::get('/dataMahasisa',                     [App\Http\Controllers\CollegeStudentController::class, 'index'])->name('student-data');
+    Route::resource('hargaPraktikum',               PracticumPriceController::class);
+    Route::get('/hargaPraktikum',                   [App\Http\Controllers\PracticumPriceController::class, 'index'])->name('practicumPrice');
 });
