@@ -15,7 +15,7 @@
                     </a>
                     <div class="dropdown-menu" style="width:100%;" aria-labelledby="dropdownMenuButton">
                         <a class="sidebar-link" href="{{ route('praktikum') }}">Pendaftaran</a>
-                        <a class="sidebar-link" href="#">Daftar Hadir</a>
+                        <a class="sidebar-link" href="{{ route('listOfAttendees') }}">Daftar Hadir</a>
                         <a class="sidebar-link" href="#">BA Pelaksanaan</a>
                         <a class="sidebar-link" href="#">BA Pelaksanaan Ujian</a>
                         <a class="sidebar-link" href="#">Harga Praktikum</a>

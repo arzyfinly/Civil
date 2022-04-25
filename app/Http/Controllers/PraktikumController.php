@@ -8,7 +8,7 @@ use App\Models\Practicum;
 use App\Models\User;
 use App\Models\CollegeStudent;
 use App\Http\Requests\PraktikumCreateRequest;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PraktikumController extends Controller
 {
@@ -66,6 +66,7 @@ class PraktikumController extends Controller
             }
             else
             {
+                Alert::info('Data Profile!!', 'Anda belum mengisi data pribadi');
                 return redirect('profile');
             }
         }   
@@ -74,7 +75,7 @@ class PraktikumController extends Controller
     {
         $data = $request->all();
         PracticumRegistration::create($data);
-        // toast()->success('Data have been succesfully saved!');
+        Alert::success('Success', 'Data have been succesfully saved!');
         return redirect('praktikum');
     }
 

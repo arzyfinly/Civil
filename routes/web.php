@@ -6,8 +6,8 @@ use App\Http\Controllers\{
     PraktikumController,
     InventarisController,
     ProfileController,
-    DafdirController,
-    PelaksanaanController,
+    ListOfAttendeesController,
+    PracticalImplementationController,
     PracticumGroupController,
     DataMahasiswaController
 };
@@ -36,10 +36,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/praktikum',                        [App\Http\Controllers\PraktikumController::class, 'index'])->name('praktikum');
     Route::get('/praktikum/pendaftaran/create',     [App\Http\Controllers\PraktikumController::class, 'pendaftaranCreate'])->name('praktikum.pendaftaran.create');
     Route::get('/praktikum/{$id}/edit',             [App\Http\Controllers\PraktikumController::class, 'pendaftaranEdit'])->name('pendaftaran.edit');
-    Route::resource('daftarHadir',                  DafdirController::class);
-    Route::get('/daftarHadir',                      [App\Http\Controllers\DafdirController::class, 'index'])->name('daftarHadir');
-    Route::resource('pelaksanaan',                  PelaksanaanController::class);
-    Route::get('/pelaksanaan',                      [App\Http\Controllers\PelaksanaanController::class, 'index'])->name('pelaksanaan');
+    Route::resource('daftarHadir',                  ListOfAttendeesController::class);
+    Route::get('/daftarHadir',                      [App\Http\Controllers\ListOfAttendeesController::class, 'index'])->name('listOfAttendees');
+    Route::resource('pelaksanaan',                  PracticalImplementationController::class);
+    Route::get('/pelaksanaan',                      [App\Http\Controllers\PracticalImplementationController::class, 'index'])->name('practicalImplementation');
     Route::resource('inventaris',                   InventarisController::class);
     Route::get('/inventaris',                       [App\Http\Controllers\InventarisController::class, 'index'])->name('inventaris');
     Route::resource('profile',                      ProfileController::class);

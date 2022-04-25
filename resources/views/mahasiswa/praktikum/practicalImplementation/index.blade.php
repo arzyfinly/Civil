@@ -3,7 +3,7 @@
 @include('sweetalert::alert')
 
 @section('banner')
-<div class="banner-content mb-12">
+<div class="banner-content mb-3">
 <form action="{{ route('praktikum.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="section">
@@ -11,15 +11,18 @@
             <div class="card">
                 <div class="card-body"> 
                     <div style="text-align: center;" class="mb-3">
-                        <h4>{{__('Daftar Hadir')}}</h4>
+                        <h4>{{__('Pelaksanaan Praktikum')}}</h4>
                     </div>
-                    <div class="card col-md-6">
+                    <div class="card col-md-12">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <table class="table table-borderless">
                                     <thead>
                                         <tr>
                                             <th><strong>Judul Matkul</strong></th>
+                                            <th><strong>:</strong></th>
+                                            <th><strong>Bahan</strong></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,54 +54,10 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td><input type="button" class="btn btn-primary" value="Presensi" disabled></td>
+                                            <td><input type="submit" class="btn btn-primary btn-sm" value="Presensi" disabled="disabled"></td>
                                         </tr>
                                     </tbody>
                                 </table>                                   
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card col-md-6">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <table class="table table-borderless">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <h4><strong>Catatan</strong></h4>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <textarea name="catatan" rows="2" cols="56" disabled placeholder="Catatan"></textarea>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </div>
-                                </table>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card col-md-6">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <table class="table table-borderless">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <h4><strong>History</strong></h4>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </div>
-                                </table>
                             </li>
                         </ul>
                     </div>

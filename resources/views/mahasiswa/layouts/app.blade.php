@@ -24,14 +24,13 @@
 </head>
 
 <body data-spy="scroll" data-target=".fixed-top">
-    @include('sweetalert::alert')
     <div class="banner-area banner-3">
         <div class="overlay dark-overlay"></div>
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                        <div class="col-lg-12 m-auto text-center col-sm-12 col-md-12">
                             @yield('banner')
                         </div>
                     </div>
@@ -48,19 +47,19 @@
     <!-- Bootstrap 4.3.1 -->
     <script src="{{ asset('style/student/plugins/bootstrap/js/popper.min.js')}}"></script>
     <script src="{{ asset('style/student/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-   <!-- Woow animtaion -->
+    <!-- Woow animtaion -->
     <script src="{{ asset('style/student/plugins/counterup/wow.min.js')}}"></script>
     <script src="{{ asset('style/student/plugins/counterup/jquery.easing.1.3.js')}}"></script>
-     <!-- Counterup -->
+    <!-- Counterup -->
     <script src="{{ asset('style/student/plugins/counterup/jquery.waypoints.js')}}"></script>
     <script src="{{ asset('style/student/plugins/counterup/jquery.counterup.min.js')}}"></script>
 
     <!-- Google Map -->
     <script src="{{ asset('style/student/plugins/google-map/gmap3.min.js')}}"></script>
-    
-<!-- Contact Form -->
-    <script src="{{ asset('style/student/plugins/jquery/contact.js')}}"></script>
+
     <script src="{{ asset('style/student/js/custom.js')}}"></script>
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
+    @include('sweetalert::alert')
     <script>
         $(document).ready(function(){
             $(document).on('change', '.praktikum', function(){

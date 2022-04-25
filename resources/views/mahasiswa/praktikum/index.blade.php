@@ -1,15 +1,14 @@
 @extends('mahasiswa.layouts.app')
 @section('title', 'Praktikum')
-@include('sweetalert::alert')
 
 @section('banner')
 <div class="banner-content mb-3">
     <div class="section">
         <div class="container">
             <div class="card">
-                <div class="card-body"> 
+                <div class="card-body">
                     <div style="text-align: center;" class="mb-3">
-                        <h4>{{__('Pendaftaran Praktikum')}}</h4>
+                        <h4>{{__('Praktikum')}}</h4>
                     </div>
                     <table class="table table-borderless">
                         <tbody>
