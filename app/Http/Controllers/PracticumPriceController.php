@@ -30,4 +30,36 @@ class PracticumPriceController extends Controller
             return view("admin.praktikum.practicumPrice.index", compact('practicum'));
         }
     }
+    public function create()
+    {
+        $practicum = Practicum::all();
+        dd($practicum);
+        return view("admin.praktikum.practicumPrice.create", compact('practicum'));
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function show(PracticumAttendance $practicumAttendance)
+    {
+        //
+    }
+
+    public function edit(PracticumAttendance $practicumAttendance)
+    {
+        //
+    }
+
+    public function update(Request $request, PracticumAttendance $practicumAttendance)
+    {
+        //
+    }
+
+    public function destroy(PracticumAttendance $practicumAttendance)
+    {
+        //
+    }
+
 }

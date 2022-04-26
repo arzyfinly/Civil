@@ -10,7 +10,8 @@ use App\Http\Controllers\{
     PracticalImplementationController,
     PracticumGroupController,
     DataMahasiswaController,
-    PracticumPriceController
+    PracticumPriceController,
+    CollegeStudentController
 };
 
 /*

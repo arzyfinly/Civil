@@ -1,18 +1,19 @@
-<div class="col-md-4">
-    <div class="form-group">
-        <input type="checkbox" class="form-check-input" id="check1" checked>
-        <label class="form-check-label" for="exampleCheck1">Memenuhi persyaratan lain sesuai dengan peraturan yang berlaku</label>
-    </div>
-</div>
-<div class="col-md-4">
-    <div class="form-group">
-        <input type="checkbox" class="form-check-input" id="check2" checked>
-        <label class="form-check-label" for="exampleCheck1">Terdaftar sebagai mahasiswa dalam tahun akademik berjalan dengan melakukan KRS</label>
-    </div>
-</div>
-<div class="col-md-4">
-    <div class="form-group">
-        <input type="checkbox" class="form-check-input" id="check3" checked>
-        <label class="form-check-label" for="exampleCheck1">Akan menempuh atau lulus mata kuliah yang berkaitan dengan pelaksanaan praktikum</label>
-    </div>
-</div>
+<table class="table table-borderless">
+    <tbody>
+        <tr>
+            <td class="col-sm-2" align="left">#</td>
+            <td class="col-sm-1">:</td>
+            <td class="col-sm-0" align="left"></td>
+        </tr>
+        <tr>
+            <td class="col-sm-1" align="left">Praktikum</td>
+            <td class="col-sm-1">:</td>
+            <td class="col-sm-0" align="left"><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td class="col-sm-1" align="left">Harga</td>
+            <td class="col-sm-1">:</td>
+            <td class="col-sm-0" align="left"><input class="form-control price" type="text" name="price"> </td>
+        </tr>
+    </tbody>
+</table>

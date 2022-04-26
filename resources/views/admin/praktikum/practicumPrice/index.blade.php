@@ -12,11 +12,30 @@
                     {{ __('This page for Admin') }}
                 </p>
             </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        @include('admin.praktikum.practicumPrice.create')
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             <table class="table table-flush" id="myTable">
                 <div class="table-responsive py-4">
                     <div class="container">
                         <div class="col-md-12 text-right">
-                            <a href="{{ route('inventaris.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
                     <thead class="thead-light">

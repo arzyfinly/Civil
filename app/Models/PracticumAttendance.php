@@ -14,10 +14,10 @@ class PracticumAttendance extends Model
     protected $fillable = [
         'college_student_id',
         'practicum_id',
-        'status', 
+        'status',
         'present_time',
     ];
-    protected $with = ['collegeStudent','practicum','practicum_group_id'];
+    protected $with = ['collegeStudent','practicum'];
 
     public function collegeStudent(){
         return $this->belongsTo(CollegeStudent::class, 'college_student_id');
