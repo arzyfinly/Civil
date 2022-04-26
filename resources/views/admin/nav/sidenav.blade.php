@@ -20,6 +20,7 @@
                         <a class="sidebar-link" href="#">BA Pelaksanaan Ujian</a>
                         <a class="sidebar-link" href="{{ route('practicum-group') }}">Kelompok</a>
                         <a class="sidebar-link" href="{{ route('practicumPrice') }}">Harga Praktikum</a>
+                        <a class="sidebar-link" href="{{ route('student-data') }}">Data Mahasiswa</a>
                     </div>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -34,9 +35,6 @@
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="blank.html" aria-expanded="false"><i class="me-3 fa fa-th-list"
                             aria-hidden="true"></i><span class="hide-menu">Pengujian</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                    href="{{ route('student-data') }}" aria-expanded="false"><i class="me-3 fa fa-address-book"
-                        aria-hidden="true"></i><span class="hide-menu">Data Mahasiswa</span></a></li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/dataMahasisa',                     [App\Http\Controllers\CollegeStudentController::class, 'index'])->name('student-data');
     Route::resource('hargaPraktikum',               PracticumPriceController::class);
     Route::get('/hargaPraktikum',                   [App\Http\Controllers\PracticumPriceController::class, 'index'])->name('practicumPrice');
+    Route::delete('/hargaPracticum/{id}',             [App\Http\Controllers\PracticumPriceController::class, 'destroy']);
     Route::resource('practiceExam',                 PracticeExamController::class);
     Route::get('/practiceExam',                     [App\Http\Controllers\PracticeExamController::class, 'index'])->name('practiceExam');
 });
