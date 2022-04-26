@@ -65,9 +65,9 @@ class PracticumPriceController extends Controller
         //
     }
 
-    public function destroy(PracticumAttendance $practicumAttendance)
+    public function destroy($id)
     {
-        //
+        Alert::success('Success', 'Data have been succesfully saved!');
     }
 
 }

@@ -43,6 +43,7 @@
                         @if($practicum != null)
                         @foreach ($practicum as $row)
                             <tr>
+                                <input type="text" hidden value="{{ $row->id }}" id="id">
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $row->name }}</td>
                                 <td>{{ $row->price }}</td>
@@ -54,7 +55,7 @@
                                                 <i class="fas fa-pen-square"></i></span></a>
                                     {{-- @endcan
                                     @can('salary-delete') --}}
-                                        <button onclick="deleteItem(this)" data-id=""
+                                        <button onclick="deleteData()"
                                             class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
                                             data-toggle="tooltip" data-placement="top" title="Remove">
                                             <i class="fas fa-trash"></i>
@@ -78,15 +79,14 @@
             </div>
         </div>
     </div>
-
-    <div class="modal fade" style="background: transparent;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" style="background: none" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-                @include('admin.praktikum.practicumPrice.create')
+            <div class="modal-content" style="border-radius: 15px">
+                <div class="modal-body">
+                    @include('admin.praktikum.practicumPrice.create')
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 </div>
 @endsection
