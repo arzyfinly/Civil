@@ -48,14 +48,10 @@
                                 <td>{{ $row->price }}</td>
                                 @role('admin')
                                 <td style="vertical-align: middle;">
-                                    <a href=""
-                                        class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
-                                            class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
                                     {{-- @can('salary-edit') --}}
-                                        <a href=""
-                                            class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
-                                            data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                                class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
+                                        <a href="" class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
+                                            data-toggle="tooltip" data-placement="top" title="Edit"><span class="btn-inner--icon">
+                                                <i class="fas fa-pen-square"></i></span></a>
                                     {{-- @endcan
                                     @can('salary-delete') --}}
                                         <button onclick="deleteItem(this)" data-id=""
@@ -82,7 +78,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="modal fade" style="background: transparent;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
