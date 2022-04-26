@@ -32,14 +32,22 @@ class PracticumPriceController extends Controller
     }
     public function create()
     {
-        $practicum = Practicum::all();
-        dd($practicum);
+        $practicum = Practicum::all();        
         return view("admin.praktikum.practicumPrice.create", compact('practicum'));
     }
 
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+            $practicum = Practicum::create($data);
+    
+            if($practicum){
+                Session::flash('message', "Success");
+                return redirect()->route('practicumPrice');
+            } else {
+                Session::flash('message', "Failed");
+                return redirect()->route('practicumPrice');
+            }
     }
 
     public function show(PracticumAttendance $practicumAttendance)
