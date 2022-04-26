@@ -30,7 +30,7 @@
                         <a class="dropdown-item" href="{{ route('praktikum.create') }}">Pendaftaran Praktikum</a>
                         <a class="dropdown-item" href="{{ route('listOfAttendees') }}">Daftar Hadir</a>
                         <a class="dropdown-item" href="{{ route('practicalImplementation') }}">Pelaksanaan</a>
-                        <a class="dropdown-item" href="">Pelaksanaan Ujian Praktikum</a>
+                        <a class="dropdown-item" href="{{ route('practiceExam') }}">Pelaksanaan Ujian Praktikum</a>
                     </div>
                 </div>
                 <li class="nav-item">
