@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 @section('title', 'Praktikum')
+@include('sweetalert::alert')
 
 @section('content')
 <div class="row">
@@ -43,7 +44,6 @@
                         @if($practicum != null)
                         @foreach ($practicum as $row)
                             <tr>
-                                <input type="text" hidden value="{{ $row->id }}" id="id">
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $row->name }}</td>
                                 <td>{{ $row->price }}</td>
@@ -55,7 +55,7 @@
                                                 <i class="fas fa-pen-square"></i></span></a>
                                     {{-- @endcan
                                     @can('salary-delete') --}}
-                                        <button onclick="deleteData()"
+                                        <button onclick="deleteData(this)" data-id="{{ $row->id }}"
                                             class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
                                             data-toggle="tooltip" data-placement="top" title="Remove">
                                             <i class="fas fa-trash"></i>
@@ -89,4 +89,5 @@
         </div>
     </div>
 </div>
+@include('admin.praktikum.practicumPrice.scriptDelete')
 @endsection

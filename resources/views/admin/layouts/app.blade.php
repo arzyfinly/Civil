@@ -92,29 +92,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
-    @include('sweetalert::alert')
-    <script>
-        function deleteData()
-        {
-            var id = document.getElementById("id").value;
-            Swal.fire({
-                icon: 'error',
-                title: 'Hapus Data!',
-                text: "Apakah anda yakin ingin menghapus data ini??",
-                showConfirmButton: true,
-                showCancelButton: true
-            }).then((result) => {
-                if(result.isConfirmed){
-                    $.ajax({
-                        type: "DELETE",
-                        url: "hargaPracticum/"+id,
-                        data: {"_token": '{{csrf_token()}}'}
-                    });
-                }else if(result.isDenied){
-
-                }
-            });
-        }
-    </script>
+    
 </body>
 </html>

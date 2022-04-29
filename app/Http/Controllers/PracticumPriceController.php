@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\Practicum;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\ValidationException;
-use Session;
 
 class PracticumPriceController extends Controller
 {
@@ -42,32 +40,32 @@ class PracticumPriceController extends Controller
             $practicum = Practicum::create($data);
     
             if($practicum){
-                Session::flash('message', "Success");
-                return redirect()->route('practicumPrice');
+                toast()->success('Success', 'Data have been succesfully saved!');
+                return redirect()->route('hargaPraktikum.index');
             } else {
-                Session::flash('message', "Failed");
-                return redirect()->route('practicumPrice');
+                toast()->success('Success', 'Data have been succesfully saved!');
+                return redirect()->route('hargaPraktikum.index');
             }
     }
 
-    public function show(PracticumAttendance $practicumAttendance)
+    public function show(Practicum $practicumAttendance)
     {
         //
     }
 
-    public function edit(PracticumAttendance $practicumAttendance)
+    public function edit(Practicum $practicumAttendance)
     {
         //
     }
 
-    public function update(Request $request, PracticumAttendance $practicumAttendance)
+    public function update(Request $request, Practicum $practicumAttendance)
     {
         //
     }
 
     public function destroy($id)
     {
-        Alert::success('Success', 'Data have been succesfully saved!');
+            $Practicum = Practicum::find($id);
+            $d = $Practicum->delete();
     }
-
 }
