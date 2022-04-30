@@ -1,4 +1,3 @@
-@include('sweetalert::alert')
     <script>
         function deleteData(e)
         {
@@ -18,11 +17,20 @@
                         data: {"_token": '{{csrf_token()}}',
                                "_method": "DELETE"},
                     }).then((result) => {
-                                    // Reload the Page
                         location.reload();
+                        Swal.fire({
+                            icon: 'success',
+                            title: "Deleted!",
+                            text: "Data berhasil di hapus",
+                            showConfirmButton: true,
+                        });
                        });
                 }else if(result.isDenied){
-
+                    Swal.fire({
+                        icon: 'error',
+                        title: "Cancelled",
+                        text: "Menhapus data dibatalkan :)",
+                    });
                 }
             });
         }

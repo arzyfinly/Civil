@@ -37,15 +37,15 @@ class PracticumPriceController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-            $practicum = Practicum::create($data);
-    
-            if($practicum){
-                toast()->success('Success', 'Data have been succesfully saved!');
-                return redirect()->route('hargaPraktikum.index');
-            } else {
-                toast()->success('Success', 'Data have been succesfully saved!');
-                return redirect()->route('hargaPraktikum.index');
-            }
+        $practicum = Practicum::create($data);
+
+        if($practicum){
+            Alert::success('Success', 'Data have been succesfully created!');
+            return redirect()->route('hargaPraktikum.index');
+        } else {
+            Alert::error('Error', 'Data was not created!');
+            return redirect()->route('hargaPraktikum.index');
+        }
     }
 
     public function show(Practicum $practicumAttendance)
