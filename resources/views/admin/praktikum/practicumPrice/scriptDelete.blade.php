@@ -24,7 +24,7 @@
                             text: "Data berhasil di hapus",
                             showConfirmButton: true,
                         });
-                       });
+                    });
                 }else if(result.isDenied){
                     Swal.fire({
                         icon: 'error',
