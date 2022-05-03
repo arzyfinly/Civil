@@ -38,13 +38,18 @@ class PraktikumController extends Controller
             }
         }
     }
+    public function getID($id)
+    {
+        $collegeStudent = CollegeStudent::find($id);
+        return response()->json($collegeStudent, 200);
+    }
     public function create()
     {
         if (auth()->user()->hasRole('admin')) {
-            $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get();
+            $collegestudents = CollegeStudent::all();
             $practicums = Practicum::all();
-            return view('admin.praktikum.index', compact(
-                'collegestudent','practicums'
+            return view('admin.praktikum.create', compact(
+                'collegestudents','practicums'
             ));
         } else if (auth()->user()->hasRole('student')) {
             $c_student = CollegeStudent::where('user_id', auth()->user()->id)->get()->all();
@@ -95,14 +100,17 @@ class PraktikumController extends Controller
      */
     public function show($id)
     {
-        
+        dd($id);
+        $collegeStudent =  CollegeStudent::where('id', $id)->get()->all();
+
+        // return response()->json($collegeStudent);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Respons
      */
     public function edit($id)
     {
@@ -170,7 +178,7 @@ class PraktikumController extends Controller
 
     public function delete($id = null)
     {
-        $model = Salary::onlyTrashed();
+        $model = CollegeStudent::onlyTrashed();
         if ($id != null) {
             $model->where('id', $id)->forceDelete();
             return redirect()->route('trash');

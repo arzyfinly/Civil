@@ -17,8 +17,6 @@ class PracticumPriceController extends Controller
     
     public function index()
     {
-        $id_user = Auth::user()->id;
-
         $practicum = Practicum::all();
         if($practicum != null)
         {
@@ -53,14 +51,21 @@ class PracticumPriceController extends Controller
         //
     }
 
-    public function edit(Practicum $practicumAttendance)
+    public function edit($id)
     {
-        //
+        $practicum = Practicum::find($id);  
+        return view('admin.praktikum.practicumPrice.edit',compact(
+            'practicum'
+        ));
     }
 
-    public function update(Request $request, Practicum $practicumAttendance)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $practicum = Practicum::find($id);
+        $practicum->update($data);
+        toast()->success('Success', 'Data have been succesfully saved!');
+        return redirect()->route('hargaPraktikum.index');
     }
 
     public function destroy($id)
