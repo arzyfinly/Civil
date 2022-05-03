@@ -1,6 +1,5 @@
 @extends('admin.layouts.app')
 @section('title', 'Praktikum')
-@include('sweetalert::alert')
 
 @section('content')
 <div class="row">
