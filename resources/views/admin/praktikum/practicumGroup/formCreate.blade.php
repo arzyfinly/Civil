@@ -1,18 +1,27 @@
-<div class="col-md-4">
-    <div class="form-group">
-        <input type="checkbox" class="form-check-input" id="check1" checked>
-        <label class="form-check-label" for="exampleCheck1">Memenuhi persyaratan lain sesuai dengan peraturan yang berlaku</label>
-    </div>
-</div>
-<div class="col-md-4">
-    <div class="form-group">
-        <input type="checkbox" class="form-check-input" id="check2" checked>
-        <label class="form-check-label" for="exampleCheck1">Terdaftar sebagai mahasiswa dalam tahun akademik berjalan dengan melakukan KRS</label>
-    </div>
-</div>
-<div class="col-md-4">
-    <div class="form-group">
-        <input type="checkbox" class="form-check-input" id="check3" checked>
-        <label class="form-check-label" for="exampleCheck1">Akan menempuh atau lulus mata kuliah yang berkaitan dengan pelaksanaan praktikum</label>
-    </div>
-</div>
+<table class="table table-borderless">
+    <tbody>
+        <tr>
+            <td class="col-sm-1" align="left"><label> Praktikum </label></td>
+            <td class="col-sm-1">:</td>
+            <td class="col-sm-0" align="left">
+                <select name="practicum" id="practicum" class="form-control practicum">
+                    <option value="0" disabled="true" selected="true">Select Practicum</option>
+                    @foreach ($practicums as $prac)
+                        <option value="{{ $prac->id }}">{{ $prac->name }}</option>
+                    @endforeach
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-1" align="left"><label> Nama Mahasiswa </label></td>
+            <td class="col-sm-1">:</td>
+            <td class="col-sm-0" align="left">
+                <select name="nama" id="nama" class="form-control nama">
+                    <option value="">
+
+                    </option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>

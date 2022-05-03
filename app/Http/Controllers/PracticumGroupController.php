@@ -32,14 +32,15 @@ class PracticumGroupController extends Controller
                         foreach($practicums as $p)
                         {
                             return view('admin.praktikum.practicumGroup.index', compact(
-                                'practicumregistrations','p', 'row', 'c'
+                                'practicumregistrations','p', 'row', 'c', 'collegeStudent', 'practicums'
                             ));
                         }
                     }
                 }
             }else{
+                $practicums = Practicum::all();
                 return view('admin.praktikum.practicumGroup.index', compact(
-                    'practicumregistrations'
+                    'practicumregistrations', 'practicums'
                 ));
             }
         }else{
