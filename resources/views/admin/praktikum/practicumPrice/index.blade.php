@@ -49,7 +49,7 @@
                                 @role('admin')
                                 <td style="vertical-align: middle;">
                                     {{-- @can('salary-edit') --}}
-                                        <a href="" class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
+                                        <a href="{{ route('hargaPraktikum.edit', $row->id) }}" class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
                                             data-toggle="tooltip" data-placement="top" title="Edit"><span class="btn-inner--icon">
                                                 <i class="fas fa-pen-square"></i></span></a>
                                     {{-- @endcan

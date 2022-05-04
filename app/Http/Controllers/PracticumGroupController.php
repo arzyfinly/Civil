@@ -6,6 +6,7 @@ use App\Models\PracticumRegistration;
 use Illuminate\Http\Request;
 use App\Models\Practicum;
 use App\Models\User;
+use DB;
 use App\Models\CollegeStudent;
 use App\Http\Requests\PraktikumCreateRequest;
 
@@ -46,5 +47,19 @@ class PracticumGroupController extends Controller
         }else{
             echo "Nothing";
         }
+    }
+
+    public function GetCollegeStudent(Request $req) {
+        $college = DB::table('practicum_registrations')
+                ->where('practicum_id', $req->praktikum_id)
+                ->whereNull('group')
+                ->join('college_students', 'practicum_registrations.college_student_id', '=', 'college_students.id')
+                ->get()->all();
+
+        return $college;
+    }
+
+    public function store(Request $request){
+
     }
 }
