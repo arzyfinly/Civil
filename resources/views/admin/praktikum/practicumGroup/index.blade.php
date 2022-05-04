@@ -16,7 +16,7 @@
                 <div class="table-responsive py-4">
                     <div class="container">
                         <div class="col-md-12 text-right">
-                            <a href="{{ route('inventaris.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
                     <thead class="thead-light">
@@ -83,5 +83,15 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" style="background: none" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 15px">
+                <div class="modal-body">
+                    @include('admin.praktikum.practicumGroup.create')
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+@include('admin.praktikum.practicumGroup.scriptGetData')
 @endsection

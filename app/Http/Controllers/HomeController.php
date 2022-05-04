@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Artisan;
+use App\Models\PracticumRegistration;
+use App\Models\CollegeStudent;
 
 
 class HomeController extends Controller
@@ -28,11 +30,26 @@ class HomeController extends Controller
     public function index()
     {
         $auth = auth()->user();
+
         
         if($auth->hasRole('admin')){
             return view('admin.index');
         } elseif($auth->hasRole('student')) {
-            return view('mahasiswa.index');
+            $college_student = CollegeStudent::where('id', $auth->id)->get()->all();
+    
+            foreach($college_student as $college)
+            {
+                $practicum_registration = PracticumRegistration::where('college_student_id', $college->id)->get()->all();
+                if($practicum_registration != null)
+                {
+                    foreach($practicum_registration as $prak)
+                    {
+                        return view('mahasiswa.index', compact('practicum_registration', 'prak'));
+                    }
+                }else{
+                    return view('mahasiswa.index', compact('practicum_registration'));
+                }
+            }
         }
     }
 }

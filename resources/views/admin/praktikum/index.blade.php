@@ -64,22 +64,30 @@
                                 <td>{{ idr($row->practicum->price) }}</td>
                                 <td>
                                     @if($row->status_pembayaran == 0)
-                                        Belum Lunas
+                                        <div class="col-md-12 btn btn-sm btn-outline-danger rounded-pill">
+                                            Belum Lunas
+                                        </div>    
                                     @elseif($row->status_pembayaran == 1)
-                                        Lunas
+                                        <div class="col-md-12 btn btn-outline-success rounded-pill">
+                                            Lunas
+                                        </div>
                                     @endif
                                 </td>
                                 <td>
                                     @if($row->status == 0)
-                                        <i class="fa fa-toggle-off"></i>
+                                        <div class="col-md-12 btn btn-outline-danger rounded-pill">
+                                            <i class="fa fa-toggle-off"></i>
+                                        </div>
                                     @elseif($row->status == 1)
-                                        <i class="fa fa-toggle-on"></i>
+                                        <div class="col-md-12 btn btn-outline-success rounded-pill">
+                                            <i class="fa fa-toggle-on"></i>
+                                        </div>
                                     @endif
                                 </td>
                                 @role('admin')
                                 <td style="vertical-align: middle;">
-                                    <a href="#show" rel="modal:open" class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle">
-                                        <span class="btn-inner--icon"><i class="fas fa-eye"></i></span>
+                                    <a href="#show" rel="modal:open" class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle" data-toggle="modal" data-target="#exampleModal">
+                                        <span class="btn-inner--icon"><i class="fas fa-cogs"></i></span>
                                     </a>
                                     <div id="show" class="modal">
                                         <p>Thanks for clicking. That felt good.</p>
@@ -106,6 +114,49 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="modal fade" style="background: none" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="border-radius: 15px">
+                    <div class="modal-body">
+                        <div style="text-align: center;">
+                            <h4>Edit Data</h4>
+                        </div>
+                        <form action="{{ route('kelompok.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-sm-4" align="left"><label> Status Pembayaran </label></td>
+                                        <td class="col-sm-1">:</td>
+                                        <td class="col-sm-0" align="left">
+                                            <select name="practicum" class="form-control practicum">
+                                                <option disabled="true" selected="true">Pilih Status Pembayaran</option>
+                                                <option value="0">Belum Lunas</option>
+                                                <option value="1">Lunas</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-1" align="left"><label> Status Acc </label></td>
+                                        <td class="col-sm-1">:</td>
+                                        <td class="col-sm-0" align="left">
+                                            <select name="practicum" class="form-control practicum">
+                                                <option disabled="true" selected="true">Pilih Status Acc</option>
+                                                <option value="0">Belum Acc</option>
+                                                <option value="1">Acc</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            &nbsp;
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

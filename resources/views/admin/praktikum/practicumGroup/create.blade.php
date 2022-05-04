@@ -1,14 +1,10 @@
-@extends('layouts.pendaftaran-layout')
-@section('title', 'Praktikum')
-@include('sweetalert::alert')
-
-@section('content')
 <div style="text-align: center;">
-    <h4>Pendaftaran Praktikum</h4>
+    <h4>Kelompok Praktikum</h4>
 </div>
-<form action="{{ route('praktikum.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('kelompok.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    @include('mahasiswa.practicum.formCreate')
+    @include('admin.praktikum.practicumGroup.formCreate')
+    <button type="submit" class="btn btn-primary">Create</button>
+    &nbsp;
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 </form>
-
-@endsection

@@ -12,14 +12,6 @@
                     {{ __('This page for Admin') }}
                 </p>
             </div>
-            <div class="col-4">
-                <select class="form-control " name="" id="mahasiswa">
-                    <option hidden>Pilih Mahasiswa</option>
-                    @foreach ($collegestudents as $row)
-                    <option value="{{ $row->id }}">{{ $row->first_name }} {{ $row->last_name }}</option>
-                    @endforeach
-                </select>
-            </div>
             <form action="{{ route('praktikum.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @include('admin\praktikum\formCreate')

@@ -2,6 +2,18 @@
     <tbody>
         <input type="text" name="college_student_id" id="collegeId" hidden>
         <tr>
+            <td align="left">Pilih Mahasiswa</td>
+            <td class="col-xs">:</td>
+            <td class="col-md-10">
+                <select class="form-control" id="mahasiswa">
+                    <option hidden>Pilih Mahasiswa</option>
+                    @foreach ($collegestudents as $row)
+                    <option value="{{ $row->id }}">{{ $row->first_name }} {{ $row->last_name }}</option>
+                    @endforeach
+                </select>
+            </td>
+        </tr>
+        <tr>
             <td align="left">NPM</td>
             <td class="col-xs">:</td>
             <td class="col-xs" align="left"><input class="form-control" type="text" id="npm" disabled></td>
