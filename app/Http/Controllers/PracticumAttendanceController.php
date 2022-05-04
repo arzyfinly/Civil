@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\PracticumAttendance;
 use Illuminate\Http\Request;
+use App\Models\Practicum;
+use App\Models\PracticumRegistration;
+use App\Models\User;
+use App\Models\CollegeStudent;
 
 class PracticumAttendanceController extends Controller
 {
@@ -14,7 +18,21 @@ class PracticumAttendanceController extends Controller
      */
     public function index()
     {
-        //
+        if (auth()->user()->hasRole('admin')) {
+            $practicumregistrations = PracticumRegistration::all();
+            $practicums = Practicum::all();
+            return view('admin.praktikum.index', compact(
+                'practicumregistrations','practicums'
+            ));
+        } else if (auth()->user()->hasRole('student')) {
+            $collegestudent = auth()->user()->id;
+            $practicumregistrations = PracticumRegistration::where('college_student_id', $collegestudent)->get()->all();
+            // dd($practicumregistrations);
+                        
+            return view('mahasiswa.praktikum.practicalImplementation.index', compact(
+                'practicumregistrations',
+            ));
+        }
     }
 
     /**

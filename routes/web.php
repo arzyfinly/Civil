@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     PendaftaranPraktikumController,
+    PracticumAttendanceController,
     PraktikumController,
     InventarisController,
     ProfileController,
@@ -38,7 +39,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/praktikum/get/{id?}',              [App\Http\Controllers\PraktikumController::class, 'getID'])->name('getID');
     Route::resource('praktikum',                    PraktikumController::class);
     Route::resource('daftarHadir',                  ListOfAttendeesController::class);
-    Route::resource('pelaksanaan',                  PracticalImplementationController::class);
+    Route::resource('pelaksanaan',                  PracticumAttendanceController::class);
     Route::resource('inventaris',                   InventarisController::class);
     Route::resource('profile',                      ProfileController::class);
     Route::resource('kelompok',                     PracticumGroupController::class);
@@ -50,7 +51,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/kelompok',                         [App\Http\Controllers\PracticumGroupController::class, 'index'])->name('practicum-group');
     Route::get('/kelompok/get/praktikum',           [App\Http\Controllers\PracticumGroupController::class, 'GetCollegeStudent'])->name('practicum-group-get-by-id');
     Route::get('/profile',                          [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-    Route::get('/pelaksanaan',                      [App\Http\Controllers\PracticalImplementationController::class, 'index'])->name('practicalImplementation');
     Route::get('/inventaris',                       [App\Http\Controllers\InventarisController::class, 'index'])->name('inventaris');
     Route::get('/daftarHadir',                      [App\Http\Controllers\ListOfAttendeesController::class, 'index'])->name('listOfAttendees');
 });
