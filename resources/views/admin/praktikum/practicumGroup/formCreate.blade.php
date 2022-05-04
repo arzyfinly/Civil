@@ -4,9 +4,9 @@
             <td class="col-sm-1" align="left"><label> Praktikum </label></td>
             <td class="col-sm-1">:</td>
             <td class="col-sm-0" align="left">
-                <select name="practicum" id="practicum" class="form-control practicum">
+                <select name="practicum" id="practicum select-state" class="form-control practicum">
                     <option value="0" disabled="true" selected="true">Select Practicum</option>
-                    @foreach ($practicums as $prac)
+                    @foreach ($practicum as $prac)
                         <option value="{{ $prac->id }}">{{ $prac->name }}</option>
                     @endforeach
                 </select>

@@ -21,6 +21,7 @@
                         <a class="sidebar-link" href="{{ route('practicum-group') }}">Kelompok</a>
                         <a class="sidebar-link" href="{{ route('hargaPraktikum.index') }}">Harga Praktikum</a>
                         <a class="sidebar-link" href="{{ route('student-data') }}">Data Mahasiswa</a>
+                        <a class="sidebar-link" href="{{ route('practicumTime.index') }}">Waktu Praktikum</a>
                     </div>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

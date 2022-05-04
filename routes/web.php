@@ -13,6 +13,7 @@ use App\Http\Controllers\{
     PracticumPriceController,
     PracticeExamController,
     CollegeStudentController,
+    PracticumTimeController
 };
 
 /*
@@ -33,7 +34,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function(){ 
+Route::group(['middleware' => ['auth']], function(){
     Route::get('/home',                             [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/praktikum/get/{id?}',              [App\Http\Controllers\PraktikumController::class, 'getID'])->name('getID');
     Route::resource('praktikum',                    PraktikumController::class);
@@ -45,6 +46,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('dataMahasiswa',                CollegeStudentController::class);
     Route::resource('hargaPraktikum',               PracticumPriceController::class);
     Route::resource('practiceExam',                 PracticeExamController::class);
+    Route::resource('practicumTime',                PracticumTimeController::class);
     Route::get('/practiceExam',                     [App\Http\Controllers\PracticeExamController::class, 'index'])->name('practiceExam');
     Route::get('/dataMahasisa',                     [App\Http\Controllers\CollegeStudentController::class, 'index'])->name('student-data');
     Route::get('/kelompok',                         [App\Http\Controllers\PracticumGroupController::class, 'index'])->name('practicum-group');
