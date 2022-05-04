@@ -20,7 +20,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('style/admin/images/logo-icon.png') }}">
     <!-- Custom CSS -->
     <link href="{{ asset('style/admin/css/style.min.css') }}" rel="stylesheet">
-    
+
 </head>
 <body>
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
@@ -97,7 +97,7 @@
                 $('#praktikum').on('change', function(){
                     var id    = $('#praktikum').val().split(',')[0];
                     var price = $('#praktikum').val().split(',')[1];
-    
+
                     $('#price').val(price);
                 });
             });

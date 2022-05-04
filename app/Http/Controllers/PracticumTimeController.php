@@ -14,7 +14,12 @@ class PracticumTimeController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        if($user->hasRole('admin')){
+            return view('admin.praktikum.practicumTime.index');
+        }else{
+            echo "Nothing";
+        }
     }
 
     /**

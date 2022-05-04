@@ -66,7 +66,7 @@
                                     @if($row->status_pembayaran == 0)
                                         <div class="col-md-12 btn btn-sm btn-outline-danger rounded-pill">
                                             Belum Lunas
-                                        </div>    
+                                        </div>
                                     @elseif($row->status_pembayaran == 1)
                                         <div class="col-md-12 btn btn-outline-success rounded-pill">
                                             Lunas

@@ -28,12 +28,13 @@ class PracticumGroupController extends Controller
                 {
                     $collegeStudent = CollegeStudent::where(['id'=>$row->id])->get()->all();
                     $practicums = Practicum::where(['id'=>$row->practicum_id])->get()->all();
+                    $practicum = Practicum::all();
                     foreach($collegeStudent as $c)
                     {
                         foreach($practicums as $p)
                         {
                             return view('admin.praktikum.practicumGroup.index', compact(
-                                'practicumregistrations','p', 'row', 'c', 'collegeStudent', 'practicums'
+                                'practicumregistrations','p', 'row', 'c', 'collegeStudent', 'practicums', 'practicum'
                             ));
                         }
                     }
@@ -50,8 +51,7 @@ class PracticumGroupController extends Controller
     }
 
     public function GetCollegeStudent(Request $req) {
-        $college = DB::table('practicum_registrations')
-                ->where('practicum_id', $req->praktikum_id)
+        $college = PracticumRegistration::where(['practicum_id'=>$req->praktikum_id, 'status_pembayaran'=>1, 'status'=>1])
                 ->whereNull('group')
                 ->join('college_students', 'practicum_registrations.college_student_id', '=', 'college_students.id')
                 ->get()->all();
