@@ -99,10 +99,8 @@
                     var price = $('#praktikum').val().split(',')[1];
     
                     $('#price').val(price);
-                    $('#praktikumId').val(id);
                 });
             });
     </script>
-    @include('sweetalert::alert')
 </body>
 </html>
