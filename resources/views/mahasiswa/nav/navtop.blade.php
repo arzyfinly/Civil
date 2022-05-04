@@ -34,9 +34,6 @@
                     </div>
                 </div>
                 <li class="nav-item">
-                    <a class="nav-link smoth-scroll" href="service.html">Sewa Alat</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link smoth-scroll" href="pricing.html">Penelitian</a>
                 </li>
                 <li class="nav-item">

@@ -40,9 +40,9 @@ class PracticumGroupController extends Controller
                     }
                 }
             }else{
-                $practicums = Practicum::all();
+                $practicum = Practicum::all();
                 return view('admin.praktikum.practicumGroup.index', compact(
-                    'practicumregistrations', 'practicums'
+                    'practicumregistrations', 'practicum'
                 ));
             }
         }else{
