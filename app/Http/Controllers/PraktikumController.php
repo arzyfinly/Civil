@@ -78,10 +78,17 @@ class PraktikumController extends Controller
     }
     public function store(Request $request)
     {
-        $data = $request->all();
-        PracticumRegistration::create($data);
-        Alert::success('Success', 'Data have been succesfully saved!');
-        return redirect('praktikum');
+        if (auth()->user()->hasRole('admin')) {
+            $data = $request->all();
+            PracticumRegistration::create($data);
+            Alert::success('Success', 'Data have been succesfully saved!');
+            return redirect('praktikum');
+        } else if (auth()->user()->hasRole('student')) {
+            $data = $request->all();
+            PracticumRegistration::create($data);
+            Alert::success('Success', 'Data have been succesfully saved!');
+            return redirect('praktikum');
+        }
     }
 
     /**

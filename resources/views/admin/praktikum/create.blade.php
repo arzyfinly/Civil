@@ -47,6 +47,7 @@
                             var name = data.first_name + " " + data.last_name;
                             $('#npm').val(data.nim);
                             $('#name').val(name);
+                            $('#collegeId').val(mahasiswaID);
                         }else{
                             $('#npm').empty();
                         }

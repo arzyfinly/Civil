@@ -1,14 +1,15 @@
 <table class="table table-borderless">
     <tbody>
+        <input type="text" name="college_student_id" id="collegeId" hidden>
         <tr>
             <td align="left">NPM</td>
             <td class="col-xs">:</td>
-            <td class="col-xs" align="left"><input class="form-control" type="text" name="npm" id="npm" disabled></td>
+            <td class="col-xs" align="left"><input class="form-control" type="text" id="npm" disabled></td>
         </tr>
         <tr>
             <td align="left">Nama</td>
             <td class="col-xs">:</td>
-            <td class="col-xs" align="left"><input class="form-control" type="text" name="nama" id="name" disabled></td>
+            <td class="col-xs" align="left"><input class="form-control" type="text" id="name" disabled></td>
         </tr>
         <tr>
             <td align="left">Praktikum</td>
@@ -20,6 +21,7 @@
                     <option value="{{$row->id}},{{$row->price}}">{{ $row->name }}</option>
                     @endforeach
                 </select>
+                <input type="text" name="practicum_id" id="praktikumId" hidden>
             </td>
         </tr>
         <tr>
