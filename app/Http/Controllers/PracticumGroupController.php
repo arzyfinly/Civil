@@ -51,7 +51,7 @@ class PracticumGroupController extends Controller
 
     public function GetCollegeStudent(Request $req) {
         $college = DB::table('practicum_registrations')
-                ->where('practicum_id', $req->praktikum_id)
+                ->where('practicum_id', $req->praktikum_id, 'status', 1, 'status_pembayaran', 1)
                 ->whereNull('group')
                 ->join('college_students', 'practicum_registrations.college_student_id', '=', 'college_students.id')
                 ->get()->all();
