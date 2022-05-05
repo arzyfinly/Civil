@@ -50,16 +50,21 @@ class PracticumGroupController extends Controller
         }
     }
 
-    public function GetCollegeStudent(Request $req) {
-        $college = PracticumRegistration::where(['practicum_id'=>$req->praktikum_id, 'status_pembayaran'=>1, 'status'=>1])
+    public function GetCollegeStudent($id) {
+        $college = PracticumRegistration::where(['practicum_id'=>$id, 'status_pembayaran'=>1, 'status'=>1])
                 ->whereNull('group')
-                ->join('college_students', 'practicum_registrations.college_student_id', '=', 'college_students.id')
                 ->get()->all();
-
-        return $college;
+        return response()->json($college, 200);
     }
 
     public function store(Request $request){
 
+        $data = $request->all();
+        $id = $data['pracreg_id'];
+        $practicum_registration = PracticumRegistration::find($id);
+        $practicum_registration->update([
+            'group' => $data['group'], 'updated_at' => false
+        ]);
+        return redirect('kelompok');
     }
 }

@@ -4,7 +4,7 @@
             <td class="col-sm-1" align="left"><label> Praktikum </label></td>
             <td class="col-sm-1">:</td>
             <td class="col-sm-0" align="left">
-                <select name="practicum" id="practicum select-state" class="form-control practicum">
+                <select id="practicum select-state" class="form-control practicum">
                     <option value="0" disabled="true" selected="true">Select Practicum</option>
                     @foreach ($practicum as $prac)
                         <option value="{{ $prac->id }}">{{ $prac->name }}</option>
@@ -16,7 +16,7 @@
             <td class="col-sm-1" align="left"><label> Nama Mahasiswa </label></td>
             <td class="col-sm-1">:</td>
             <td class="col-sm-0" align="left">
-                <select name="nama" id="nama" class="form-control nama">
+                <select name="pracreg_id" id="nama" class="form-control nama">
                     <option value="0" disabled="true" selected="true">Select College</option>
                 </select>
             </td>
@@ -25,7 +25,7 @@
             <td class="col-sm-1" align="left"><label> Kelompok </label></td>
             <td class="col-sm-1">:</td>
             <td class="col-sm-0" align="left">
-                <select name="kelompok" class="form-control">
+                <select name="group" class="form-control">
                     <option value="0" disabled="true" selected="true">Select Group</option>
                     <option value="1">1</option>
                     <option value="2">2</option>

@@ -6,13 +6,14 @@
             if(id){
                 $.ajax({
                     type:'GET',
-                    url:'{{ route("practicum-group-get-by-id") }}',
-                    data:{"praktikum_id" : id },
-                    success:function(res){
+                    url:'/kelompok/get/praktikum/' + id,
+                    dataType: "json",
+                    success:function(data){
                         $("#nama").empty();
                         $("#nama").append('<option value="0" disabled="true" selected="true">Select College</option>');
-                        $.each(res,function(key,value){
-                            $("#nama").append('<option value="'+value.id+'">'+value.first_name+' '+value.last_name+'</option>');
+                        $.each(data,function(key, value){
+                            console.log(value);
+                            $("#nama").append('<option value="'+value.id+'">'+value.college_student.first_name+' '+value.college_student.last_name+'</option>');
                         });
                     }
                 });

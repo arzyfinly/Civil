@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('practicumTime',                PracticumTimeController::class);
     Route::get('/practiceExam',                     [App\Http\Controllers\PracticeExamController::class, 'index'])->name('practiceExam');
     Route::get('/kelompok',                         [App\Http\Controllers\PracticumGroupController::class, 'index'])->name('practicum-group');
-    Route::get('/kelompok/get/praktikum',           [App\Http\Controllers\PracticumGroupController::class, 'GetCollegeStudent'])->name('practicum-group-get-by-id');
+    Route::get('/kelompok/get/praktikum/{id?}',           [App\Http\Controllers\PracticumGroupController::class, 'GetCollegeStudent'])->name('practicum-group-get-by-id');
     Route::get('/profile',                          [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
     Route::get('/inventaris',                       [App\Http\Controllers\InventarisController::class, 'index'])->name('inventaris');
     Route::get('/daftarHadir',                      [App\Http\Controllers\ListOfAttendeesController::class, 'index'])->name('listOfAttendees');
