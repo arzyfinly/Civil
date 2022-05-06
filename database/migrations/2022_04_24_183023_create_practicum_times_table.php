@@ -18,6 +18,7 @@ class CreatePracticumTimesTable extends Migration
             $table->foreignId('practicum_id')->constrained('practicums');
             $table->time('start');
             $table->time('end');
+            $table->string('periode');
             $table->timestamps();
         });
     }

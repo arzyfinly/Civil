@@ -18,7 +18,7 @@
                         <a class="sidebar-link" href="{{ route('listOfAttendees') }}">Daftar Hadir</a>
                         <a class="sidebar-link" href="#">BA Pelaksanaan</a>
                         <a class="sidebar-link" href="#">BA Pelaksanaan Ujian</a>
-                        <a class="sidebar-link" href="{{ route('practicum-group') }}">Kelompok</a>
+                        <a class="sidebar-link" href="{{ route('kelompok.index') }}">Kelompok</a>
                         <a class="sidebar-link" href="{{ route('hargaPraktikum.index') }}">Harga Praktikum</a>
                         <a class="sidebar-link" href="{{ route('practicumTime.index') }}">Waktu Praktikum</a>
                     </div>

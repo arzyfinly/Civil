@@ -8,6 +8,7 @@ use App\Models\Practicum;
 use App\Models\PracticumRegistration;
 use App\Models\User;
 use App\Models\CollegeStudent;
+use App\Models\PracticumTime;
 
 class PracticumAttendanceController extends Controller
 {
@@ -18,6 +19,7 @@ class PracticumAttendanceController extends Controller
      */
     public function index()
     {
+        date_default_timezone_set("Asia/Bangkok");
         if (auth()->user()->hasRole('admin')) {
             $practicumregistrations = PracticumRegistration::all();
             $practicums = Practicum::all();
@@ -25,13 +27,26 @@ class PracticumAttendanceController extends Controller
                 'practicumregistrations','practicums'
             ));
         } else if (auth()->user()->hasRole('student')) {
-            $collegestudent = auth()->user()->id;
-            $practicumregistrations = PracticumRegistration::where('college_student_id', $collegestudent)->get()->all();
-            // dd($practicumregistrations);
-                        
-            return view('mahasiswa.praktikum.practicalImplementation.index', compact(
-                'practicumregistrations',
-            ));
+            $user_id = auth()->user()->id;
+            $college_student = CollegeStudent::where('user_id', $user_id)->get()->all();
+            foreach($college_student as $c)
+            {
+                $practicumregistrations = PracticumRegistration::where('college_student_id', $c->id)->whereNotNull('group')->get()->all();
+                if($practicumregistrations != null)
+                {
+                    foreach($practicumregistrations as $p)
+                    {
+                        $practicumTime = PracticumTime::where('practicum_id', $p->practicum_id)->get()->all();
+                        return view('mahasiswa.praktikum.practicalImplementation.index', compact(
+                            'practicumregistrations', 'practicumTime'
+                        ));
+                    }
+                }else{
+                    return view('mahasiswa.praktikum.practicalImplementation.index', compact(
+                        'practicumregistrations'
+                    ));
+                }
+            }
         }
     }
 
@@ -53,7 +68,7 @@ class PracticumAttendanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PracticumTime;
+use App\Models\Practicum;
 use Illuminate\Http\Request;
 
 class PracticumTimeController extends Controller
@@ -16,7 +17,10 @@ class PracticumTimeController extends Controller
     {
         $user = auth()->user();
         if($user->hasRole('admin')){
-            return view('admin.praktikum.practicumTime.index');
+            $practicum = Practicum::all();
+            $practicumTime = PracticumTime::all();
+            $no=1;
+            return view('admin.praktikum.practicumTime.index', compact('practicum', 'practicumTime', 'no'));
         }else{
             echo "Nothing";
         }
@@ -40,7 +44,9 @@ class PracticumTimeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        PracticumTime::create($data);
+        return redirect('practicumTime');
     }
 
     /**
@@ -83,8 +89,9 @@ class PracticumTimeController extends Controller
      * @param  \App\Models\PracticumTime  $practicumTime
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PracticumTime $practicumTime)
+    public function destroy($id)
     {
-        //
+        $practicumTime = PracticumTime::find($id);
+        $delete = $practicumTime->delete();
     }
 }

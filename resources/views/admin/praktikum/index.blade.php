@@ -123,7 +123,7 @@
                         <div style="text-align: center;">
                             <h4>Edit Data</h4>
                         </div>
-                        <form action="{{ route('kelompok.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="" method="POST" enctype="multipart/form-data">
                             @csrf
                             <table class="table table-borderless">
                                 <tbody>
