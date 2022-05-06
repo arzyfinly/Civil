@@ -12,17 +12,19 @@
                     </div>
                     <table class="table table-borderless">
                         <tbody>
-                            @foreach ($collegestudent as $row)
-                            <tr>
-                                <td class="col-sm-4" align="left">NPM</td>
-                                <td class="col-sm-1">:</td>
-                                <td class="col-sm-0" align="left">{{ $row->nim }}</td>
-                                <input type="text" hidden name="college_student_id" value="{{ $row->i }}">
-                            </tr>
-                            <tr>
-                                <td class="col-sm-1" align="left">Nama</td>
-                                <td class="col-sm-1">:</td>
-                                <td class="col-sm-0" align="left">{{ $row->first_name. " " .$row->last_name  }}</td>
+                            @foreach ($user as $u)
+                                @foreach ($collegestudent as $row)
+                                <tr>
+                                    <td class="col-sm-4" align="left">NPM</td>
+                                    <td class="col-sm-1">:</td>
+                                    <td class="col-sm-0" align="left">{{ $u->nim }}</td>
+                                    <input type="text" hidden name="college_student_id" value="{{ $row->i }}">
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-1" align="left">Nama</td>
+                                    <td class="col-sm-1">:</td>
+                                    <td class="col-sm-0" align="left">{{ $row->first_name. " " .$row->last_name  }}</td>
+                                @endforeach
                             @endforeach
                             </tr>
                             <tr>

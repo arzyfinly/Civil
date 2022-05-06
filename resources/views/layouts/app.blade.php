@@ -4,7 +4,7 @@
 	<title>Civil | Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{{ asset('style/admin/images/icons/favicon.ico')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('style/admin/vendor/bootstrap/css/bootstrap.min.cs')}}s">
@@ -14,13 +14,13 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('style/admin/fonts/Linearicons-Free-v1.0.0/icon-font.min.cs')}}s">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('style/admin/vendor/animate/animate.cs')}}s">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('style/admin/vendor/css-hamburgers/hamburgers.min.cs')}}s">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('style/admin/vendor/animsition/css/animsition.min.cs')}}s">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('style/admin/vendor/select2/select2.min.cs')}}s">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('style/admin/vendor/daterangepicker/daterangepicker.cs')}}s">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('style/admin/css/util.cs')}}s">

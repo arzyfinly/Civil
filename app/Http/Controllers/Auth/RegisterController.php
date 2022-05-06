@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
 {
@@ -68,7 +69,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'nim' => $data['nim'],
             'password' => bcrypt($data['password']),
-            
-        ])->assignRole('student');
+
+            ])->assignRole('student');
     }
 }

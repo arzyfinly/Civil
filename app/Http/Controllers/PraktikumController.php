@@ -21,6 +21,7 @@ class PraktikumController extends Controller
                 'practicumregistrations','practicums'
             ));
         } else if (auth()->user()->hasRole('student')) {
+            $user = User::where('id', auth()->user()->id)->get()->all();
             $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get()->all();
             foreach($collegestudent as $college)
             {
@@ -31,7 +32,7 @@ class PraktikumController extends Controller
                     foreach($practicum as $prk)
                     {
                         return view('mahasiswa.praktikum.index', compact(
-                            'collegestudent', 'prak', 'prk', 'practicumregistrations',
+                            'collegestudent', 'prak', 'prk', 'practicumregistrations', 'user'
                         ));
                     }
                 }

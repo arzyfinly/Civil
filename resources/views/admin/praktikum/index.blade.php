@@ -23,7 +23,7 @@
                         <tr>
                             <th>{{ __('#') }}</th>
                             <th>{{ __('Nama') }}</th>
-                            <th>{{ __('NPM') }}</th>
+                            <th>{{ __('NIM') }}</th>
                             <th>{{ __('Praktikum') }}</th>
                             <th>{{ __('Harga') }}</th>
                             <th>{{ __('Status Pembayaran') }}</th>
@@ -37,7 +37,7 @@
                         <tr>
                             <th>{{ __('#') }}</th>
                             <th>{{ __('Nama') }}</th>
-                            <th>{{ __('NPM') }}</th>
+                            <th>{{ __('NIM') }}</th>
                             <th>{{ __('Praktikum') }}</th>
                             <th>{{ __('Harga') }}</th>
                             <th>{{ __('Status Pembayaran') }}</th>
@@ -59,7 +59,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->collegeStudent->first_name. " " .$row->collegeStudent->last_name }}</td>
-                                <td>{{ $row->collegeStudent->nim }}</td>
+                                <td>{{ $row->collegeStudent->user->nim }}</td>
                                 <td>{{ $row->practicum->name }}</td>
                                 <td>{{ idr($row->practicum->price) }}</td>
                                 <td>
