@@ -9,9 +9,9 @@
                     Account Login
                 </span>
 
-                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@gmail.com">
-                    <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="example@student.net">
-                    @error('email')
+                <div class="wrap-input100 validate-input">
+                    <input id="nim" type="text" class="input100 @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}" required autofocus placeholder="nim">
+                    @error('nim')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

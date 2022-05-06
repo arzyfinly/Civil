@@ -55,6 +55,8 @@ class HomeController extends Controller
             }else{
                 return view('mahasiswa.index');
             }
+        }else{
+            return redirect('login');
         }
     }
 }
