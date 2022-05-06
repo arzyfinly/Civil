@@ -20,10 +20,10 @@
                     <span class="focus-input100-1"></span>
                     <span class="focus-input100-2"></span>
                 </div>
-                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@gmail.com">
-                    <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="example@student.net" required autocomplete="email">
+                <div class="wrap-input100 validate-input" data-validate = "Valid nim: xxxxxxxxxx">
+                    <input id="nim" type="text" class="input100 @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}" placeholder="NIM" required autocomplete="nim">
 
-                    @error('email')
+                    @error('nim')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
