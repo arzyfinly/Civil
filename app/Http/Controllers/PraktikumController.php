@@ -153,14 +153,8 @@ class PraktikumController extends Controller
      */
     public function destroy($id)
     {
-        $salary = Salary::find($id);
-        $salary->delete();
-            return response()
-                ->json(array(
-                    'success' => true,
-                    'title'   => 'Success',
-                    'message' => 'Your file has been moved to trash!'
-                ));
+        $practicum_registration = PracticumRegistration::find($id);
+        $practicum_registration->delete();
     }
     public function trash()
     {

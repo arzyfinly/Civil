@@ -5,15 +5,15 @@
 
             Swal.fire({
                 icon: 'error',
-                title: 'Keluarkan Anggota!',
-                text: "Apakah anda yakin ingin mengeluarkan anggota ini dari kelompok??",
+                title: 'Delete Data!',
+                text: "Apakah anda yakin ingin menghapus data ini??",
                 showConfirmButton: true,
                 showCancelButton: true
             }).then((result) => {
                 if(result.isConfirmed){
                     $.ajax({
                         type: "POST",
-                        url: "kelompok/"+id,
+                        url: "praktikum/"+id,
                         data: {"_token": '{{csrf_token()}}',
                                "_method": "DELETE"},
                     }).then((result) => {

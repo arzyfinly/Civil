@@ -31,24 +31,29 @@ class HomeController extends Controller
     {
         $auth = auth()->user();
 
-        
+
         if($auth->hasRole('admin')){
             return view('admin.index');
         } elseif($auth->hasRole('student')) {
             $college_student = CollegeStudent::where('id', $auth->id)->get()->all();
-    
-            foreach($college_student as $college)
+
+            if($college_student != null)
             {
-                $practicum_registration = PracticumRegistration::where('college_student_id', $college->id)->get()->all();
-                if($practicum_registration != null)
+                foreach($college_student as $college)
                 {
-                    foreach($practicum_registration as $prak)
+                    $practicum_registration = PracticumRegistration::where('college_student_id', $college->id)->get()->all();
+                    if($practicum_registration != null)
                     {
-                        return view('mahasiswa.index', compact('practicum_registration', 'prak'));
+                        foreach($practicum_registration as $prak)
+                        {
+                            return view('mahasiswa.index', compact('practicum_registration', 'prak'));
+                        }
+                    }else{
+                        return view('mahasiswa.index', compact('practicum_registration'));
                     }
-                }else{
-                    return view('mahasiswa.index', compact('practicum_registration'));
                 }
+            }else{
+                return view('mahasiswa.index');
             }
         }
     }

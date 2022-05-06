@@ -102,7 +102,7 @@
 
                                     {{-- @endcan
                                     @can('salary-delete') --}}
-                                        <button onclick="deleteItem(this)" data-id=""
+                                        <button onclick="deleteData(this)" data-id="{{ $row->id }}"
                                             class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
                                             data-toggle="tooltip" data-placement="top" title="Remove">
                                             <i class="fas fa-trash"></i>
@@ -161,4 +161,5 @@
         </div>
     </div>
 </div>
+@include('admin.praktikum.scriptDelete')
 @endsection
