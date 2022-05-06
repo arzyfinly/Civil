@@ -10,6 +10,8 @@ use DB;
 use App\Models\CollegeStudent;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\PraktikumCreateRequest;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class PracticumGroupController extends Controller
 {
@@ -50,9 +52,15 @@ class PracticumGroupController extends Controller
         return response()->json($college, 200);
     }
 
+    public function getID($id)
+    {
+        $practicumregistration = PracticumRegistration::find($id);
+        return response()->json($practicumregistration, 200);
+    }
     public function store(Request $request){
         $data = $request->all();
         $id = $data['pracreg_id'];
+<<<<<<< HEAD
         $practicum_registration = PracticumRegistration::where('id',$id)->update(['group'=>$data['group']]);
         Alert::success('Success', 'Data have been succesfully saved!');
         return redirect('kelompok');
@@ -64,4 +72,17 @@ class PracticumGroupController extends Controller
             $practicumRegistration->group = null;
             $practicumRegistration->save();
     }
+=======
+        $practicum_registration = PracticumRegistration::find($id);
+        $practicum_registration->group = $data['group'];
+        $practicum_registration->save();
+        return redirect('kelompok');
+    }
+    public function destroy($id)
+    {
+            $Practicum = PracticumRegistration::find($id);
+            $d = $Practicum->delete();
+    }
+
+>>>>>>> d6032ddaba12a451b9f27fa1835bb91421e8b36b
 }

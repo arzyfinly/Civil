@@ -3,10 +3,19 @@
         {
             let id = e.getAttribute('data-id');
 
+<<<<<<< HEAD
             Swal.fire({
                 icon: 'error',
                 title: 'Keluarkan Anggota!',
                 text: "Apakah anda yakin ingin mengeluarkan anggota ini dari kelompok??",
+=======
+            console.log(id);
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Hapus Data!',
+                text: "Apakah anda yakin ingin menghapus data ini??",
+>>>>>>> d6032ddaba12a451b9f27fa1835bb91421e8b36b
                 showConfirmButton: true,
                 showCancelButton: true
             }).then((result) => {
@@ -34,5 +43,9 @@
                 }
             });
         }
+<<<<<<< HEAD
     </script>
 
+=======
+    </script>
+>>>>>>> d6032ddaba12a451b9f27fa1835bb91421e8b36b
