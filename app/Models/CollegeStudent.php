@@ -15,7 +15,6 @@ class CollegeStudent extends Model
         'last_name',
         'surename',
         'user_id',
-        'nim',
         'alamat',
         'tgl_lahir',
         'tmpt_lahir',
