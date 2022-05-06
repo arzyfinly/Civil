@@ -19,7 +19,6 @@ class CreateCollegeStudentsTable extends Migration
             $table->string('last_name');
             $table->string('surename');
             $table->foreignId('user_id')->constrained('users');
-            $table->string('nim');
             $table->string('alamat');
             $table->date('tgl_lahir');
             $table->string('tmpt_lahir');
