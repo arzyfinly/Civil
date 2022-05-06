@@ -21,77 +21,77 @@ class UserSeeder extends Seeder
 
         $admin = User::create([
             'username' => 'admin',
-            'email' => 'admin@admin.net',
+            'nim' => '0000000000',
             'password' => bcrypt('admin')
         ]);
         $admin->assignRole('admin');
         
         $student = User::create([
             'username' => 'raga',
-            'email' => 'raga@student.net',
+            'nim' => '2103191201',
             'password' => bcrypt('raga')
         ]);
         $student->assignRole('student');
 
         $student = User::create([
             'username' => 'andy',
-            'email' => 'andy@student.net',
+            'nim' => '2103191202',
             'password' => bcrypt('andy')
         ]);
         $student->assignRole('student');
         
         $student = User::create([
             'username' => 'dani',
-            'email' => 'dani@student.net',
+            'nim' => '2103191203',
             'password' => bcrypt('dani')
         ]);
         $student->assignRole('student');
         
         $student = User::create([
             'username' => 'aping',
-            'email' => 'aping@student.net',
+            'nim' => '2103191204',
             'password' => bcrypt('aping')
         ]);
         $student->assignRole('student');
         
         $student = User::create([
             'username' => 'ayep',
-            'email' => 'ayep@student.net',
+            'nim' => '2103191205',
             'password' => bcrypt('ayep')
         ]);
         $student->assignRole('student');
         
         $student = User::create([
             'username' => 'sulton',
-            'email' => 'sulton@student.net',
+            'nim' => '2103191206',
             'password' => bcrypt('sulton')
         ]);
         $student->assignRole('student');
         
         $student = User::create([
             'username' => 'riko',
-            'email' => 'riko@student.net',
+            'nim' => '2103191207',
             'password' => bcrypt('riko')
         ]);
         $student->assignRole('student');
         
         $student = User::create([
             'username' => 'puput',
-            'email' => 'puput@student.net',
+            'nim' => '2103191208',
             'password' => bcrypt('puput')
         ]);
         $student->assignRole('student');
         
         $student = User::create([
             'username' => 'fiqry',
-            'email' => 'fiqry@student.net',
+            'nim' => '2103191209',
             'password' => bcrypt('fiqry')
         ]);
         $student->assignRole('student');
         
         $student = User::create([
             'username' => 'alan',
-            'email' => 'alan@student.net',
+            'nim' => '2103191210',
             'password' => bcrypt('alan')
         ]);
         $student->assignRole('student');
