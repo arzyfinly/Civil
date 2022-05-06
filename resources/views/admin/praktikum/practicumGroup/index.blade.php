@@ -42,42 +42,33 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @if($practicumregistrations != null)
-                        <tr>
-                            <td>{{ $c->nim }}</td>
-                            <td>{{ $c->first_name }} {{ $c->last_name }}</td>
-                            <td>{{ $p->name }}</td>
-                            <td>{{ $row->group }}</td>
-                            @role('admin')
-                            <td style="vertical-align: middle;">
-                                <a href=""
-                                    class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
-                                        class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
-                                {{-- @can('salary-edit') --}}
+                        @foreach ($practicumregistrations as $row)
+                            <tr>
+                                <td>{{ $row->collegeStudent->nim }}</td>
+                                <td>{{ $row->collegeStudent->first_name }} {{ $row->collegeStudent->last_name }}</td>
+                                <td>{{ $row->practicum->name }}</td>
+                                <td>{{ $row->group }}</td>
+                                @role('admin')
+                                <td style="vertical-align: middle;">
                                     <a href=""
-                                        class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
-                                        data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                            class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
-                                {{-- @endcan
-                                @can('salary-delete') --}}
-                                    <button onclick="deleteItem(this)" data-id=""
+                                    class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
+                                    class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
+                                    {{-- @can('salary-edit') --}}
+                                    <a href=""
+                                    class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
+                                    data-toggle="tooltip" data-placement="top" title="Edit"><span
+                                    class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
+                                    {{-- @endcan
+                                        @can('salary-delete') --}}
+                                    <button onclick="deleteData(this)" data-id="{{ $row->id }}"
                                         class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
                                         data-toggle="tooltip" data-placement="top" title="Remove">
                                         <i class="fas fa-trash"></i>
                                     </button>
-                                {{-- @endcan --}}
-                            </td>
-                            @endrole
-                        </tr>
-                        @else
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        @endif
+                                </td>
+                                @endrole
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -94,4 +85,5 @@
     </div>
 </div>
 @include('admin.praktikum.practicumGroup.scriptGetData')
+@include('admin.praktikum.practicumGroup.scriptDelete')
 @endsection
