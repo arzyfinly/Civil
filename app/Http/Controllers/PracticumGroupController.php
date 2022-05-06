@@ -8,6 +8,7 @@ use App\Models\Practicum;
 use App\Models\User;
 use DB;
 use App\Models\CollegeStudent;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\PraktikumCreateRequest;
 
 class PracticumGroupController extends Controller
@@ -26,18 +27,10 @@ class PracticumGroupController extends Controller
             {
                 foreach($practicumregistrations as $row)
                 {
-                    $collegeStudent = CollegeStudent::where(['id'=>$row->id])->get()->all();
-                    $practicums = Practicum::where(['id'=>$row->practicum_id])->get()->all();
                     $practicum = Practicum::all();
-                    foreach($collegeStudent as $c)
-                    {
-                        foreach($practicums as $p)
-                        {
-                            return view('admin.praktikum.practicumGroup.index', compact(
-                                'practicumregistrations','p', 'row', 'c', 'collegeStudent', 'practicums', 'practicum'
-                            ));
-                        }
-                    }
+                    return view('admin.praktikum.practicumGroup.index', compact(
+                        'practicumregistrations','row','practicum'
+                    ));
                 }
             }else{
                 $practicum = Practicum::all();
@@ -58,13 +51,17 @@ class PracticumGroupController extends Controller
     }
 
     public function store(Request $request){
-
         $data = $request->all();
         $id = $data['pracreg_id'];
-        $practicum_registration = PracticumRegistration::find($id);
-        $practicum_registration->update([
-            'group' => $data['group'], 'updated_at' => false
-        ]);
+        $practicum_registration = PracticumRegistration::where('id',$id)->update(['group'=>$data['group']]);
+        Alert::success('Success', 'Data have been succesfully saved!');
         return redirect('kelompok');
+    }
+
+    public function destroy($id)
+    {
+            $practicumRegistration = PracticumRegistration::find($id);
+            $practicumRegistration->group = null;
+            $practicumRegistration->save();
     }
 }

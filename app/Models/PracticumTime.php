@@ -14,6 +14,7 @@ class PracticumTime extends Model
         'practicum_id',
         'start',
         'end',
+        'periode'
     ];
     protected $with = ['practicum'];
 

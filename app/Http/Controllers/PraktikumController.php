@@ -74,7 +74,7 @@ class PraktikumController extends Controller
                 Alert::info('Data Profile!!', 'Anda belum mengisi data pribadi');
                 return redirect('profile');
             }
-        }   
+        }
     }
     public function store(Request $request)
     {
@@ -97,7 +97,7 @@ class PraktikumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
 
     /**
      * Display the specified resource.

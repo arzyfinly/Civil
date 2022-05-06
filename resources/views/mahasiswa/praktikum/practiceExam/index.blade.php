@@ -9,7 +9,7 @@
     <div class="section">
         <div class="container">
             <div class="card">
-                <div class="card-body"> 
+                <div class="card-body">
                     <div style="text-align: center;" class="mb-3">
                         <h4>{{__('Pelaksanaan Ujian Praktikum')}}</h4>
                     </div>
@@ -57,7 +57,7 @@
                                             <td><input type="submit" class="btn btn-primary btn-sm" value="Presensi" disabled="disabled"></td>
                                         </tr>
                                     </tbody>
-                                </table>                                   
+                                </table>
                             </li>
                         </ul>
                     </div>

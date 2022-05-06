@@ -43,32 +43,42 @@
                     </tfoot>
                     <tbody>
                         @if($practicumregistrations != null)
-                        <tr>
-                            <td>{{ $c->nim }}</td>
-                            <td>{{ $c->first_name }} {{ $c->last_name }}</td>
-                            <td>{{ $p->name }}</td>
-                            <td>{{ $row->group }}</td>
-                            @role('admin')
-                            <td style="vertical-align: middle;">
-                                <a href=""
-                                    class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
-                                        class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
-                                {{-- @can('salary-edit') --}}
-                                    <a href=""
-                                        class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
-                                        data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                            class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
-                                {{-- @endcan
-                                @can('salary-delete') --}}
-                                    <button onclick="deleteItem(this)" data-id=""
-                                        class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
-                                        data-toggle="tooltip" data-placement="top" title="Remove">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                {{-- @endcan --}}
-                            </td>
-                            @endrole
-                        </tr>
+                        @foreach ($practicumregistrations as $prac)
+                            <?php
+                                $collegeStudent = App\Models\CollegeStudent::where(['id'=>$prac->college_student_id])->get()->all();
+                                $practicums = App\Models\Practicum::where(['id'=>$prac->practicum_id])->get()->all();
+                            ?>
+                            @foreach($collegeStudent as $cS)
+                                @foreach($practicums as $p)
+                                    <tr>
+                                        <td>{{ $cS->nim }}</td>
+                                        <td>{{ $cS->first_name }} {{ $cS->last_name }}</td>
+                                        <td>{{ $p->name }}</td>
+                                        <td>{{ $prac->group }}</td>
+                                        @role('admin')
+                                        <td style="vertical-align: middle;">
+                                            <a href=""
+                                                class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
+                                                    class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
+                                            {{-- @can('salary-edit') --}}
+                                                <a href=""
+                                                    class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
+                                                    data-toggle="tooltip" data-placement="top" title="Edit"><span
+                                                        class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
+                                            {{-- @endcan
+                                            @can('salary-delete') --}}
+                                                <button onclick="deleteData(this)" data-id="{{ $prac->id }}"
+                                                    class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
+                                                    data-toggle="tooltip" data-placement="top" title="Remove">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            {{-- @endcan --}}
+                                        </td>
+                                        @endrole
+                                    </tr>
+                                @endforeach
+                            @endforeach
+                        @endforeach
                         @else
                         <tr>
                             <td></td>
@@ -93,5 +103,6 @@
         </div>
     </div>
 </div>
+@include('admin.praktikum.practicumGroup.scriptDelete')
 @include('admin.praktikum.practicumGroup.scriptGetData')
 @endsection
