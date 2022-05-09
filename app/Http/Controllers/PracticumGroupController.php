@@ -59,7 +59,9 @@ class PracticumGroupController extends Controller
     public function store(Request $request){
         $data = $request->all();
         $id = $data['pracreg_id'];
-        $practicum_registration = PracticumRegistration::where('id',$id)->update(['group'=>$data['group']]);
+        $practicum_registration = PracticumRegistration::find($id);
+        $practicum_registration->group = $data['group'];
+        $practicum_registration->save();
         Alert::success('Success', 'Data have been succesfully saved!');
         return redirect('kelompok');
     }

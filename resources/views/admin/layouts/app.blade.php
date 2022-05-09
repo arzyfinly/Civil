@@ -100,6 +100,7 @@
                     var price = $('#praktikum').val().split(',')[1];
 
                     $('#price').val(price);
+                    $('#practicum_id').val(id);
                 });
             });
     </script>

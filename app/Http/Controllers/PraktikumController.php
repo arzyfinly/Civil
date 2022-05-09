@@ -137,7 +137,7 @@ class PraktikumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SalaryUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->all();
         $salary = Salary::find($id);

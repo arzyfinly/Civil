@@ -5,7 +5,7 @@
             <td align="left">Pilih Mahasiswa</td>
             <td class="col-xs">:</td>
             <td class="col-md-10">
-                <select class="form-control" id="mahasiswa">
+                <select name="college_student_id" class="form-control" id="mahasiswa">
                     <option hidden>Pilih Mahasiswa</option>
                     @foreach ($collegestudents as $row)
                     <option value="{{ $row->id }}">{{ $row->first_name }} {{ $row->last_name }}</option>
@@ -32,8 +32,8 @@
                     @foreach ($practicums as $row)
                     <option value="{{$row->id}},{{$row->price}}">{{ $row->name }}</option>
                     @endforeach
+                    <input type="text" name="practicum_id" hidden id="practicum_id">
                 </select>
-                <input type="text" name="practicum_id" id="praktikumId" hidden>
             </td>
         </tr>
         <tr>

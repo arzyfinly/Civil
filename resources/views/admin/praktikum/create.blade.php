@@ -37,7 +37,7 @@
                     success:function(data) {
                         if(data){
                             var name = data.first_name + " " + data.last_name;
-                            $('#npm').val(data.nim);
+                            $('#npm').val(data.user.nim);
                             $('#name').val(name);
                             $('#collegeId').val(mahasiswaID);
                         }else{
