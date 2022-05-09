@@ -41,6 +41,7 @@
                             @endrole
                         </tr>
                     </tfoot>
+<<<<<<< HEAD
                     <tbody>
                         @if($practicumregistrations != null)
                         @foreach ($practicumregistrations as $prac)
@@ -67,28 +68,37 @@
                                                     data-toggle="tooltip" data-placement="top" title="Edit"><span
                                                         class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
                                             {{-- @endcan
+=======
+                    <tbody>  
+                        @foreach ($practicumregistrations as $prac )
+                        <tr>
+                            <td>{{ $prac->collegeStudent->user->nim }}</td>
+                            <td>{{ $prac->collegeStudent->first_name }} {{ $prac->collegeStudent->last_name }}</td>
+                            <td>{{ $prac->practicum->name }}</td>
+                            <td>{{ $prac->group }}</td>
+                            @role('admin')
+                            <td style="vertical-align: middle;">
+                                <a href=""
+                                    class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
+                                        class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
+                                        {{-- @can('salary-edit') --}}
+                                        <a href=""
+                                        class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
+                                        data-toggle="tooltip" data-placement="top" title="Edit"><span
+                                        class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
+                                        {{-- @endcan
+>>>>>>> 5a9648ad9dc57db398ed597a72fcb7f173f510e3
                                             @can('salary-delete') --}}
-                                                <button onclick="deleteData(this)" data-id="{{ $prac->id }}"
-                                                    class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
-                                                    data-toggle="tooltip" data-placement="top" title="Remove">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
+                                            <button onclick="deleteData(this)" data-id="{{ $prac->id }}"
+                                                class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
+                                                data-toggle="tooltip" data-placement="top" title="Remove">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                             {{-- @endcan --}}
                                         </td>
                                         @endrole
                                     </tr>
-                                @endforeach
-                            @endforeach
                         @endforeach
-                        @else
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        @endif
                     </tbody>
                 </table>
             </div>

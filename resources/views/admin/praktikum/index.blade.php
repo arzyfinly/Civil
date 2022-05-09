@@ -99,7 +99,6 @@
                                             data-toggle="tooltip" data-placement="top" title="Edit"><span
                                                 class="btn-inner--icon"><i class="fas fa-pen-square"></i></span>
                                     </a>
-
                                     {{-- @endcan
                                     @can('salary-delete') --}}
                                         <button onclick="deleteData(this)" data-id="{{ $row->id }}"
@@ -131,7 +130,7 @@
                                         <td class="col-sm-4" align="left"><label> Status Pembayaran </label></td>
                                         <td class="col-sm-1">:</td>
                                         <td class="col-sm-0" align="left">
-                                            <select name="practicum" class="form-control practicum">
+                                            <select name="status_pembayaran" class="form-control practicum">
                                                 <option disabled="true" selected="true">Pilih Status Pembayaran</option>
                                                 <option value="0">Belum Lunas</option>
                                                 <option value="1">Lunas</option>
@@ -142,7 +141,7 @@
                                         <td class="col-sm-1" align="left"><label> Status Acc </label></td>
                                         <td class="col-sm-1">:</td>
                                         <td class="col-sm-0" align="left">
-                                            <select name="practicum" class="form-control practicum">
+                                            <select name="status" class="form-control practicum">
                                                 <option disabled="true" selected="true">Pilih Status Acc</option>
                                                 <option value="0">Belum Acc</option>
                                                 <option value="1">Acc</option>
