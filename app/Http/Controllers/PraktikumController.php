@@ -28,13 +28,9 @@ class PraktikumController extends Controller
                 $practicumregistrations = PracticumRegistration::where('college_student_id', $college->id)->get()->all();
                 foreach($practicumregistrations as $prak)
                 {
-                    $practicum = Practicum::where('id', $prak->practicum_id)->get()->all();
-                    foreach($practicum as $prk)
-                    {
-                        return view('mahasiswa.praktikum.index', compact(
-                            'collegestudent', 'prak', 'prk', 'practicumregistrations', 'user'
-                        ));
-                    }
+                    return view('mahasiswa.praktikum.index', compact(
+                        'collegestudent', 'practicumregistrations'
+                    ));
                 }
             }
         }
@@ -56,15 +52,14 @@ class PraktikumController extends Controller
             $c_student = CollegeStudent::where('user_id', auth()->user()->id)->get()->all();
             if($c_student != null)
             {
-                $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get()->all();
-                foreach($collegestudent as $row)
+                foreach($c_student as $row)
                 {
                     $practicum_registration = PracticumRegistration::where(['college_student_id'=>$row->id])->get()->all();
                     if($practicum_registration == null)
                     {
                         $practicums = Practicum::get()->all();
                         return view('mahasiswa.praktikum.pendaftaranPraktikum.create', compact(
-                            'practicums','collegestudent', 'practicum_registration'));
+                            'practicums','c_student', 'practicum_registration'));
                     }else{
                         return redirect('praktikum');
                     }

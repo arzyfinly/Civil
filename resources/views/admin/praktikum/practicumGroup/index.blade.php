@@ -47,11 +47,12 @@
                             <?php
                                 $collegeStudent = App\Models\CollegeStudent::where(['id'=>$prac->college_student_id])->get()->all();
                                 $practicums = App\Models\Practicum::where(['id'=>$prac->practicum_id])->get()->all();
+                                $user = App\Models\User::all();
                             ?>
                             @foreach($collegeStudent as $cS)
                                 @foreach($practicums as $p)
                                     <tr>
-                                        <td>{{ $cS->nim }}</td>
+                                        <td>{{ $cS->user->nim }}</td>
                                         <td>{{ $cS->first_name }} {{ $cS->last_name }}</td>
                                         <td>{{ $p->name }}</td>
                                         <td>{{ $prac->group }}</td>

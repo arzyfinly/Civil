@@ -24,6 +24,7 @@ class ListOfAttendeesController extends Controller
             $practicums = Practicum::all();
             return view('admin.praktikum.listOfAttendees.index', compact('practicumregistrations','practicums'));
         } elseif($user->hasRole('student')) {
+            $user = User::where('id', auth()->user()->id)->get()->all();
             $practicumregistrations = PracticumRegistration::where(['status_pembayaran'=>1, 'status'=>1])->whereNotNull('group')->get()->all();
             if($practicumregistrations != null)
             {
@@ -32,7 +33,7 @@ class ListOfAttendeesController extends Controller
                     $collegeStudent = CollegeStudent::where(['id'=>$row->college_student_id])->get()->all();
                     if($collegeStudent != null)
                     {
-                        return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations', 'row', 'collegeStudent'));
+                        return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations', 'row', 'collegeStudent', 'user'));
                     }else{
                         return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations', 'collegeStudent'));
                     }

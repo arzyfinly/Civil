@@ -38,7 +38,7 @@
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Nama Panggilan</label>     <input type="text" class="form-control" name="surename" value="{{ $row->surename }}">       </div>
                                                                                                 <input type="text" value="{{$u->id}}" hidden name="user_id">
-                        <div class="col-md-12"><label class="labels">Nim</label>                <input type="text" class="form-control" name="nim" value="{{ $row->nim }}">                 </div>
+                        <div class="col-md-12"><label class="labels">Nim</label>                <input type="text" class="form-control" name="nim" value="{{ $row->user->nim }}">                 </div>
                         <div class="col-md-12"><label class="labels">Alamat</label>             <input type="text" class="form-control" name="alamat" value="{{ $row->alamat }}">           </div>
                         <div class="col-md-12"><label class="labels">Tanggal Lahir</label>      <input type="date" class="form-control" name="tgl_lahir" value="{{ $row->tgl_lahir }}">     </div>
                         <div class="col-md-12"><label class="labels">Tempat Lahir</label>       <input type="text" class="form-control" name="tmpt_lahir" value="{{ $row->tmpt_lahir }}">   </div>

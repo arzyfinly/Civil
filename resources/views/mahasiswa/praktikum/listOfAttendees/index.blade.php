@@ -9,7 +9,7 @@
     <div class="section">
         <div class="container">
             <div class="card">
-                <div class="card-body"> 
+                <div class="card-body">
                     <div style="text-align: center;" class="mb-3">
                         <h4>{{__('Daftar Hadir')}}</h4>
                     </div>
@@ -36,20 +36,15 @@
                                         <td colspan="1">4</td>
                                     </tr>
                                     @foreach ($practicumregistrations as $p)
-                                    <?php
-                                        $collegeStudents = App\Models\CollegeStudent::where(['id'=>$p->college_student_id])->get()->all();
-                                    ?>
-                                    @foreach ($collegeStudents as $cs)
-                                        <tr>
-                                            <td rowspan="1">{{ $cs->nim }}</td>
-                                            <td rowspan="1">{{ $cs->first_name }} {{ $cs->last_name }}</td>
-                                            <td rowspan="1">{{ $p->group }}</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        @endforeach
+                                            <tr>
+                                                <td rowspan="1">{{ $p->collegeStudent->user->nim }}</td>
+                                                <td rowspan="1">{{ $p->collegeStudent->first_name }} {{ $p->collegeStudent->last_name }}</td>
+                                                <td rowspan="1">{{ $p->group }}</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
                                     @endforeach
                                 </tbody>
                             </table>

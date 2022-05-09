@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PracticumTime;
 use App\Models\Practicum;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class PracticumTimeController extends Controller
@@ -46,6 +47,7 @@ class PracticumTimeController extends Controller
     {
         $data = $request->all();
         PracticumTime::create($data);
+        Alert::success('Success', 'Data have been succesfully saved!');
         return redirect('practicumTime');
     }
 

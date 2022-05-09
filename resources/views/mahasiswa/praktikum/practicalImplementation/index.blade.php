@@ -18,50 +18,45 @@
                             <li class="list-group-item">
                                 <table class="table table-borderless">
                                     @if ($practicumregistrations != null)
-                                        @foreach ($practicumTime as $pTime)
-                                            <?php
-                                                $practicum = App\Models\Practicum::where('id', $pTime->practicum_id)->get()->all();
-                                            ?>
-                                            @foreach ($practicum as $p)
-                                                <thead>
-                                                    <tr>
-                                                        <th><strong>Judul Matkul</strong></th>
-                                                        <th><strong>:</strong></th>
-                                                        <th><strong>{{ $p->name }}</strong></th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>NPM</td>
-                                                        <td>:</td>
-                                                        <td>2100000212</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Nama Asprak</td>
-                                                        <td>:</td>
-                                                        <td>Asprak Nama</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Jadwal</td>
-                                                        <td>:</td>
-                                                        <td>Senin({{ $pTime->start }} - {{ $pTime->end }})</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        @if(date('H:i:s') <= $pTime->end)
-                                                        <td><input type="submit" class="btn btn-primary btn-sm" value="Presensi"></td>
-                                                        @else
-                                                        <td><input type="submit" class="btn btn-secondary btn-sm" value="Presensi" disabled="disabled"></td>
-                                                        @endif
-                                                    </tr>
-                                                </tbody>
-                                            @endforeach
+                                        @foreach ($practicumTime as $p)
+                                            <thead>
+                                                <tr>
+                                                    <th><strong>Judul Matkul</strong></th>
+                                                    <th><strong>:</strong></th>
+                                                    <th><strong>{{ $p->practicum->name }}</strong></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>NPM</td>
+                                                    <td>:</td>
+                                                    <td>2100000212</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nama Asprak</td>
+                                                    <td>:</td>
+                                                    <td>Asprak Nama</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Jadwal</td>
+                                                    <td>:</td>
+                                                    <td>Senin({{ $p->start }} - {{ $p->end }})</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    @if(date('H:i:s') <= $p->end)
+                                                    <td><input type="submit" class="btn btn-primary btn-sm" value="Presensi"></td>
+                                                    @else
+                                                    <td><input type="submit" class="btn btn-secondary btn-sm" value="Presensi" disabled="disabled"></td>
+                                                    @endif
+                                                </tr>
+                                            </tbody>
                                         @endforeach
                                     @else
                                         <thead>
