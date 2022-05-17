@@ -24,6 +24,7 @@ class CreateCollegeStudentsTable extends Migration
             $table->string('tmpt_lahir');
             $table->string('no_hp');
             $table->string('gender');
+            $table->string('kelas');
             $table->timestamps();
         });
     }

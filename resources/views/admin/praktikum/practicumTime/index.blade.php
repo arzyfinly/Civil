@@ -25,7 +25,9 @@
                             <th>{{ __('Nama Praktikum') }}</th>
                             <th>{{ __('Waktu Mulai') }}</th>
                             <th>{{ __('Waktu Berakhir') }}</th>
-                            <th>{{ __('Periode') }}</th>
+                            <th>{{ __('Tanggal Mulai') }}</th>
+                            <th>{{ __('Tanggal Berakhir') }}</th>
+                            <th>{{ __('Tahun') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
@@ -37,7 +39,9 @@
                             <th>{{ __('Nama Praktikum') }}</th>
                             <th>{{ __('Waktu Mulai') }}</th>
                             <th>{{ __('Waktu Berakhir') }}</th>
-                            <th>{{ __('Periode') }}</th>
+                            <th>{{ __('Tanggal Mulai') }}</th>
+                            <th>{{ __('Tanggal Berakhir') }}</th>
+                            <th>{{ __('Tahun') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
@@ -52,9 +56,11 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $p->name }}</td>
-                                    <td>{{ $pTime->start }}</td>
-                                    <td>{{ $pTime->end }}</td>
-                                    <td>{{ $pTime->periode }}</td>
+                                    <td>{{ $pTime->start_time_in_day }}</td>
+                                    <td>{{ $pTime->end_time_in_day }}</td>
+                                    <td>{{ $pTime->start_date }}</td>
+                                    <td>{{ $pTime->end_date }}</td>
+                                    <td>{{ $pTime->tahun }}</td>
                                     @role('admin')
                                     <td style="vertical-align: middle;">
                                         <a href=""

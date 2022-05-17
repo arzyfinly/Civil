@@ -12,9 +12,12 @@ class PracticumTime extends Model
 
     protected $fillable = [
         'practicum_id',
-        'start',
-        'end',
-        'periode'
+        'start_time_in_day',
+        'end_time_in_day',
+        'start_date',
+        'end_end',
+        'kelas',
+        'tahun'
     ];
     protected $with = ['practicum'];
 
