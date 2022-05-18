@@ -16,14 +16,14 @@
             <td class="col-sm-1" align="left"><label> Waktu Mulai Praktikum </label></td>
             <td class="col-sm-1">:</td>
             <td class="col-sm-0" align="left">
-                <input type="time" name="start" class="form-control">
+                <input type="date" name="start" class="form-control">
             </td>
         </tr>
         <tr>
             <td class="col-sm-1" align="left"><label> Waktu Akhir Praktikum </label></td>
             <td class="col-sm-1">:</td>
             <td class="col-sm-0" align="left">
-                <input type="time" name="end" class="form-control">
+                <input type="date" name="end" class="form-control">
             </td>
         </tr>
         <input type="text" hidden name="periode" value="<?= date('Y') ?>">
