@@ -16,6 +16,7 @@
                 <div class="table-responsive py-4">
                     <div class="container">
                         <div class="col-md-12 text-right">
+                            <a type="submit" class="btn btn-danger" href="{{ route('kelompok.pdf') }}">Generate PDF</a>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
@@ -41,7 +42,7 @@
                             @endrole
                         </tr>
                     </tfoot>
-                    <tbody>  
+                    <tbody>
                         @foreach ($practicumregistrations as $prac )
                         <tr>
                             <td>{{ $prac->collegeStudent->user->nim }}</td>

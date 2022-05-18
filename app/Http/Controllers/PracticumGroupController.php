@@ -10,6 +10,7 @@ use DB;
 use App\Models\CollegeStudent;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\PraktikumCreateRequest;
+use PDF;
 
 
 class PracticumGroupController extends Controller
@@ -71,5 +72,17 @@ class PracticumGroupController extends Controller
             $practicumRegistration = PracticumRegistration::find($id);
             $practicumRegistration->group = null;
             $practicumRegistration->save();
+    }
+
+    public function pdf(Request $request)
+    {
+        // $data = [
+        //     'title' => 'Welcome to ItSolutionStuff.com',
+        //     'date' => date('m/d/Y')
+        // ];
+
+        // $pdf = PDF::loadView('myPDF', $data);
+
+        // return $pdf->download('itsolutionstuff.pdf');
     }
 }
