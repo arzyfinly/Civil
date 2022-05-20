@@ -12,7 +12,6 @@
                         $("#nama").empty();
                         $("#nama").append('<option value="0" disabled="true" selected="true">Select College</option>');
                         $.each(data,function(key, value){
-                            console.log(value);
                             $("#nama").append('<option value="'+value.id+'">'+value.college_student.first_name+' '+value.college_student.last_name+'</option>');
                         });
                     }

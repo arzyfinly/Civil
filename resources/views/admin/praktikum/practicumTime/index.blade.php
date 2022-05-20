@@ -27,6 +27,7 @@
                             <th>{{ __('Waktu Berakhir') }}</th>
                             <th>{{ __('Tanggal Mulai') }}</th>
                             <th>{{ __('Tanggal Berakhir') }}</th>
+                            <th>{{ __('Kelas') }}</th>
                             <th>{{ __('Tahun') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
@@ -41,6 +42,7 @@
                             <th>{{ __('Waktu Berakhir') }}</th>
                             <th>{{ __('Tanggal Mulai') }}</th>
                             <th>{{ __('Tanggal Berakhir') }}</th>
+                            <th>{{ __('Kelas') }}</th>
                             <th>{{ __('Tahun') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
@@ -60,6 +62,7 @@
                                     <td>{{ $pTime->end_time_in_day }}</td>
                                     <td>{{ $pTime->start_date }}</td>
                                     <td>{{ $pTime->end_date }}</td>
+                                    <td>{{ $pTime->kelas }}</td>
                                     <td>{{ $pTime->tahun }}</td>
                                     @role('admin')
                                     <td style="vertical-align: middle;">

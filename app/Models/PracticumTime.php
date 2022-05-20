@@ -15,7 +15,7 @@ class PracticumTime extends Model
         'start_time_in_day',
         'end_time_in_day',
         'start_date',
-        'end_end',
+        'end_date',
         'kelas',
         'tahun'
     ];

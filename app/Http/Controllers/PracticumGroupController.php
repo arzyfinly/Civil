@@ -57,6 +57,18 @@ class PracticumGroupController extends Controller
         $practicumregistration = PracticumRegistration::find($id);
         return response()->json($practicumregistration, 200);
     }
+
+    public function getClass($id)
+    {
+        $class = CollegeStudent::where(['kelas'=>$id])
+        ->get()->all();
+        foreach($class as $row)
+        {
+            $practicumregistration = PracticumRegistration::where(['college_student_id'=>$row->id, 'status_pembayaran'=>1, 'status'=>1])->get()->all();
+            return response()->json($practicumregistration, 200);
+        }
+    }
+
     public function store(Request $request){
         $data = $request->all();
         $id = $data['pracreg_id'];
