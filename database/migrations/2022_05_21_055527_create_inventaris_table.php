@@ -18,7 +18,7 @@ class CreateInventarisTable extends Migration
             $table->string('tool_name');
             $table->string('general_price');
             $table->string('college_price');
-            $table->number('stock');
+            $table->integer('stock');
             $table->timestamps();
         });
     }
