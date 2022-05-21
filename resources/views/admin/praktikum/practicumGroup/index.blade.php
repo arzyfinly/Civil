@@ -16,6 +16,10 @@
                 <div class="table-responsive py-4">
                     <div class="container">
                         <div class="col-md-12 text-right">
+                            <select name="kelas" id="kelas">
+                                <option value="A" selected> A </option>
+                                <option value="B"> B </option>
+                            </select>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
@@ -87,4 +91,5 @@
 </div>
 @include('admin.praktikum.practicumGroup.scriptDelete')
 @include('admin.praktikum.practicumGroup.scriptGetData')
+@include('admin.praktikum.practicumGroup.scriptGetkelas')
 @endsection
