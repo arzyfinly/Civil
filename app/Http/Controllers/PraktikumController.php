@@ -40,6 +40,8 @@ class PraktikumController extends Controller
         $collegeStudent = CollegeStudent::find($id);
         return response()->json($collegeStudent, 200);
     }
+
+
     public function create()
     {
         if (auth()->user()->hasRole('admin')) {

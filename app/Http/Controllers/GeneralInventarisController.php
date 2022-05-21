@@ -9,20 +9,20 @@ use App\Models\User;
 use App\Models\CollegeStudent;
 use App\Http\Requests\PraktikumCreateRequest;
 
-class InventarisController extends Controller
+class GeneralInventarisController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function general()
+    public function index()
     {
-        return view('admin.inventaris.general');
-    }
-
-    public function lecturerOrCollegeStudent()
-    {
-        return view('admin.inventaris.lecturerOrCollegeStudent');
+        $user = auth()->user();
+        if($user->hasRole('admin')){
+            return view('admin.inventaris.general.index');
+        } else {
+            echo "Nothing";
+        }
     }
 }

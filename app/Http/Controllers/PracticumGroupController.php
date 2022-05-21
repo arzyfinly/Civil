@@ -10,6 +10,7 @@ use DB;
 use App\Models\CollegeStudent;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\PraktikumCreateRequest;
+use PDF;
 
 
 class PracticumGroupController extends Controller
@@ -56,6 +57,19 @@ class PracticumGroupController extends Controller
         $practicumregistration = PracticumRegistration::find($id);
         return response()->json($practicumregistration, 200);
     }
+
+    public function getClass($id)
+    {
+        $class = CollegeStudent::where(['kelas'=>$id])
+        ->get()->all();
+        foreach($class as $row)
+        {
+            $practicumregistration = PracticumRegistration::where(['college_student_id'=>$row->id, 'status_pembayaran'=>1, 'status'=>1])
+                                    ->get()->all();
+            return response()->json($practicumregistration, 200);
+        }
+    }
+
     public function store(Request $request){
         $data = $request->all();
         $id = $data['pracreg_id'];
@@ -71,5 +85,17 @@ class PracticumGroupController extends Controller
             $practicumRegistration = PracticumRegistration::find($id);
             $practicumRegistration->group = null;
             $practicumRegistration->save();
+    }
+
+    public function pdf(Request $request)
+    {
+        // $data = [
+        //     'title' => 'Welcome to ItSolutionStuff.com',
+        //     'date' => date('m/d/Y')
+        // ];
+
+        // $pdf = PDF::loadView('myPDF', $data);
+
+        // return $pdf->download('itsolutionstuff.pdf');
     }
 }

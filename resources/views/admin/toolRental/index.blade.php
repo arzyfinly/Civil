@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Praktikum')
+@section('title', 'Sewa Alat')
 
 @section('content')
 <div class="row">
@@ -16,11 +16,16 @@
                 <div class="table-responsive py-4">
                     <div class="container">
                         <div class="col-md-12 text-right">
-                            <select name="kelas" id="kelas">
-                                <option value="A" selected> A </option>
-                                <option value="B"> B </option>   
-                            </select>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
+                            @if($practicumregistrations != null)
+                                <select class="form-control btn btn-primary btn-sm col-md-1 kelas" name="kelas" id="kelas">
+                                    <option value="0" disabled="true" class="btn btn-light" selected="true">Select Class</option>
+                                    <option value="A" class="btn btn-light">Kelas A</option>
+                                    <option value="B" class="btn btn-light">Kelas B</option>
+                                </select>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
+                            @else
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
+                            @endif
                         </div>
                     </div>
                     <thead class="thead-light">
@@ -29,6 +34,7 @@
                             <th>{{ __('Nama Mahasiswa') }}</th>
                             <th>{{ __('Praktikum') }}</th>
                             <th>{{ __('Kelompok') }}</th>
+                            <th>{{ __('Kelas') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
@@ -40,18 +46,21 @@
                             <th>{{ __('Nama Mahasiswa') }}</th>
                             <th>{{ __('Praktikum') }}</th>
                             <th>{{ __('Kelompok') }}</th>
+                            <th>{{ __('Kelas') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
                         </tr>
                     </tfoot>
-                    <tbody>  
+                    <tbody id="class">
+                    @if($practicumregistrations != null)
                         @foreach ($practicumregistrations as $prac )
                         <tr>
                             <td>{{ $prac->collegeStudent->user->nim }}</td>
                             <td>{{ $prac->collegeStudent->first_name }} {{ $prac->collegeStudent->last_name }}</td>
                             <td>{{ $prac->practicum->name }}</td>
                             <td>{{ $prac->group }}</td>
+                            <td>{{ $prac->collegeStudent->kelas }}</td>
                             @role('admin')
                             <td style="vertical-align: middle;">
                                 <a href=""
@@ -74,6 +83,16 @@
                                         @endrole
                                     </tr>
                         @endforeach
+                        @else
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -89,7 +108,12 @@
         </div>
     </div>
 </div>
-@include('admin.praktikum.practicumGroup.scriptDelete')
-@include('admin.praktikum.practicumGroup.scriptGetData')
-@include('admin.praktikum.practicumGroup.scriptGetkelas')
+@if($practicumregistrations != null)
+    @include('admin.praktikum.practicumGroup.scriptFindByClass')
+    @include('admin.praktikum.practicumGroup.scriptDelete')
+    @include('admin.praktikum.practicumGroup.scriptGetData')
+@else
+    @include('admin.praktikum.practicumGroup.scriptDelete')
+    @include('admin.praktikum.practicumGroup.scriptGetData')
+@endif
 @endsection
