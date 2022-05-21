@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\PracticumRegistration;
 use Illuminate\Http\Request;
-use App\Models\Practicum;
+use App\Models\GeneralInventaris;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\User;
-use App\Models\CollegeStudent;
-use App\Http\Requests\PraktikumCreateRequest;
 
 class GeneralInventarisController extends Controller
 {
@@ -20,9 +19,25 @@ class GeneralInventarisController extends Controller
     {
         $user = auth()->user();
         if($user->hasRole('admin')){
-            return view('admin.inventaris.general.index');
+            $general = GeneralInventaris::all();
+            $no = 1;
+            return view('admin.inventaris.general.index', compact('general', 'no'));
         } else {
             echo "Nothing";
         }
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        GeneralInventaris::create($data);
+        Alert::success('Success', 'Data have been succesfully saved!');
+        return redirect('generalInventaris');
+    }
+
+    public function destroy($id)
+    {
+        $general = GeneralInventaris::find($id);
+        $general->delete();
     }
 }
