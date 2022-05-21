@@ -13,7 +13,9 @@ use App\Http\Controllers\{
     DataMahasiswaController,
     PracticumPriceController,
     PracticeExamController,
-    PracticumTimeController
+    PracticumTimeController,
+    GeneralInventarisController,
+    LecturerInventarisController
 };
 
 /*
@@ -47,10 +49,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('hargaPraktikum',               PracticumPriceController::class);
     Route::resource('practiceExam',                 PracticeExamController::class);
     Route::resource('practicumTime',                PracticumTimeController::class);
+    Route::resource('generalInventaris',            GeneralInventarisController::class);
+    Route::resource('lecturerInventaris',           LecturerInventarisController::class);
     Route::get('/practiceExam',                     [App\Http\Controllers\PracticeExamController::class, 'index'])->name('practiceExam');
     Route::get('/kelompok/get/praktikum/{id?}',     [App\Http\Controllers\PracticumGroupController::class, 'GetCollegeStudent'])->name('practicum-group-get-by-id');
     Route::get('/kelompok/get/kelas/{id?}',         [App\Http\Controllers\PracticumGroupController::class, 'GetClass'])->name('class-get-by-id');
     Route::get('/profile',                          [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-    Route::get('/inventaris',                       [App\Http\Controllers\InventarisController::class, 'index'])->name('inventaris');
     Route::get('/daftarHadir',                      [App\Http\Controllers\ListOfAttendeesController::class, 'index'])->name('listOfAttendees');
 });

@@ -64,7 +64,8 @@ class PracticumGroupController extends Controller
         ->get()->all();
         foreach($class as $row)
         {
-            $practicumregistration = PracticumRegistration::where(['college_student_id'=>$row->id, 'status_pembayaran'=>1, 'status'=>1])->get()->all();
+            $practicumregistration = PracticumRegistration::where(['college_student_id'=>$row->id, 'status_pembayaran'=>1, 'status'=>1])
+                                    ->get()->all();
             return response()->json($practicumregistration, 200);
         }
     }
