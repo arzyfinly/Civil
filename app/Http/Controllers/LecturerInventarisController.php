@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\PracticumRegistration;
 use Illuminate\Http\Request;
-use App\Models\Practicum;
+use App\Models\LecturerInventaris;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\User;
-use App\Models\CollegeStudent;
-use App\Http\Requests\PraktikumCreateRequest;
 
 class LecturerInventarisController extends Controller
 {
@@ -20,9 +19,25 @@ class LecturerInventarisController extends Controller
     {
         $user = auth()->user();
         if($user->hasRole('admin')){
-            return view('admin.inventaris.lecturerOrCollegeStudent.index');
+            $lecturer = LecturerInventaris::all();
+            $no = 1;
+            return view('admin.inventaris.lecturerOrCollegeStudent.index', compact('lecturer', 'no'));
         } else {
             echo "Nothing";
         }
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        LecturerInventaris::create($data);
+        Alert::success('Success', 'Data have been succesfully saved!');
+        return redirect('lecturerInventaris');
+    }
+
+    public function destroy($id)
+    {
+        $lecturer = LecturerInventaris::find($id);
+        $lecturer->delete();
     }
 }

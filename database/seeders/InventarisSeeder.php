@@ -15,16 +15,34 @@ class InventarisSeeder extends Seeder
     {
         $item = [
             [
-                'item'          => 'Alat Ukur',
-                'general_price' => '25000',
-                'college_price' => '10000',
-                'stock'         => 4,
+                'tool_name'     => 'Cetakan Beton Kubus',
+                'general_price' => '20000',
+                'college_price' => '20000',
+                'stock'         => '5',
             ],
             [
-                'item'          => 'Alat Berat',
-                'general_price' => '35000',
+                'tool_name'     => 'Cetakan Beton Silinder',
+                'general_price' => '20000',
                 'college_price' => '20000',
-                'stock'         => 2,
+                'stock'         => '10',
+            ],
+            [
+                'tool_name'     => 'Slump Tes Set',
+                'general_price' => '20000',
+                'college_price' => '20000',
+                'stock'         => '8',
+            ],
+            [
+                'tool_name'     => 'Waterpass',
+                'general_price' => '110000',
+                'college_price' => '90000',
+                'stock'         => '4',
+            ],
+            [
+                'tool_name'     => 'Theodolit',
+                'general_price' => '170000',
+                'college_price' => '145000',
+                'stock'         => '7',
             ],
         ];
         foreach ($item as $row){
