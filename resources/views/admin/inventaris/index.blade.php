@@ -7,7 +7,7 @@
         <div class="card">
             <!-- Card header -->
             <div class="card-header">
-                <h3 class="mb-0">{{ __('Inventaris Umum') }}</h3>
+                <h3 class="mb-0">{{ __('Inventaris') }}</h3>
                 <p class="text-sm mb-0">
                     {{ __('This page for Admin') }}
                 </p>
@@ -23,7 +23,8 @@
                         <tr>
                             <th>{{ __('#') }}</th>
                             <th>{{ __('Nama Alat') }}</th>
-                            <th>{{ __('Harga') }}</th>
+                            <th>{{ __('Harga Umum') }}</th>
+                            <th>{{ __('Harga Dosen / Mahasiswa') }}</th>
                             <th>{{ __('Stock') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
@@ -34,7 +35,8 @@
                         <tr>
                             <th>{{ __('#') }}</th>
                             <th>{{ __('Nama Alat') }}</th>
-                            <th>{{ __('Harga') }}</th>
+                            <th>{{ __('Harga Umum') }}</th>
+                            <th>{{ __('Harga Dosen / Mahasiswa') }}</th>
                             <th>{{ __('Stock') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
@@ -49,11 +51,12 @@
                                 return $result;
                             }
                         @endphp
-                        @foreach ($general as $row)
+                        @foreach ($inventaris as $row)
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $row->tool_name }}</td>
-                                <td>{{ idr($row->price) }}</td>
+                                <td>{{ idr($row->general_price) }}</td>
+                                <td>{{ idr($row->college_price) }}</td>
                                 <td>{{ $row->stock }}</td>
                                 @role('admin')
                                 <td style="vertical-align: middle;">
@@ -65,7 +68,7 @@
                                         <a href="#" rel="modal:close">Close</a>
                                     </div>
                                     {{-- @can('salary-edit') --}}
-                                    <a href=""
+                                    <a href="{{ route('inventaris.edit', $row->id) }}"
                                             class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
                                             data-toggle="tooltip" data-placement="top" title="Edit"><span
                                                 class="btn-inner--icon"><i class="fas fa-pen-square"></i></span>
@@ -90,12 +93,12 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content" style="border-radius: 15px">
                     <div class="modal-body">
-                        @include('admin.inventaris.general.create')
+                        @include('admin.inventaris.create')
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@include('admin.inventaris.general.scriptDelete')
+@include('admin.inventaris.scriptDelete')
 @endsection

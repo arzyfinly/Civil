@@ -46,7 +46,7 @@ class InventarisController extends Controller
         $data = $request->all();
         Inventaris::create($data);
         Alert::success('Success', 'Data have been succesfully saved!');
-        return redirect('Inventaris');
+        return redirect('inventaris');
     }
 
     /**
@@ -68,7 +68,8 @@ class InventarisController extends Controller
      */
     public function edit($id)
     {
-        //
+        $inventaris = Inventaris::find($id);
+        return view('admin.inventaris.edit', compact('inventaris'));
     }
 
     /**
@@ -80,7 +81,11 @@ class InventarisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $inventaris = Inventaris::find($id);
+        $inventaris->update($data);
+        toast()->success('Success', 'Data have been succesfully saved!');
+        return redirect()->route('inventaris.index');
     }
 
     /**
