@@ -14,8 +14,7 @@ use App\Http\Controllers\{
     PracticumPriceController,
     PracticeExamController,
     PracticumTimeController,
-    GeneralInventarisController,
-    LecturerInventarisController
+    ToolRentalController
 };
 
 /*
@@ -44,13 +43,12 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('daftarHadir',                  ListOfAttendeesController::class);
     Route::resource('pelaksanaan',                  PracticumAttendanceController::class);
     Route::resource('inventaris',                   InventarisController::class);
+    Route::resource('sewaAlat',                     ToolRentalController::class);
     Route::resource('profile',                      ProfileController::class);
     Route::resource('kelompok',                     PracticumGroupController::class);
     Route::resource('hargaPraktikum',               PracticumPriceController::class);
     Route::resource('practiceExam',                 PracticeExamController::class);
     Route::resource('practicumTime',                PracticumTimeController::class);
-    Route::resource('generalInventaris',            GeneralInventarisController::class);
-    Route::resource('lecturerInventaris',           LecturerInventarisController::class);
     Route::get('/practiceExam',                     [App\Http\Controllers\PracticeExamController::class, 'index'])->name('practiceExam');
     Route::get('/kelompok/get/praktikum/{id?}',     [App\Http\Controllers\PracticumGroupController::class, 'GetCollegeStudent'])->name('practicum-group-get-by-id');
     Route::get('/kelompok/get/kelas/{id?}',         [App\Http\Controllers\PracticumGroupController::class, 'GetClass'])->name('class-get-by-id');

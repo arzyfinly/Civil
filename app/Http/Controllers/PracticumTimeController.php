@@ -70,7 +70,9 @@ class PracticumTimeController extends Controller
      */
     public function edit(PracticumTime $practicumTime)
     {
-        //
+        $practicumTimes = PracticumTime::find($practicumTime->id);
+        $practicum = Practicum::all();
+        return view('admin.praktikum.practicumTime.edit', compact('practicumTimes', 'practicum'));
     }
 
     /**
@@ -80,9 +82,13 @@ class PracticumTimeController extends Controller
      * @param  \App\Models\PracticumTime  $practicumTime
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PracticumTime $practicumTime)
+    public function update(Request $request, $practicumTime)
     {
-        //
+        $data = $request->all();
+        $practicumTimes = PracticumTime::find($practicumTime);
+        $practicumTimes->update($data);
+        toast()->success('Success', 'Data have been succesfully saved!');
+        return redirect()->route('practicumTime.index');
     }
 
     /**

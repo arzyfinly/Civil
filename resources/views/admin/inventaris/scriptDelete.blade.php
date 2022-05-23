@@ -13,7 +13,7 @@
                 if(result.isConfirmed){
                     $.ajax({
                         type: "POST",
-                        url: "generalInventaris/"+id,
+                        url: "inventaris/"+id,
                         data: {"_token": '{{csrf_token()}}',
                                "_method": "DELETE"},
                     }).then((result) => {

@@ -12,13 +12,13 @@
                     {{ __('This page for Admin') }}
                 </p>
             </div>
-            <form action="{{ route('practicumTime.update', $practicumTimes->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('inventaris.update', $inventaris->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
-                @include('admin.praktikum.practicumTime.formEdit')
+                @include('admin.inventaris.formEdit')
                 <div class="col-md-5">
                     <div class="form-btn">
-                        <a type="submit" href="{{ route('practicumTime.index') }}" class="btn btn-danger">Back</a>
+                        <a type="submit" href="{{ route('inventaris.index') }}" class="btn btn-danger">Back</a>
                         <button class="btn btn-primary" type="submit">{{ __('Simpan') }}</button>
                     </div>
                 </div>

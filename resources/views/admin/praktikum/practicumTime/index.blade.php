@@ -51,41 +51,37 @@
                     </tfoot>
                     <tbody>
                         @foreach ($practicumTime as $pTime)
-                            <?php
-                                $practicums = App\Models\Practicum::where('id', $pTime->practicum_id)->get()->all();
-                            ?>
-                            @foreach ($practicums as $p)
-                                <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td>{{ $p->name }}</td>
-                                    <td>{{ $pTime->start_time_in_day }}</td>
-                                    <td>{{ $pTime->end_time_in_day }}</td>
-                                    <td>{{ $pTime->start_date }}</td>
-                                    <td>{{ $pTime->end_date }}</td>
-                                    <td>{{ $pTime->kelas }}</td>
-                                    <td>{{ $pTime->tahun }}</td>
-                                    @role('admin')
-                                    <td style="vertical-align: middle;">
-                                        <a href=""
-                                            class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
-                                                class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
-                                        {{-- @can('salary-edit') --}}
-                                            <a href=""
-                                                class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
-                                                data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                                    class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
-                                        {{-- @endcan
-                                        @can('salary-delete') --}}
-                                            <button onclick="deleteData(this)" data-id="{{ $pTime->id }}"
-                                                class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
-                                                data-toggle="tooltip" data-placement="top" title="Remove">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        {{-- @endcan --}}
-                                    </td>
-                                    @endrole
-                                </tr>
-                            @endforeach
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $pTime->practicum->name }}</td>
+                                <td>{{ $pTime->start_time_in_day }}</td>
+                                <td>{{ $pTime->end_time_in_day }}</td>
+                                <td>{{ $pTime->start_date }}</td>
+                                <td>{{ $pTime->end_date }}</td>
+                                <td>{{ $pTime->kelas }}</td>
+                                <td>{{ $pTime->tahun }}</td>
+                                @role('admin')
+                                <td style="vertical-align: middle;">
+                                    <a href=""
+                                        class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
+                                            class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
+                                    {{-- @can('salary-edit') --}}
+                                    <a href="{{ route('practicumTime.edit', $pTime->id) }}"
+                                        class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
+                                        data-toggle="tooltip" data-placement="top" title="Edit"><span
+                                            class="btn-inner--icon"><i class="fas fa-pen-square"></i></span>
+                                    </a>
+                                    {{-- @endcan
+                                    @can('salary-delete') --}}
+                                        <button onclick="deleteData(this)" data-id="{{ $pTime->id }}"
+                                            class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
+                                            data-toggle="tooltip" data-placement="top" title="Remove">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    {{-- @endcan --}}
+                                </td>
+                                @endrole
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

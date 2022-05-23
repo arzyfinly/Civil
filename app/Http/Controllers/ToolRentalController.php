@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\ToolRental;
+use Session;
 use Illuminate\Http\Request;
 
 class ToolRentalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $id_user = auth()->user()->id;
+        return view("admin.toolRental.index");
     }
 
     /**
