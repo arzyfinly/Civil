@@ -60,14 +60,17 @@ class PracticumGroupController extends Controller
 
     public function getClass($id)
     {
+        $practicum = array();
         $class = CollegeStudent::where(['kelas'=>$id])
         ->get()->all();
-        foreach($class as $row)
-        {
-            $practicumregistration = PracticumRegistration::where(['college_student_id'=>$row->id, 'status_pembayaran'=>1, 'status'=>1])
-                                    ->get()->all();
-            return response()->json($practicumregistration, 200);
+
+        foreach ($class as $value) {
+            $practicum[] = PracticumRegistration::where(['college_student_id'=>$value->id, 'status_pembayaran'=>1, 'status'=>1])
+                    ->whereNotNull('group')
+                    ->get()->all();
         }
+
+        return response()->json($practicum, 200);
     }
 
     public function store(Request $request){
@@ -97,5 +100,21 @@ class PracticumGroupController extends Controller
         // $pdf = PDF::loadView('myPDF', $data);
 
         // return $pdf->download('itsolutionstuff.pdf');
+    }
+
+    public function edit($id)
+    {
+        $practicumGroup = PracticumRegistration::find($id);
+
+        return view('admin.praktikum.practicumGroup.edit', compact('practicumGroup'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+        $practicumGroup = PracticumRegistration::find($id);
+        $practicumGroup->update($data);
+        toast()->success('Success', 'Data have been succesfully saved!');
+        return redirect()->route('kelompok.index');
     }
 }

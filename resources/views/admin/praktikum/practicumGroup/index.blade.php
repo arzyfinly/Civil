@@ -34,6 +34,7 @@
                             <th>{{ __('Nama Mahasiswa') }}</th>
                             <th>{{ __('Praktikum') }}</th>
                             <th>{{ __('Kelompok') }}</th>
+                            <th>{{ __('Kelas') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
@@ -45,39 +46,42 @@
                             <th>{{ __('Nama Mahasiswa') }}</th>
                             <th>{{ __('Praktikum') }}</th>
                             <th>{{ __('Kelompok') }}</th>
+                            <th>{{ __('Kelas') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
                         </tr>
                     </tfoot>
-                    <tbody>  
+                    <tbody id="class">
                         @foreach ($practicumregistrations as $prac )
                         <tr>
                             <td>{{ $prac->collegeStudent->user->nim }}</td>
                             <td>{{ $prac->collegeStudent->first_name }} {{ $prac->collegeStudent->last_name }}</td>
                             <td>{{ $prac->practicum->name }}</td>
                             <td>{{ $prac->group }}</td>
+                            <td>{{ $prac->collegeStudent->kelas }}</td>
                             @role('admin')
                             <td style="vertical-align: middle;">
                                 <a href=""
-                                    class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
-                                        class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
-                                        {{-- @can('salary-edit') --}}
-                                        <a href=""
-                                        class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
-                                        data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                        class="btn-inner--icon"><i class="fas fa-pen-square"></i></span></a>
-                                        {{-- @endcan
-                                            @can('salary-delete') --}}
-                                            <button onclick="deleteData(this)" data-id="{{ $prac->id }}"
-                                                class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
-                                                data-toggle="tooltip" data-placement="top" title="Remove">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                            {{-- @endcan --}}
-                                        </td>
-                                        @endrole
-                                    </tr>
+                                class="btn btn-sm btn-icon btn-default btn-icon-only rounded-circle"><span
+                                class="btn-inner--icon"><i class="fas fa-eye"></i></span></a>
+                                {{-- @can('salary-edit') --}}
+                                <a href="{{ route('kelompok.edit', $prac->id) }}"
+                                    class="btn btn-sm btn-icon btn-primary btn-icon-only rounded-circle"
+                                    data-toggle="tooltip" data-placement="top" title="Edit"><span
+                                        class="btn-inner--icon"><i class="fas fa-pen-square"></i></span>
+                                </a>
+                                {{-- @endcan
+                                @can('salary-delete') --}}
+                                <button onclick="deleteData(this)" data-id="{{ $prac->id }}"
+                                    class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
+                                    data-toggle="tooltip" data-placement="top" title="Remove">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                {{-- @endcan --}}
+                            </td>
+                            @endrole
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -97,4 +101,5 @@
 @include('admin.praktikum.practicumGroup.scriptDelete')
 @include('admin.praktikum.practicumGroup.scriptGetData')
 @include('admin.praktikum.practicumGroup.scriptGetkelas')
+@include('admin.praktikum.practicumGroup.scriptFindByClass')
 @endsection

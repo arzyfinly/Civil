@@ -14,66 +14,39 @@
                         <h4>{{__('Daftar Hadir')}}</h4>
                     </div>
                     @if($practicumregistrations != null)
-                        @if($collegeStudent != null)
-                            <table class="table table-borderless">
-                                <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                    <th scope="col">NPM</th>
-                                    <th scope="col">Nama Mahasiswa</th>
-                                    <th scope="col">Kelompok</th>
-                                    <th scope="col" colspan="16">Hari Ke</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td colspan="1">1</td>
-                                        <td colspan="1">2</td>
-                                        <td colspan="1">3</td>
-                                        <td colspan="1">4</td>
-                                    </tr>
-                                    @foreach ($practicumregistrations as $p)
-                                            <tr>
-                                                <td rowspan="1">{{ $p->collegeStudent->user->nim }}</td>
-                                                <td rowspan="1">{{ $p->collegeStudent->first_name }} {{ $p->collegeStudent->last_name }}</td>
-                                                <td rowspan="1">{{ $p->group }}</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        @else
-                            <table class="table table-borderless">
-                                <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                    <th scope="col">NPM</th>
-                                    <th scope="col">Nama Mahasiswa</th>
-                                    <th scope="col">Kelompok</th>
-                                    <th scope="col" colspan="16">Hari Ke</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td colspan="1">1</td>
-                                        <td colspan="1">2</td>
-                                        <td colspan="1">3</td>
-                                        <td colspan="1">4</td>
-                                    </tr>
-                                    <tr>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        @endif
+                        <table class="table table-borderless">
+                            <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                <th scope="col">NPM</th>
+                                <th scope="col">Nama Mahasiswa</th>
+                                <th scope="col">Kelompok</th>
+                                <th scope="col" colspan="16">Hari Ke</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="1">1</td>
+                                    <td colspan="1">2</td>
+                                    <td colspan="1">3</td>
+                                    <td colspan="1">4</td>
+                                </tr>
+                            @foreach ($practicumregistrations as $prac)
+                                <tr>
+                                    <td rowspan="1">{{ $prac->collegeStudent->user->nim }}</td>
+                                    <td rowspan="1">{{ $prac->collegeStudent->first_name }} {{ $prac->collegeStudent->last_name }}</td>
+                                    <td rowspan="1">{{ $prac->group }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     @else
                         <table class="table table-borderless">
                             <table class="table table-bordered">

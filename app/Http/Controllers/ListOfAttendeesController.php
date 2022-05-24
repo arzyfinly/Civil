@@ -24,22 +24,20 @@ class ListOfAttendeesController extends Controller
             $practicums = Practicum::all();
             return view('admin.praktikum.listOfAttendees.index', compact('practicumregistrations','practicums'));
         } elseif($user->hasRole('student')) {
-            $user = User::where('id', auth()->user()->id)->get()->all();
-            $practicumregistrations = PracticumRegistration::where(['status_pembayaran'=>1, 'status'=>1])->whereNotNull('group')->get()->all();
-            if($practicumregistrations != null)
+            $college = CollegeStudent::where(['user_id'=>$user->id])->get()->all();
+            foreach($college as $c)
             {
-                foreach($practicumregistrations as $row)
+                $practicumregistrations = PracticumRegistration::where(['status_pembayaran'=>1, 'status'=>1, 'college_student_id'=>$c->id])->whereNotNull('group')->get()->all();
+                if($practicumregistrations != null)
                 {
-                    $collegeStudent = CollegeStudent::where(['id'=>$row->college_student_id])->get()->all();
-                    if($collegeStudent != null)
+                    foreach($practicumregistrations as $row)
                     {
-                        return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations', 'row', 'collegeStudent', 'user'));
-                    }else{
-                        return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations', 'collegeStudent'));
+                        $p = PracticumRegistration::where('group', 'like', '%'.$row->group.'%')->get()->all();
+                        return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations'));
                     }
+                }else{
+                    return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations'));
                 }
-            }else{
-                return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations'));
             }
         } else {
             echo "Nothing";
