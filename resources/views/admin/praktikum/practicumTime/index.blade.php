@@ -16,6 +16,7 @@
                 <div class="table-responsive py-4">
                     <div class="container">
                         <div class="col-md-12 text-right">
+                            <a href="{{ route('practicumPdf') }}" class="btn btn-primary">Cetak PDF</a>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>

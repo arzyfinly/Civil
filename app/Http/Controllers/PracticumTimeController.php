@@ -6,6 +6,7 @@ use App\Models\PracticumTime;
 use App\Models\Practicum;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use PDF;
 
 class PracticumTimeController extends Controller
 {
@@ -101,5 +102,13 @@ class PracticumTimeController extends Controller
     {
         $practicumTime = PracticumTime::find($id);
         $delete = $practicumTime->delete();
+    }
+
+    public function cetakPdf()
+    {
+        $practicum = PracticumTime::all();
+        $no = 1;
+        $pdf = PDF::loadview('admin.praktikum.practicumTime.cetakPdf', ['practicum'=>$practicum, 'no'=>$no]);
+        return $pdf->download();
     }
 }

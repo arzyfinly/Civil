@@ -3,7 +3,6 @@
     $(document).ready(function(){
         $(document).on('change', '#kelas', function(){
             var id    = $(this).val();
-            console.log(id)
             if(id){
                 $.ajax({
                     type:'GET',
@@ -11,9 +10,7 @@
                     // dataType: "json",
                     success:function(data){
                         $("#class").empty();
-                        console.table(data)
                         $.each(data,function(key, value){
-                            console.log(key, value)
                             $("#class").append(
                                 '<tr>'+
                                     '<td>'+value.collegeStudent.user.nim+'</td>'+

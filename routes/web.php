@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('hargaPraktikum',               PracticumPriceController::class);
     Route::resource('practiceExam',                 PracticeExamController::class);
     Route::resource('practicumTime',                PracticumTimeController::class);
+    Route::get('/practicumPdf',                     [App\Http\Controllers\PracticumTimeController::class, 'cetakPdf'])->name('practicumPdf');
     Route::get('/practiceExam',                     [App\Http\Controllers\PracticeExamController::class, 'index'])->name('practiceExam');
     Route::get('/kelompok/get/praktikum/{id?}',     [App\Http\Controllers\PracticumGroupController::class, 'GetCollegeStudent'])->name('practicum-group-get-by-id');
     Route::get('/kelompok/get/kelas/{id?}',         [App\Http\Controllers\PracticumGroupController::class, 'GetClass'])->name('class-get-by-id');
