@@ -2,7 +2,7 @@
 <table class="table table-flush" id="myTable">
     <thead class="thead-light">
         <tr>
-            <th>{{ __('#') }}</th>
+            <th>{{ __('No') }}</th>
             <th>{{ __('Nama Praktikum') }}</th>
             <th>{{ __('Waktu Mulai') }}</th>
             <th>{{ __('Waktu Berakhir') }}</th>

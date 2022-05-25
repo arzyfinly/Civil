@@ -7,6 +7,8 @@ use App\Models\Practicum;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PracticumTimeExports;
 
 class PracticumTimeController extends Controller
 {
@@ -104,11 +106,8 @@ class PracticumTimeController extends Controller
         $delete = $practicumTime->delete();
     }
 
-    public function cetakPdf()
+    public function export_excel()
     {
-        $practicum = PracticumTime::all();
-        $no = 1;
-        $pdf = PDF::loadview('admin.praktikum.practicumTime.cetakPdf', ['practicum'=>$practicum, 'no'=>$no]);
-        return $pdf->download();
+        return Excel::download(new PracticumTimeExports(), 'siswa.xlsx');
     }
 }
