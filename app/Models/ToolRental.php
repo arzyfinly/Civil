@@ -17,9 +17,11 @@ class ToolRental extends Model
         'rent_of_day',
         'total_price',
     ];
-    protected $with = ['inventaris_id'];
+    protected $with = ['inventaris'];
+    
 
     public function inventaris(){
-        $this->belongsTo(Inventaris::class, 'inventaris_id');
+        return $this->belongsTo(Inventaris::class, 'inventaris_id');
     }
+    
 }

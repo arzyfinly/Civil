@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PracticumRegistrationSeeder::class);
         $this->call(PracticumTimeSeeder::class);
         $this->call(InventarisSeeder::class);
+        $this->call(ToolRentalSeeder::class);
     }
 }

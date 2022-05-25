@@ -73,11 +73,11 @@
                                 </a>
                                 {{-- @endcan
                                 @can('salary-delete') --}}
-                                <button onclick="deleteData(this)" data-id="{{ $prac->id }}"
+                                {{-- <button onclick="deleteData(this)" data-id="{{ $prac->id }}"
                                     class="btn btn-sm btn-icon btn-youtube btn-icon-only rounded-circle"
                                     data-toggle="tooltip" data-placement="top" title="Remove">
                                     <i class="fas fa-trash"></i>
-                                </button>
+                                </button> --}}
                                 {{-- @endcan --}}
                             </td>
                             @endrole
@@ -101,5 +101,5 @@
 @include('admin.praktikum.practicumGroup.scriptDelete')
 @include('admin.praktikum.practicumGroup.scriptGetData')
 @include('admin.praktikum.practicumGroup.scriptGetkelas')
-@include('admin.praktikum.practicumGroup.scriptFindByClass')
+{{-- @include('admin.praktikum.practicumGroup.scriptFindByClass') --}}
 @endsection

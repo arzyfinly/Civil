@@ -21,11 +21,13 @@
                     </div>
                     <thead class="thead-light">
                         <tr>
-                            <th>{{ __('NPM') }}</th>
-                            <th>{{ __('Nama Mahasiswa') }}</th>
-                            <th>{{ __('Praktikum') }}</th>
-                            <th>{{ __('Kelompok') }}</th>
-                            <th>{{ __('Kelas') }}</th>
+                            <th>{{ __('#') }}</th>
+                            <th>{{ __('Golongan') }}</th>
+                            <th>{{ __('Nama Penyewa') }}</th>
+                            <th>{{ __('Menyewa') }}</th>
+                            <th>{{ __('Sebanyak') }}</th>
+                            <th>{{ __('Selama') }}</th>
+                            <th>{{ __('Total Harga Sewa') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
@@ -33,25 +35,35 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>{{ __('Npm') }}</th>
-                            <th>{{ __('Nama Mahasiswa') }}</th>
-                            <th>{{ __('Praktikum') }}</th>
-                            <th>{{ __('Kelompok') }}</th>
-                            <th>{{ __('Kelas') }}</th>
+                            <th>{{ __('#') }}</th>
+                            <th>{{ __('Golongan') }}</th>
+                            <th>{{ __('Nama Penyewa') }}</th>
+                            <th>{{ __('Menyewa') }}</th>
+                            <th>{{ __('Sebanyak') }}</th>
+                            <th>{{ __('Selama') }}</th>
+                            <th>{{ __('Total Harga Sewa') }}</th>
                             @role('admin')
                             <th>{{ __('Action') }}</th>
                             @endrole
                         </tr>
                     </tfoot>
                     <tbody>
+                        @foreach ($toolrentals as $toolrental)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                            <td>{{ $no++ }}</td>
+                                <td>{{ $toolrental->type }}</td>
+                                <td>{{ $toolrental->tenant }}</td>
+                                <td>{{ $toolrental->inventaris->tool_name }}</td>
+                                <td>{{ $toolrental->number_of_loan }}</td>
+                                <td>{{ $toolrental->rent_of_day }} Hari</td>
+                                @if ($toolrental->type == 'General')
+                                <td>{{ $toolrental->inventaris->general_price * $toolrental->number_of_loan * $toolrental->rent_of_day }}</td>
+                                @else
+                                <td>{{ $toolrental->inventaris->college_price * $toolrental->number_of_loan * $toolrental->rent_of_day }}</td>
+                                @endif
+                                <td></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

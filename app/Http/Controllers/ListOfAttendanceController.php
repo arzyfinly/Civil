@@ -2,23 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ToolRental;
-use Session;
+use App\Models\ListOfAttendance;
 use Illuminate\Http\Request;
 
-class ToolRentalController extends Controller
+class ListOfAttendanceController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $id_user = auth()->user()->id;
-        $toolrentals = ToolRental::all();
-        $no = 1;
-        return view("admin.toolRental.index", compact('toolrentals', 'no'));
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class ToolRentalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ToolRental  $toolRental
+     * @param  \App\Models\ListOfAttendance  $listOfAttendance
      * @return \Illuminate\Http\Response
      */
-    public function show(ToolRental $toolRental)
+    public function show(ListOfAttendance $listOfAttendance)
     {
         //
     }
@@ -56,10 +52,10 @@ class ToolRentalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ToolRental  $toolRental
+     * @param  \App\Models\ListOfAttendance  $listOfAttendance
      * @return \Illuminate\Http\Response
      */
-    public function edit(ToolRental $toolRental)
+    public function edit(ListOfAttendance $listOfAttendance)
     {
         //
     }
@@ -68,10 +64,10 @@ class ToolRentalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ToolRental  $toolRental
+     * @param  \App\Models\ListOfAttendance  $listOfAttendance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ToolRental $toolRental)
+    public function update(Request $request, ListOfAttendance $listOfAttendance)
     {
         //
     }
@@ -79,10 +75,10 @@ class ToolRentalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ToolRental  $toolRental
+     * @param  \App\Models\ListOfAttendance  $listOfAttendance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ToolRental $toolRental)
+    public function destroy(ListOfAttendance $listOfAttendance)
     {
         //
     }
