@@ -15,10 +15,10 @@ class CreatePracticumAttendancesTable extends Migration
     {
         Schema::create('practicum_attendances', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('college_student_id')->constrained('college_students');
-            $table->foreignId('practicum_id')->constrained('practicums');
+            $table->foreignId('practicum_registration_id')->constrained('practicum_registrations');
+            $table->time('presence_time');
+            $table->date('presence_day');
             $table->string('status');
-            $table->dateTime('present_time');
             $table->timestamps();
         });
     }

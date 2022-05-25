@@ -12,18 +12,14 @@ class PracticumAttendance extends Model
     use HasFactory,HasRoles;
 
     protected $fillable = [
-        'college_student_id',
-        'practicum_id',
+        'practicum_registration_id',
+        'day_presence',
+        'presence_time',
         'status',
-        'present_time',
     ];
-    protected $with = ['collegeStudent','practicum'];
+    protected $with = ['practicum_registration'];
 
-    public function collegeStudent(){
-        return $this->belongsTo(CollegeStudent::class, 'college_student_id');
-    }
-
-    public function practicum(){
-        return $this->belongsTo(Practicum::class, 'practicum_id');
+    public function PracticumRegistration(){
+        return $this->belongsTo(PracticumRegistration::class, 'practicum_registration_id');
     }
 }

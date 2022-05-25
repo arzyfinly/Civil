@@ -19,34 +19,29 @@ class PracticumAttendanceController extends Controller
      */
     public function index()
     {
-        date_default_timezone_set("Asia/Bangkok");
-        if (auth()->user()->hasRole('admin')) {
+        $user = auth()->user();
+        if($user->hasRole('admin')){
             $practicumregistrations = PracticumRegistration::all();
             $practicums = Practicum::all();
-            return view('admin.praktikum.index', compact(
-                'practicumregistrations','practicums'
-            ));
-        } else if (auth()->user()->hasRole('student')) {
-            $user_id = auth()->user()->id;
-            $college_student = CollegeStudent::where('user_id', $user_id)->get()->all();
-            foreach($college_student as $c)
+            return view('admin.praktikum.listOfAttendees.index', compact('practicumregistrations','practicums'));
+        } elseif($user->hasRole('student')) {
+            $college = CollegeStudent::where(['user_id'=>$user->id])->get()->all();
+            foreach($college as $c)
             {
-                $practicumregistrations = PracticumRegistration::where('college_student_id', $c->id)->whereNotNull('group')->get()->all();
+                $practicumregistrations = PracticumRegistration::where(['status_pembayaran'=>1, 'status'=>1, 'college_student_id'=>$c->id])->whereNotNull('group')->get()->all();
                 if($practicumregistrations != null)
                 {
-                    foreach($practicumregistrations as $p)
+                    foreach($practicumregistrations as $row)
                     {
-                        $practicumTime = PracticumTime::where('practicum_id', $p->practicum_id)->get()->all();
-                        return view('mahasiswa.praktikum.practicalImplementation.index', compact(
-                            'practicumregistrations', 'practicumTime'
-                        ));
+                        $p = PracticumRegistration::where('group', 'like', '%'.$row->group.'%')->get()->all();
+                        return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations'));
                     }
                 }else{
-                    return view('mahasiswa.praktikum.practicalImplementation.index', compact(
-                        'practicumregistrations'
-                    ));
+                    return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations'));
                 }
             }
+        } else {
+            echo "Nothing";
         }
     }
 
