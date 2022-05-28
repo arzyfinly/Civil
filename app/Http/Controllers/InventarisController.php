@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inventaris;
+use App\Exports\InventarisExports;
 use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InventarisController extends Controller
 {
@@ -98,5 +100,10 @@ class InventarisController extends Controller
     {
         $inventaris = Inventaris::find($id);
         $inventaris->delete();
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new InventarisExports(), 'Inventaris.xlsx');
     }
 }

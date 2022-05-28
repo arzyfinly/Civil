@@ -8,6 +8,8 @@ use App\Models\Practicum;
 use App\Models\User;
 use App\Models\CollegeStudent;
 use App\Http\Requests\PraktikumCreateRequest;
+use App\Exports\PracticumExports;
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PraktikumController extends Controller
@@ -15,7 +17,7 @@ class PraktikumController extends Controller
     public function index()
     {
         if (auth()->user()->hasRole('admin')) {
-            $practicumregistrations = PracticumRegistration::all();
+            $practicumregistrations = PracticumRegistration::where(['status_pembayaran'=>0, 'status'=>0])->whereNull('group')->get()->all();
             $practicums = Practicum::all();
             return view('admin.praktikum.index', compact(
                 'practicumregistrations','practicums'
@@ -25,7 +27,7 @@ class PraktikumController extends Controller
             $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get()->all();
             foreach($collegestudent as $college)
             {
-                $practicumregistrations = PracticumRegistration::where('college_student_id', $college->id)->get()->all();
+                $practicumregistrations = PracticumRegistration::where(['college_student_id'=>$college->id, 'status_pembayaran'=>0, 'status'=>0])->whereNull('group')->get()->all();
                 foreach($practicumregistrations as $prak)
                 {
                     return view('mahasiswa.praktikum.index', compact(
@@ -185,5 +187,10 @@ class PraktikumController extends Controller
             $model->forceDelete();
             return redirect()->route('trash');
         }
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new PracticumExports(), 'Praktikum.xlsx');
     }
 }

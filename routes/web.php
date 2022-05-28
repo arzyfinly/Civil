@@ -50,6 +50,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('practiceExam',                 PracticeExamController::class);
     Route::resource('practicumTime',                PracticumTimeController::class);
     Route::get('/practicumTimeExport',              [App\Http\Controllers\PracticumTimeController::class, 'export_excel'])->name('export_excel');
+    Route::get('/sewaAlatExport',                   [App\Http\Controllers\ToolRentalController::class, 'export_excel'])->name('excel_sewa');
+    Route::get('/praktikumPriceExport',             [App\Http\Controllers\PracticumPriceController::class, 'export_excel'])->name('excel_price');
+    Route::get('/praktikumGroupExport',             [App\Http\Controllers\PracticumGroupController::class, 'export_excel'])->name('excel_group');
+    Route::get('/pendaftaranPracticumExport',       [App\Http\Controllers\PraktikumController::class, 'export_excel'])->name('excel_registration');
     Route::get('/practiceExam',                     [App\Http\Controllers\PracticeExamController::class, 'index'])->name('practiceExam');
     Route::get('/kelompok/get/praktikum/{id?}',     [App\Http\Controllers\PracticumGroupController::class, 'GetCollegeStudent'])->name('practicum-group-get-by-id');
     Route::get('/kelompok/get/kelas/{id?}',         [App\Http\Controllers\PracticumGroupController::class, 'GetClass'])->name('class-get-by-id');

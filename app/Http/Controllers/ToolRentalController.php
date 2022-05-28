@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ToolRental;
 use Session;
 use Illuminate\Http\Request;
+use App\Exports\ToolRentalExports;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ToolRentalController extends Controller
 {
@@ -85,5 +87,10 @@ class ToolRentalController extends Controller
     public function destroy(ToolRental $toolRental)
     {
         //
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new ToolRentalExports(), 'SewaAlat.xlsx');
     }
 }

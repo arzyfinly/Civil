@@ -108,6 +108,6 @@ class PracticumTimeController extends Controller
 
     public function export_excel()
     {
-        return Excel::download(new PracticumTimeExports(), 'siswa.xlsx');
+        return Excel::download(new PracticumTimeExports(), 'WaktuPraktikum.xlsx');
     }
 }

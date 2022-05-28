@@ -16,7 +16,12 @@
                 <div class="table-responsive py-4">
                     <div class="container">
                         <div class="col-md-12 text-right">
+                            @if($practicumregistrations != null)
+                            <a href="{{ route('excel_registration') }}" class="btn btn-primary">Cetak Excel</a>
                             <a href="{{ route('praktikum.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+                            @else
+                            <a href="{{ route('praktikum.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+                            @endif
                         </div>
                     </div>
                     <thead class="thead-light">

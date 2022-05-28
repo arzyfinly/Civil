@@ -7,6 +7,8 @@ use Auth;
 use App\Models\Practicum;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\ValidationException;
+use App\Exports\PracticumPriceExports;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PracticumPriceController extends Controller
 {
@@ -14,7 +16,7 @@ class PracticumPriceController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         $practicum = Practicum::all();
@@ -28,7 +30,7 @@ class PracticumPriceController extends Controller
     }
     public function create()
     {
-        $practicum = Practicum::all();        
+        $practicum = Practicum::all();
         return view("admin.praktikum.practicumPrice.create", compact('practicum'));
     }
 
@@ -53,7 +55,7 @@ class PracticumPriceController extends Controller
 
     public function edit($id)
     {
-        $practicum = Practicum::find($id);  
+        $practicum = Practicum::find($id);
         return view('admin.praktikum.practicumPrice.edit',compact(
             'practicum'
         ));
@@ -72,5 +74,10 @@ class PracticumPriceController extends Controller
     {
             $Practicum = Practicum::find($id);
             $d = $Practicum->delete();
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new PracticumPriceExports(), 'PraktikumPrice.xlsx');
     }
 }

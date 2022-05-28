@@ -9,9 +9,10 @@ use App\Models\User;
 use DB;
 use App\Models\CollegeStudent;
 use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\PraktikumCreateRequest;
 use PDF;
-
+use App\Exports\PracticumGroupExports;
 
 class PracticumGroupController extends Controller
 {
@@ -116,5 +117,10 @@ class PracticumGroupController extends Controller
         $practicumGroup->update($data);
         toast()->success('Success', 'Data have been succesfully saved!');
         return redirect()->route('kelompok.index');
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new PracticumGroupExports(), 'PraktikumKelompok.xlsx');
     }
 }

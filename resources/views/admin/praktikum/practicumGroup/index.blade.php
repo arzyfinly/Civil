@@ -17,11 +17,7 @@
                     <div class="container">
                         <div class="col-md-12 text-right">
                             @if($practicumregistrations != null)
-                                <select class="form-control btn btn-primary btn-sm col-md-1 kelas" name="kelas" id="kelas">
-                                    <option value="0" disabled="true" class="btn btn-light" selected="true">Select Class</option>
-                                    <option value="A" class="btn btn-light">Kelas A</option>
-                                    <option value="B" class="btn btn-light">Kelas B</option>
-                                </select>
+                                <a href="{{ route('excel_group') }}" class="btn btn-primary">Cetak Excel</a>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
                             @else
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>

@@ -16,6 +16,7 @@
                 <div class="table-responsive py-4">
                     <div class="container">
                         <div class="col-md-12 text-right">
+                            <a href="{{ route('excel_price') }}" class="btn btn-primary">Cetak Excel</a>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
@@ -40,12 +41,18 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @if($practicum != null)
+                        @php
+                            function idr($pembayaran)
+                            {
+                                $result = 'Rp. ' . number_format($pembayaran, 2, ',', '.');
+                                return $result;
+                            }
+                        @endphp
                         @foreach ($practicum as $row)
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $row->name }}</td>
-                                <td>{{ $row->price }}</td>
+                                <td>{{ idr($row->price) }}</td>
                                 @role('admin')
                                 <td style="vertical-align: middle;">
                                     {{-- @can('salary-edit') --}}
@@ -64,15 +71,6 @@
                                 @endrole
                             </tr>
                         @endforeach
-                        @else
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        @endif
                     </tbody>
                 </table>
             </div>
