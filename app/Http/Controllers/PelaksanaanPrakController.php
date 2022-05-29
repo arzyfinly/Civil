@@ -8,6 +8,13 @@ class PelaksanaanPrakController extends Controller
 {
     public function index()
     {
-        return view("mahasiswa.pelaksanaan");
+        $user = auth()->user();
+        if($user->hasRole('admin')){
+            return view("admin.pelaksanaan");
+        } elseif($user->hasRole('student')) {
+            return view("mahasiswa.pelaksanaan");
+        } else {
+            echo "Nothing";
+        }
     }
 }

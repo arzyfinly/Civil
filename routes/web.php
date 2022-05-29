@@ -7,14 +7,13 @@ use App\Http\Controllers\{
     PraktikumController,
     InventarisController,
     ProfileController,
-    ListOfAttendeesController,
     PracticalImplementationController,
     PracticumGroupController,
     DataMahasiswaController,
     PracticumPriceController,
     PracticeExamController,
     PracticumTimeController,
-    ToolRentalController
+    ToolRentalController,
 };
 
 /*
@@ -40,8 +39,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/praktikum/get/{id?}',              [App\Http\Controllers\PraktikumController::class, 'getID']);
     Route::get('/kelompok/get/{id?}',               [App\Http\Controllers\PracticumGroupController::class, 'getID']);
     Route::resource('praktikum',                    PraktikumController::class);
-    Route::resource('daftarHadir',                  ListOfAttendeesController::class);
-    Route::resource('pelaksanaan',                  PracticumAttendanceController::class);
+    Route::resource('daftarHadir',                  PracticumAttendanceController::class);
+    Route::resource('pelaksanaan',                  PracticalImplementationController::class);
     Route::resource('inventaris',                   InventarisController::class);
     Route::resource('sewaAlat',                     ToolRentalController::class);
     Route::resource('profile',                      ProfileController::class);
@@ -58,5 +57,4 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/kelompok/get/praktikum/{id?}',     [App\Http\Controllers\PracticumGroupController::class, 'GetCollegeStudent'])->name('practicum-group-get-by-id');
     Route::get('/kelompok/get/kelas/{id?}',         [App\Http\Controllers\PracticumGroupController::class, 'GetClass'])->name('class-get-by-id');
     Route::get('/profile',                          [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-    Route::get('/daftarHadir',                      [App\Http\Controllers\ListOfAttendeesController::class, 'index'])->name('listOfAttendees');
 });

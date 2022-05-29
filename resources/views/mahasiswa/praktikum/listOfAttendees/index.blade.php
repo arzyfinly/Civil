@@ -39,10 +39,9 @@
                                     <td rowspan="1">{{ $prac->collegeStudent->user->nim }}</td>
                                     <td rowspan="1">{{ $prac->collegeStudent->first_name }} {{ $prac->collegeStudent->last_name }}</td>
                                     <td rowspan="1">{{ $prac->group }}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    @foreach ($attendance as $a)
+                                        <td>{{ $a->status }}</td>
+                                    @endforeach
                                 </tr>
                             @endforeach
                             </tbody>

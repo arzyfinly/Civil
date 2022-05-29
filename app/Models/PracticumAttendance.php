@@ -15,9 +15,9 @@ class PracticumAttendance extends Model
         'practicum_registration_id',
         'day_presence',
         'presence_time',
+        'presence_day',
         'status',
     ];
-    protected $with = ['practicum_registration'];
 
     public function PracticumRegistration(){
         return $this->belongsTo(PracticumRegistration::class, 'practicum_registration_id');

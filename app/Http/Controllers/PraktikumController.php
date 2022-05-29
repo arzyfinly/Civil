@@ -27,7 +27,7 @@ class PraktikumController extends Controller
             $collegestudent = CollegeStudent::where('user_id', auth()->user()->id)->get()->all();
             foreach($collegestudent as $college)
             {
-                $practicumregistrations = PracticumRegistration::where(['college_student_id'=>$college->id, 'status_pembayaran'=>0, 'status'=>0])->whereNull('group')->get()->all();
+                $practicumregistrations = PracticumRegistration::where(['college_student_id'=>$college->id])->get()->all();
                 foreach($practicumregistrations as $prak)
                 {
                     return view('mahasiswa.praktikum.index', compact(

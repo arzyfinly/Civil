@@ -33,8 +33,8 @@ class PracticumAttendanceController extends Controller
                 {
                     foreach($practicumregistrations as $row)
                     {
-                        $p = PracticumRegistration::where('group', 'like', '%'.$row->group.'%')->get()->all();
-                        return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations'));
+                        $attendance = PracticumAttendance::where(['practicum_registration_id'=>$row->id])->groupBy('id')->get()->all();
+                        return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations', 'attendance'));
                     }
                 }else{
                     return view("mahasiswa.praktikum.listOfAttendees.index", compact('practicumregistrations'));

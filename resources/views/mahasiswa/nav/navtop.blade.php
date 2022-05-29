@@ -28,7 +28,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{{ route('praktikum.create') }}">Pendaftaran Praktikum</a>
-                        <a class="dropdown-item" href="{{ route('listOfAttendees') }}">Daftar Hadir</a>
+                        <a class="dropdown-item" href="{{ route('daftarHadir.index') }}">Daftar Hadir</a>
                         <a class="dropdown-item" href="{{ route('pelaksanaan.index') }}">Pelaksanaan</a>
                         <a class="dropdown-item" href="{{ route('practiceExam') }}">Pelaksanaan Ujian Praktikum</a>
                     </div>
