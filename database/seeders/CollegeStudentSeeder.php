@@ -84,7 +84,7 @@ class CollegeStudentSeeder extends Seeder
                 'tmpt_lahir' => 'Sumenep',
                 'no_hp' => '08166677788',
                 'gender' => 'Laki - Laki',
-                'kelas' => 'A'
+                'kelas' => 'B'
             ]
             ,[
                 'first_name' => 'Suryo',
@@ -96,7 +96,7 @@ class CollegeStudentSeeder extends Seeder
                 'tmpt_lahir' => 'Sumenep',
                 'no_hp' => '08166677788',
                 'gender' => 'Laki - Laki',
-                'kelas' => 'A'
+                'kelas' => 'B'
             ]
             ,[
                 'first_name' => 'Ahmad Sutoyo',
@@ -108,7 +108,7 @@ class CollegeStudentSeeder extends Seeder
                 'tmpt_lahir' => 'Sumenep',
                 'no_hp' => '08166677788',
                 'gender' => 'Laki - Laki',
-                'kelas' => 'A'
+                'kelas' => 'B'
             ]
             ,[
                 'first_name' => 'Yanto Andhika',
@@ -120,7 +120,7 @@ class CollegeStudentSeeder extends Seeder
                 'tmpt_lahir' => 'Sumenep',
                 'no_hp' => '08166677788',
                 'gender' => 'Laki - Laki',
-                'kelas' => 'A'
+                'kelas' => 'B'
             ]
             ,[
                 'first_name' => 'Marwa Indra',
@@ -132,7 +132,7 @@ class CollegeStudentSeeder extends Seeder
                 'tmpt_lahir' => 'Sumenep',
                 'no_hp' => '08166677788',
                 'gender' => 'Perempuan',
-                'kelas' => 'A'
+                'kelas' => 'B'
             ]
         ];
         foreach ($users as $user) {

@@ -22,8 +22,19 @@ class CreatePracticumRegistrationsTable extends Migration
             $table->string('status')->default('0');
             $table->timestamps();
 
-            
         });
+
+        // status
+        // 0 = pengajuan;
+        // 1 = pembagian kelompok;
+        // 2 = berjalan;
+        // 3 = lulus;
+        // 4 = tidak lulus;
+        // 5 = ditolak;
+
+        // status pembayaran
+        // 0 = belum lunas;
+        // 1 = lunas;
         
     }
 

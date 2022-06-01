@@ -43,6 +43,12 @@ class PraktikumController extends Controller
         return response()->json($collegeStudent, 200);
     }
 
+    public function getGrade()
+    {
+        $grade = 'A';
+           $practicumregistrations = Practicum::all();
+        dd($practicumregistrations);
+    }
 
     public function create()
     {
